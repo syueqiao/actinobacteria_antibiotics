@@ -1,0 +1,385 @@
+Well,DMSO,H2O,MeOH
+A01,Empty,Empty,Empty
+A02,Empty,Empty,Empty
+A03,Positive control: 25 nL Penicillin,Positive control: 25 nL Penicillin,Positive control: 25 nL Penicillin
+A04,Positive control: 50 nL Penicillin,Positive control: 50 nL Penicillin,Positive control: 50 nL Penicillin
+A05,Positive control: 100 nL Penicillin,Positive control: 100 nL Penicillin,Positive control: 100 nL Penicillin
+A06,Positive control: 200 nL Penicillin,Positive control: 200 nL Penicillin,Positive control: 200 nL Penicillin
+A07,Positive control: 500 nL Penicillin,Positive control: 500 nL Penicillin,Positive control: 500 nL Penicillin
+A08,Positive control: 25 nL Apr,Positive control: 25 nL Apr,Positive control: 25 nL Apr
+A09,Positive control: 50 nL Apr,Positive control: 50 nL Apr,Positive control: 50 nL Apr
+A10,Positive control: 100 nL Apr,Positive control: 100 nL Apr,Positive control: 100 nL Apr
+A11,Positive control: 200 nL Apr,Positive control: 200 nL Apr,Positive control: 200 nL Apr
+A12,Positive control: 500 nL Apr,Positive control: 500 nL Apr,Positive control: 500 nL Apr
+A13,Positive control: 25 nL Kana,Positive control: 25 nL Kana,Positive control: 25 nL Kana
+A14,Positive control: 50 nL Kana,Positive control: 50 nL Kana,Positive control: 50 nL Kana
+A15,Positive control: 100 nL Kana,Positive control: 100 nL Kana,Positive control: 100 nL Kana
+A16,Positive control: 200 nL Kana,Positive control: 200 nL Kana,Positive control: 200 nL Kana
+A17,Positive control: 500 nL Kana,Positive control: 500 nL Kana,Positive control: 500 nL Kana
+A18,Bacteria only,Bacteria only,Bacteria only
+A19,Bacteria only,Bacteria only,Bacteria only
+A20,Bacteria only,Bacteria only,Bacteria only
+A21,Bacteria only,Bacteria only,Bacteria only
+A22,Bacteria only,Bacteria only,Bacteria only
+A23,Empty,Empty,Empty
+A24,Empty,Empty,Empty
+B01,Empty,Empty,Empty
+B02,Empty,Empty,Empty
+B03,Empty,Ramoplanin 250 mg,Empty
+B04,Empty,Dithionite sodium  50 g,Empty
+B05,Empty,L-Theanine 1 g,Empty
+B06,Empty,L-(+)-Ergotheoneine 5 mg,Empty
+B07,Empty,"6,7-ADTN hydrobromide 50 mg",Empty
+B08,Empty,Gallium(III) nitrate hydrate 5 g,Empty
+B09,Empty,Benserazide HCl 1 g,Empty
+B10,Empty,Levodopa 1g,Empty
+B11,Empty,Cefepime HCl 1 g,Empty
+B12,Empty,Norepinephrine bitartrate 500 mg,Empty
+B13,Empty,L-Cycloserine 100 mg,Empty
+B14,Empty,Oxolinic acid 1 g,Empty
+B15,Empty,Dalfopristin 100 mg,Empty
+B16,Empty,S(-)-Propranolol • HCl 100 mg,Empty
+B17,Empty,R(-)-Deprenyl·HCl (Selegiline) 100 mg,Empty
+B18,Empty,Rasagiline 25 mg,Empty
+B19,Empty,"1,3-Diaminoacetone dihydrochloride 1 g",Empty
+B20,Empty,Ropinirole hydrochloride 25 mg,Empty
+B21,Empty,"2,2’-Dipyridyl  (Bipyridyl) 25 g",Empty
+B22,Empty,Salbutamol 25 mg,Empty
+B23,Empty,Empty,Empty
+B24,Empty,Empty,Empty
+C01,Empty,Empty,Empty
+C02,Empty,Empty,Empty
+C03,A23187 Calcium Ionophore 10 mg,N-Acetyl-L-Cysteine 5 g                                       ,Abamectin 100 mg 
+C04,Miconazole (+/-) nitrate 1 g                                      ,Diazolidinyl urea 25 g,Haloperidol 5 g
+C05,Acycloguanosine 50 mg,N-Acetylmuramic acid 50 mg,Alamethicin 5 mg
+C06,Nadifloxacin 250 mg,"N,N’-Dicyclohexylcarbodiimide (DCCD)  5g",Irgasan 5 g                                                            
+C07,Albendazole 10 g,Acetylsalicylic acid 100 g,Alexidine dihydrochloride 5 g
+C08,Nitazoxanide 100 mg,Dihydrostreptomycin sesquisulfate 5 g,Isoconazole 10 g                                                 
+C09,Amisulpride 50 mg,Acivicin 10 mg,4-Aminophenyl sulfone 5 g
+C10,5-Nitro-2-Furaldehyde semicarbazone 100 g,Diminazene aceturate 1 g,Ivermectin 250 mg                                          
+C11,"Amphotericin B, from Streptomyces spp. 100 mg                               875 ug/mg",L-Albizziine 100 mg,4-Aminosalicylic acid 5 g                                     
+C12,Nitrofurantoin 10 g,Doripenem 50 mg,Josamycin 50 mg
+C13,Aztreonam 50 mg                                                ,Amikacin hydrate 5 g                                           ,Anacardic acid 5 mg
+C14,4-Nitropyridine N-oxide 5 g,Doxorubicin hydrochloride 150 mg                                       ,6-Ketocholestanol 250 mg
+C15,Balofloxacin 50 mg,Amiloride hydrochloride  50 mg,Anisomycin 25 mg
+C16,Nogalamycin from Streptomyces nogalater 5 mg,Emetine dihydrochloride hydrate 500 mg,Ketoconazole 100 mg                                           
+C17,BAY 11-7085 10 mg,(1R)-(+)-(1-Amino-2-methylpropyl)phosphonic acid 250 mg,"Antimycin A from Streptomyces 50 mg              mixture of antimycins 548.6, 534.6"
+C18,Norfloxicin 1 g                                                      ,(?)-Epigallocatechin gallate 50 mg,Kitasamycin 250 mg
+C19,Beauvericin 5 mg,(1R)-(?)-(1-Aminopropyl)phosphonic acid 250 mg,Artemisinin 5 g
+C20,N-Oleoyl ethanolamine 10 mg,Esculin hydrate 5 g,Lamotrigine 100 mg
+C21,Berberine chloride 5 g,"3-Amino-1,2,4-triazole 10 g",Astemizole 10 mg
+C22,Pepstatin A 25 mg                                               ,Ethambutol 25 g                                                   ,Lansoprazole 250 mg
+C23,Empty,Empty,Empty
+C24,Empty,Empty,Empty
+D01,Empty,Empty,Empty
+D02,Empty,Empty,Empty
+D03,6-Gingerol 5 mg,Neomycin sufate 5 g                                            ,Spinosad (Spinosyn A and Spinosyn D) 50 mg
+D04,Empty,Aspartate-beta-hydroxamate 100 mg,Ornidazole 5 g
+D05,DL-Lanthionine 10 mg,Nicotinic acid 5 g,Spiramycin 5 g
+D06,Empty,Atropine sulfate monohydrate 5 g,Ostreogrycin A 5 mg
+D07,Meloxicam  100 mg,Nikkomycin Z from Streptomyces tendae 5 mg,Stigmatellin 10 mg
+D08,Empty,Azaserine 50 mg,Piericidin A 2 mg
+D09,Methotrexate  10 mg  ,Nisin from Lactococcus lactis 1 g,Sulfabenzamide 25 g
+D10,Empty,Bambuterol 500 mg,Podophyllotoxin 50 mg
+D11,"3,3?-Methylenebis(4-hydroxycoumarin)  5 g",S-Nitrosoglutathione 25 mg                                  ,Sulfadimethoxine 10 g
+D12,Empty,L-beta-threo-Benzylaspartate 5 mg                                   desiccator,Praziquantel  1 g
+D13,Nabumetone  5 g,Novobiocin sodium salt 5 g                                  ,Sulfamethoxazole 10 g
+D14,Empty,Betamethasone 21-phosphate sodium salt  250 mg,Pyrantel Pamoate  5 g
+D15,Nifursol 25 g,Ofloxacin 1 g                                                        ,Sulfathiazole  100 g
+D16,Empty,Bleomycins 10 mg,Quinine hemisulfate salt monohydrate 5 g
+D17,Nimesulide 5 g,Oleandomycin phosphate 1 g                                                             (687.866),Surfactin from B. subtilis 10 mg
+D18,Empty,Caffeine 5 g,Rosmarinic Acid  10 mg
+D19,Oxfendazole  10 g,Orbifloxacin 50 mg,Syringaldazine 500 mg
+D20,Empty,Cefadroxil 1 g,Salinomycin monosodium salt hydrate 100 mg
+D21,Oxibendazole  5 g,Oxacillin sodium monohydrate 1 g,Tamoxifen 1 g
+D22,Empty ,Cefapirin 100 mg,?-Santonin  5 g
+D23,Empty,Empty,Empty
+D24,Empty,Empty,Empty
+E01,Empty,Empty,Empty
+E02,Empty,Empty,Empty
+E03,Betulinic acid 100 mg                                            ,Amoxicillin 1 g                                                      ,S(-)-Atenolol 10 mg                                              
+E04,Pimaricin 25 mg,Ferrous perchlorate 100 g,Linarin 10 mg
+E05,Bismuth (III) subsalicylate 100 g,"Ampicillin sodium salt, 100g                                  ",Azithromycin 25 mg
+E06,Pimozide 500 mg,DL-Fluorocitrate barium salt 100 mg,Luteolin 10 mg
+E07,Bromperidol 100 mg                                                      ,Anhydrotetracycline hydrochloride 100 mg,Baicalin hydrate 100 mg
+E08,Pipemidic acid trihydrate 25 g,Fropenem (Faropenem) 50 mg,Lycorine HCl 20 mg
+E09,Broxyquinoline  25 g,Antipain dihydrochloride 25 mg,BAY 11-7082 10 mg
+E10,Prochlorperazine dimaleate 100 mg,Fusidic acid sodium salt 1 g                                  ,Magnolol 10 mg
+E11,Candicidin 200 mg,Apramycin sulfate 1 g                                          ,(+/-)-BAY K 8644 5 mg
+E12,Rifabutin 1 g                                                        ,G418 disulfate 1 g,Menadione 25 g                                                    
+E13,Carbadox 25 g,Aspartame 1 g,"Benzamide, 99% 5 g"
+E14,Rifampicin 1g                                                     ,Gabapentin 10 mg,Mevinolin from Aspergillus sp.  25 mg
+E15,Carbonyl Cyanide m-Chlorophenyl hydrazon 100 mg,Astromycin sulfate   (615 ug/mg)           ,Betulin 1 g                                                             
+E16,Risperidone 10 mg,Ganciclovir 50 mg,Mezerein 5 mg
+E17,Chaetocin 4 mg,"Azide, sodium  25 g",Bifonazole 100 mg
+E18,Sangivamycin 10 mg,Gemifloxacin mesylate 50 mg,Mithramycin A from Streptomyces plicatus 10 mg
+E19,Chlorhexidine 1 g,"Bacitracin, from Bacillus licheniformis 5 g",Bithionol 10 g 
+E20,Sarafloxacin HCl 5 g,Geneticin disulfate 100 mg,Monensin 500 mg
+E21,p-Chloromercuribenzoic acid 5 g,Benzamidine hydrochloride 5 g                             ,Butyrophenone 25 g
+E22,Sertaconazole nitrate 125 mg,"Gentamicin sulfate, 250 mg      ",Moxidectin 25 mg
+E23,Empty,Empty,Empty
+E24,Empty,Empty,Empty
+F01,Empty,Empty,Empty
+F02,Empty,Empty,Empty
+F03,Ristomycin sulfate 100 mg,Paromomyin sulfate 1 g,Terfenadine 5 g
+F04,Empty,Cefdinir 1 g,TEMPOL 1 g
+F05,Taurolidine 10 mg,Pazufloxacin 50 mg,(+)-Terpen-4-ol 1 mL                                                                      0.933 g/mL
+F06,Empty,Cephradine 500 mg,Thiabendazole 50 g
+F07,Tenoxicam  250 mg,Pefloxacin mesylate dihydrate 10 g                      ,Thiamphenicol 1 g
+F08,Empty,Chloroquine diphosphate salt 25 g,Thiamphenicol Palmitate  5 g
+F09,Totarol 100 mg,Penicillin G sodium salt 1 g,Thiostrepton from Streptomyces azureus 1 g
+F10,Empty,Chlorpheniramine Maleate  5 g,Tilmicosin 100 mg
+F11,Idoxuridine  500 mg,Phenothrin mixture of isomers 100 mg,Thymol 100 g                                                                         
+F12,Empty ,Cromolyn sodium  1 g,Tioconazole  1 g
+F13,Bibenzyl 5 g,Phenylmercuric acetate 97% 25 g,Tiamulin fumarate 100 mg
+F14,Empty,Cyromazine  25 g,Tolfenamic acid  5 g
+F15,Ellagic acid. dihydrate 100 mg,Phleomycin from Strep verticillus 25 mg,Tinidazole 50 mg
+F16,Empty,"Diclofenac, sodium salt  10 g",Triamcinolone acetonide  50 mg
+F17,beta-Lapachone 5 mg,Phosphinothricin 250 mg,Tomatidine hydrochloride 100 mg
+F18,Empty,Dicloxacillin sodium monohydrate 1 g,Triclabendazole 100 mg
+F19,Topiramate 10 mg,Phosphomycin disodium 1 g,Trimethoprim 5 g
+F20,Empty,Diethylcarbamazine citrate 250 mg,Validamycin A 1g
+F21,Modafinil 10 mg,Phosphonoformic acid trisodium 250 mg,Tunicamycin from a Stretomyces species 10 mg
+F22,Empty ,Duramycin from Streptoverticillium cinnamoneus 10 mg,Virginiamycin Complex 5 mg 
+F23,Empty,Empty,Empty
+F24,Empty,Empty,Empty
+G01,Empty,Empty,Empty
+G02,Empty,Empty,Empty
+G03,Cholic acid 25 g,p-Benzoquinone 5 g,Cannabidiol 1 mg/mL in Methanol 1 mL
+G04,Solasodine (ST023803) 100 mg                       ,Hydrogen Peroxide 30%,Mupirocin 50 mg
+G05,Cinoxacin 1 g,Bialaphos 100 mg                                                          ,Carbamazepine 1 g
+G06,Sparfloxacin 1 g                                                                ,Hydroxyurea 1 g,Mycophenolic acid from Penicillium brevis 50 mg
+G07,Clarithromycin 250 mg                                          ,Biapenem  100 mg,Carvacrol sample                                                                            0.976 g/mL
+G08,Spiperone 250 mg,Hygromycin B                                                       ,Myriocin 10 mg
+G09,Clinafloxacin HCl 1 g,Bisbenzimide trihydrochloride 25 mg,(+)-Catechin hydrate 5 g
+G10,Sterigmatocystin 5 mg,Idarubicin HCl 10 mg,Myristicin 50 mg                                                                            1.1437 g/mL
+G11,Clindamycin hydrochloride 50 mg                        ,Blasticidine S hydrochloride 25 mg,Cerulenin 5 mg
+G12,Streptonigrin from Streptomyces flocculus 5 mg,Imatinib . mesylate 100 mg                                                         493.6 +  96.1,Myxothiazol from Myxobacterium myxococcus 10 mg
+G13,Clioquinol 50 mg,Butirosin A 10 mg,Chetomin 5 mg
+G14,Sulconazole nitrate 1 g,Imipenem 1 g                                                        ,Narasin from Streptomyces auriofaciens 5 mg
+G15,Clofazimine 1 g                                                    ,Cadmium acetate dihydrate 5 g,Chloramphenicol 200 mg                                      
+G16,Sulfachloropyridazine 100 g,Imipramine hydrochloride 5 g,Netropsin dihydrochloride 5 mg
+G17,Clozapine 25 mg,L-Canavanine 100 mg,Chromomycin A3 from Streptomyces griseus 10 mg
+G18,Sulfadoxine 10 g,Indole 25 g,Niclosamide 50 g
+G19,Coumermycin A-1 10 mg,Capreomycin sulfate 1 g                                                  855 ug/mg          ,Chrysophanol 10 mg
+G20,Sulfamethizole 10 g,Isatin 100 g,Nigericin 10 mg                                                    
+G21,Dacarbazine 100 mg,Carbenicillin disodium 1 g,"1,4-Cineole sample"
+G22,Sulfamonomethoxine 250 mg,Isepamicin sulfate 50 mg                            ,Nosiheptide
+G23,Empty,Empty,Empty
+G24,Empty,Empty,Empty
+H01,Empty,Empty,Empty
+H02,Empty,Empty,Empty
+H03,Pristimerin 5 mg,Piperacillin sodium 1 g,Ursocholanic acid 1 g
+H04,Empty,Ertapenem sodium 100 mg,Viridicatin 2 mg
+H05,4-(4’-Bromophenyl)-4-hydroxypiperidine 10 g,Polymyxin B nonapeptide HCl 5 mg,Valinomycin 100 mg                                          
+H06,Empty,Ethacridine lactate monohydrate 25 g,Ytterbium (III) ionophore I 25 mg
+H07,Dibromothymoquinone 250 mg,Pramoxine hydrochloride 10 g,Decanal 10 mL                                                                               0.832 g/mL
+H08,Empty,5-Fluorocytosine 1 g,(+)-Catechin.monohydrate 1 g
+H09,Emodin 50 mg,Puromycin dihydrochloride 25mg,Chlorothricin 2 mg
+H10,Empty,Foscarnet 1 g,Cefpodoxime Proxetil 50 mg
+H11,Epinephrine (-) 1 g,Pyrazinamide 10 g                                               ,Aceclofenac 5 g
+H12,Empty,Hydroxytyrosol . acetate 50 mg,Celastrol 10 mg
+H13,Gallium(III)ProtoporphyrinIX chloride 100 mg,Pyrazinoic acid 25 g,Actinomycin D 10 mg
+H14,Empty,Losartan Potassium  1 g,Eugenol 1 g
+H15,"1,10-Phenanthroline 2.5 g",Ribavirin 1 g,Allyl disulfide 500 mg
+H16,Empty,Mecillinam 100 mg,DL-alpha-Lipoic acid 1 g
+H17,Phentolamine hydrochloride 50 mg,Ribostamycin sulfate 100 mg                                                           670 ug/mg,Amprolium Hydrochloride  25 g
+H18,Empty,Meglumine 50 g,Silibinin 1 g
+H19,Shikonin 50 mg,Rufloxacin HCl 50 mg,Andrographolide 5 mg
+H20,Empty,N-Methyl-DL-aspartic acid 250 mg,Sanguinarine chloride 5 mg
+H21,Terizidone 100 mg,Salicin 5 g,Brefeldin A  10 mg
+H22,Empty,Methylglyoxal solution  25 mL,Amoxapine 250 mg
+H23,Empty,Empty,Empty
+H24,Empty,Empty,Empty
+I01,Empty,Empty,Empty
+I02,Empty,Empty,Empty
+I03,Danofloxacin 50 mg,Cefaclor 500 mg,trans-Cinnamaldehyde                                                                     1.048 g/mL
+I04,Sulfisoxazole 25 g,Isoniazid 5 g                                                         ,Nystatin 50 mg
+I05,Daptomycin 25 mg,Cefamandole 1 g,Climbazole 5 g
+I06,Taxol 25 mg,Isonicotinic acid 5 g,Oleanolic acid 100 mg
+I07,Diacylglycerol Kinase Inhibitor II 5 mg,Cefazolin 100 mg,Closantel 1 g
+I08,Teicoplanin 1 g                                                   ,Itaconic acid 100 g,Oleic acid 10 mL                                                                             100 mg/mL
+I09,"1,7-Dideacetoxy-1,7-dioxo-3-deacetyl khivorin","Cefmetazole, sodium 250 mg",Clotrimazole 10 g
+I10,Telithromycin 100 mg,Itaconic anhydride 25 g,Oligomycin from Streptomyces diastatochromogenes 5 mg
+I11,Difloxacin HCl 50 mg,Cefodizime disodium 50 mg,Cryptotanshinone 10 mg
+I12,Telmisartan 10 mg                                                ,Kanamycin sulfate 25 g                                        ,Omeprazole 100 mg
+I13,"5,5-Diphenylhydantoin 5 g",Cefoperazone sodium 1 g,Curcumin 5 g
+I14,Terconazole 250 mg,Kasugamycin hydrochloride 1 g,Oxiconazole nitrate 1 g
+I15,Domperidone 25 mg,"Cefotaxime, sodium 100 mg",?-Cyano-4-hydroxycinnamic acid 10 g
+I16,Tetrabenazine 10 mg,Leupeptin hemisulfate 10 mg                                ,Oxytetracycline 10 g
+I17,Ebselen 25 mg,Cefoxitin sodium 250 mg,Cyclosporin A  25 mg
+I18,Thiacetazone  100 g,Levofloxacin 1 g                                                   ,Patulin 5 mg
+I19,Enoxacin 50 mg,Ceftazidime hydrate 1 g,Dexamethasone 25 mg
+I20,Thiolactomycin 10 mg,Lincomycin hydrochloride 1 g,Perphenazine 1 g
+I21,Enrofloxacin 5 g,Ceftriaxone disodium salt hemi 250 mg,"2,6-Dichloro-4-nitroaniline 25 g"
+I22,Thiolutin 1 mg ,Linezolid 1 g                                                        ,Perhexiine maleate 50 mg
+I23,Empty,Empty,Empty
+I24,Empty,Empty,Empty
+J01,Empty,Empty,Empty
+J02,Empty,Empty,Empty
+J03,L-Tetrahydropalmatine 100 mg,Shikimic acid 1 g,Ceftiofur HCl 500 mg
+J04,Empty,Nafcillin sodium monohydrate 5 g,Azaperone 500 mg
+J05,Ceftibuten,Sinefungin 5 mg,Cepharanthine 100 mg
+J06,Empty,Netilmicin 10 mg,4-Chloro-4’-fluorobutyrophenone 25 g                           d=1.23
+J07,Moperone 10 mg,Sisomicin sulfate 250 mg                                                                 595 ug/mg,Clobetasol propionate 100 mg
+J08,Empty,Nojirimycin bisulfite 5 mg,Dapsone 1 g
+J09,Aminopterin 50 mg,Spectinomycin dihydrochloride pentahydrate 5 g,Clopidol 1 g
+J10,Empty,Paeonol 1 g,Dopamine 5 g
+J11,1-Hydroxypyridine-2-thione sodium salt 1 g                    ,Streptomycin sulfate 5 g                                     ,Cloxacillin 1 g
+J12,Empty,Pentamidine isethionate 25 mg,FR900098 10 mg
+J13,1-Hydroxypyridine-2-thione zinc salt 10 g,Sulbactam sodium salt 500 mg,Diclazuril 100 mg
+J14,Empty,Povidone iodine  50 g,Fluphenazine 1 g
+J15,Auranofin 100 mg,Sulfacetamide sodium,Febantel 100 mg
+J16,Empty,Pregabalin 100 mg,Fosmidomycin 10 mg
+J17,Phortress 10 mg,Sulfadiazine 25 g                                                  ,Flavomycin 5 g                                                                          8% over CaCO3
+J18,Empty,Primaquine phosphate  5 g,Piperine 1 g
+J19,Ceforanide 25 mg,Sulfamide 99% 5 g,Fluocinolone Acetonide  25 mg
+J20,Empty,Rimantadine Hydrochloride  25 mg,"1,2-Naphthoquinone 1 g"
+J21,Pristinamycins 100 mg                           ,Sulfanilamide 100 g,Furosemide  5 g
+J22,Empty,Scopolamine hydrobromide  1 g,"1,4-Naphthoquinone 5 g"
+J23,Empty,Empty,Empty
+J24,Empty,Empty,Empty
+K01,Empty,Empty,Empty
+K02,Empty,Empty,Empty
+K03,Epothilone B 10 mg,Cefuroxime 1 g,"6,7-Dihydroxycoumarin 1 g"
+K04,Tosufloxacin tosylate 250 mg,Lithium carbonate 100 g,Phenylmethylsulfonylfluoride PMSF 5 g               
+K05,Etomidate 100 mg,Cephalexin hydrate 5 g,Dirythromycin 1 g
+K06,Toyocamycin 10 mg,Lomefloxacin HCl 1 g,Pleuromutilin 5 mg
+K07,Etoposide 25 mg,Cephalothin sodium 100 mg,Distamycin A HCl from Streptomyces 5 mg
+K08,Tubercidin 10 mg,Malic acid 25 g,Plumbagin from Plumbago indica 100 mg
+K09,Fiduxosin 5 mg                                                                                        ,Cetylpyridinium chloride monohydrate 100 g,Doramectin 100 mg
+K10,Usnic acid 5 g,Malonic acid 25 g,Posaconazole
+K11,Fleroxacin 50 mg,Daunorubicin HCl 10 mg,Doxycycline hyclate 1 g                                        
+K12,Voriconazole 100 mg,(+/-)-Mandelic acid 100 g,Prothionamide 1 g                                                
+K13,Fluconazole 100 mg                                              ,Chlorprothixene 1 g,Droperidol 1 g
+K14,Ziprasidone 5 mg,Melperone hydrochloride 10 mg                                           ,Prulifloxacin 250 mg
+K15,Gatifloxacin 100 mg                                              ,Chlortetracycline 5 g,Echinomycin 5 mg
+K16,Amlodipine besylate 10 mg,Memantine hydrochloride 25 mg,Quetiapine hemifumarate 500 mg
+K17,Geldanamycin 10 mg,Choline chloride 100 g                                                         ,Econazole nitrate 5 g                                           
+K18,Esomeprazole magnesium dihydrate,2-Mercaptopyridine N-oxide sodium salt 1 g,Rabeprazole 10 mg
+K19,Grepafloxacin 50 mg,Ciclopirox Olamine 1 g,Ellipticine 5 mg
+K20,Acacetin 50 mg,Meropenem 1 g                                                     ,Radicicol from Diheterospora chlamydosporia 5 mg
+K21,trans-4-Hydroxycinnamic acid 25 g,Ciprofloxacin HCl  5 g                                                   ,Erythromycin 25g                                                
+K22,Acemetacin 1 g,Methacycline hydrochloride 100 mg                     ,Rapamycin 10 mg
+K23,Empty,Empty,Empty
+K24,Empty,Empty,Empty
+L01,Empty,Empty,Empty
+L02,Empty,Empty,Empty
+L03,Platensimycin 250 ug,Sulfaquinoxaline 10 g,Gardiquimod 25 mg
+L04,Empty,Streptothricin sulfate 5 mg,Quercetin 5 g
+L05,Artesunate 100 mg,Tazobactam sodium salt  10 mg                                          ,Honokiol 10 mg
+L06,Empty,Suramin hexasodium salt  50 mg,Thiocarlide 100 mg
+L07,Chlorguanide hydrochloride 25 mg,Terbinafine Hydrochloride 100 mg,Hydrocortisone  5 g
+L08,Empty,Synthalin . sulfate  5 mg                                                                 256.4 . 98.1,Vitamin K1 1 g                                                           d=0.984
+L09,Cycloguanil hydrochloride 25 mg,Tetracycline hydrochloride 25 g,Ibudilast 10 mg
+L10,Empty,(?)-Tetramisole hydrochloride 5 g,Cefditoren Pivoxil (Spectrabef)
+L11,Ethoxzolamide 1 g,"Thimerosal, 97%  5 g                                            ",S(+) Ibuprofen 1 g  
+L12,Empty,Thiourea 100 g,Cefixime (Suprax)
+L13,Mefloquine 100 mg,1-Thioglycerol 100 mL                                                                           11.5 M,Imiquimod (R-837)100 mg
+L14,Empty,Tolmetin 1 g,Cefprozil
+L15,Pyrimethamine 50 mg,Thioridazine 5 g                                                   ,Indomethacin 5 g
+L16,Empty,Cilastatin 50 mg,Benperidol
+L17,Salsalate 1 g,Ticarcillin disodium 1 g,Kanosamine hydrochloride 10 mg
+L18,Empty,Fluvastatin.sodium salt 10 mg,Emamectin B benzoate 100 mg
+L19,Sulfamethoxypyrazine 25 mg,Tobramycin 100 mg,Ketoprofen  5 g
+L20,Empty,Methyl viologen dichloride hydrate 250 mg,Eprinomectin 100 mg
+L21,Sulfoxone sodium 1 g,Trifluoperazine hydrochloride 5 g,Loperamide hydrochloride  5 g
+L22,Empty,L-Methionine sulfoximine 250 mg,Milbemycin oxime 200 mg
+L23,Empty,Empty,Empty
+L24,Empty,Empty,Empty
+M01,Empty,Empty,Empty
+M02,Empty,Empty,Empty
+M03,7-Hydroxyindole 1 g,"Clavulanate, potassium from Streptomyces 100 mg                ",Erythromycin Stearate 5 g
+M04,Amitraz  5 g,Methicillin Sodium 500 mg,Reserpine 1 g                                                       
+M05,Irigenin-7-benzyl ether                                                  318.239 + benzyl  ether,Colistin sulfate 100 mg                                                        approx.,B-Estradiol 17-cypionate 1 g
+M06,Aripiprazole 100 mg,Methiothepin mesylate 100 mg,Resveratrol 100 mg
+M07,Irigenol hexaacetate                                                     318.239 + hexaacetate,Cycloheximide 1 g,Ethionamide 5 g                                                    
+M08,Asiatic acid 100 mg,NG-Methyl-L-arginine acetate salt 25 mg,Retapamulin 100 mg
+M09,Itraconazole 100 mg                                           ,D-Cycloserine 1 g    ,Ethosuximide 5 g
+M10,Diflunisal 5 g,Methylbenzethonium chloride 5 g,Ricobendazole 10 g
+M11,Lanthium(III) carbonate hydrate 5 g,Chlorpromazine HCl 5 g,Evernic acid  100 mg
+M12,Diosmin 1 g,Metronidazole 5 g                                                 ,Rifapentine 100 mg                                              
+M13,Leoidin 100 mg,Deferoxamine mesylate 1g                                   ,Farnesol 5 g                                                                                   0.866 g/mL
+M14,Famciclovir  50 mg,Minocycline hydrochloride 100 mg,Rifaximine 50 mg
+M15,Lomofungin 10 mg ,Demeclocycline hydrochloride 1 g                        ,Ferulenol 10 mg
+M16,Fenbendazole  5 g,Mitomycin C 2 mg                                                 ,Rosamicin 5 mg
+M17,Marbofloxacin 50 mg,Dequalinium chloride hydrate 5 g,Florfenicol 500 mg
+M18,Fenbufen  1 g,Moxifloxacin 100 mg                                           ,Roxithromycin  1 g                                                    
+M19,Mebendazole 25 g,Dextromethorphan hydrobromide monohydrate 5 g,Fusaric acid form Gibberells fujikuroi 250 mg
+M20,Flubendazole 10 g,Nalidixic acid 5 g                                                  ,Secnidazole 5 g
+M21,Meclocycline sulfosalicylate 500 mg                     ,Diamide 1 g                                                         ,Griseofulvin 5 g
+M22,Flurbiprofen  1 g,Neamine 25 mg,Selamectin 100 mg
+M23,Empty,Empty,Empty
+M24,Empty,Empty,Empty
+N01,Empty,Empty,Empty
+N02,Empty,Empty,Empty
+N03,Trimetrexate 10 mg,Trifluperidol HCl 25 mg,Maduramicin ammonium 100 mg
+N04,Empty,Mezlocillin 50 mg,Tyrothricin 1 g
+N05,Empty,Tylosin tartrate 1 g,Malathion 100 mg                                                                           1.23 g/mL
+N06,Empty,Sumatriptan succinate 10 mg,Bicyclomycin benzoate 25 mg
+N07,Empty,Valproic acid sodium salt 10 g,6-Mercaptopurine Monohydrate  5 g
+N08,Empty,L-Thiocitrulline 50 mg,3-formyl Rifamycin SV 1 g
+N09,Empty,Vancomycin 1 g                                                  ,Midecamycin  10 mg
+N10,Empty,2-Thiophenecarboxylic acid 25 g,Rifamdin 10 mg
+N11,Empty,(+-)-Verapamil hydrochloride 1 g,(+/-)-Myricanol 10 mg                                                  
+N12,Empty,2-Thiophenecarboxylic acid hydrazide 1 g,Bithionol sulfoxide 10 g
+N13,Empty,Viomycin sulfate 200 mg,Myricetin 10 mg
+N14,Empty,Tigecycline 50 mg,Empty
+N15,Empty,Zeocin 250 mg                                                                          ,Naphthomycin B 2 mg
+N16,Empty,Glutathione 1 g,Empty
+N17,Empty,Amantadine Hydrochloride  25 g ,3-Nitropropionic acid 1 g
+N18,Empty,"1-(1-Naphthylmethyl)piperazine, 95% 1 g",Empty
+N19,Empty,4-Aminomethylbenzenesulfonamide HCl 25 g,Nitroxinil 100 mg
+N20,Empty,Phe-Arg-beta-Naphthylamide dihydrochloride 25 mg,Empty
+N21,Empty,Arbutin 5 g,Nonactin 25 mg
+N22,Empty,Pyridoxine 5 g,Empty
+N23,Empty,Empty,Empty
+N24,Empty,Empty,Empty
+O01,Empty,Empty,Empty
+O02,Empty,Empty,Empty
+O03,Empty,Serotonin 100 mg,Empty
+O04,Empty,Enramycin A 100 mg,Empty
+O05,Empty,Sertraline HCl 1 g,Empty
+O06,Empty,Enramycin B 50 mg,Empty
+O07,Empty,Trovafloxacin mesylate 10 mg                                                    ,Empty
+O08,Empty,Micronomicin sulfate 10 g,Empty
+O09,Empty,Tyramine 5 g,Empty
+O10,Empty,Quinupristin 10 mg,Empty
+O11,Empty,Valnemulin HCl,Empty
+O12,Empty,"Synercid (dalfopristin:quinupristin, 70:30 ) 5 mM dalfo",Empty
+O13,Empty,Loracarbef (Lorabid),Empty
+O14,Empty,Rifamycin SV monosodium salt 1 g,Empty
+O15,Empty,Pipamperone 100 mg,Empty
+O16,Empty,Salicylic acid sodium salt 50 g,Empty
+O17,Empty,2-Aminothiazole 5 g,Empty
+O18,Empty,Empty,Empty
+O19,Empty,Pyrazole 5 g,Empty
+O20,Empty,Empty,Empty
+O21,Empty,Furazolidone 10 g,Empty
+O22,Empty,Empty,Empty
+O23,Empty,Empty,Empty
+O24,Empty,Empty,Empty
+P01,Empty,Empty,Empty
+P02,Empty,Empty,Empty
+P03,Positive control: 25 nL Tet,Positive control: 25 nL Tet,Positive control: 25 nL Tet
+P04,Positive control: 50 nL Tet,Positive control: 50 nL Tet,Positive control: 50 nL Tet
+P05,Positive control: 100 nL Tet,Positive control: 100 nL Tet,Positive control: 100 nL Tet
+P06,Positive control: 200 nL Tet,Positive control: 200 nL Tet,Positive control: 200 nL Tet
+P07,Positive control: 500 nL Tet,Positive control: 500 nL Tet,Positive control: 500 nL Tet
+P08,Positive control: 25 nL Hyg,Positive control: 25 nL Hyg,Positive control: 25 nL Hyg
+P09,Positive control: 50 nL Hyg,Positive control: 50 nL Hyg,Positive control: 50 nL Hyg
+P10,Positive control: 100 nL Hyg,Positive control: 100 nL Hyg,Positive control: 100 nL Hyg
+P11,Positive control: 200 nL Hyg,Positive control: 200 nL Hyg,Positive control: 200 nL Hyg
+P12,Positive control: 500 nL Hyg,Positive control: 500 nL Hyg,Positive control: 500 nL Hyg
+P13,Bacteria only,Bacteria only,Bacteria only
+P14,Bacteria only,Bacteria only,Bacteria only
+P15,Bacteria only,Bacteria only,Bacteria only
+P16,Bacteria only,Bacteria only,Bacteria only
+P17,Bacteria only,Bacteria only,Bacteria only
+P18,Bacteria only,Bacteria only,Bacteria only
+P19,Bacteria only,Bacteria only,Bacteria only
+P20,Bacteria only,Bacteria only,Bacteria only
+P21,Bacteria only,Bacteria only,Bacteria only
+P22,Bacteria only,Bacteria only,Bacteria only
+P23,Empty,Empty,Empty
+P24,Empty,Empty,Empty

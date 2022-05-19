@@ -8,7 +8,7 @@ library(ggplot2)
 library(lspline)
 
 #set wd
-setwd("C:/Users/Jessica Shen/Documents/MICB_449_R/strains_data")
+setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/strains_data")
 #set this useful function
 `%notin%` <- Negate(`%in%`)
 
@@ -89,11 +89,11 @@ arth_df_library_DMSO_spread_spline <- spread(arth_df_library_DMSO, key = well, v
 cols1 <- ncol(arth_df_library_DMSO)-1
 cols2 <- ncol(arth_df_library_DMSO_spread_spline)
 #adjust to usable format
-arth_df_library_DMSO_spread_spline <- select(arth_df_library_DMSO_spread_spline, c(cols1:cols2))
+arth_df_library_DMSO_spread_spline <- select(arth_df_library_DMSO_spread_spline, c(all_of(cols1):all_of(cols2)))
 arth_df_library_DMSO_spread_spline <- data.frame(lapply(arth_df_library_DMSO_spread_spline, na.omit))
 
 arth_df_library_DMSO_spread_diff <- spread(arth_df_library_DMSO, key = well, value = diff)
-arth_df_library_DMSO_spread_diff <- select(arth_df_library_DMSO_spread_diff, c(cols1:cols2))
+arth_df_library_DMSO_spread_diff <- select(arth_df_library_DMSO_spread_diff, c(all_of(cols1):all_of(cols2)))
 arth_df_library_DMSO_spread_diff <- data.frame(lapply(arth_df_library_DMSO_spread_diff, na.omit))
 
 #get vectors for the bac only dataset
@@ -165,11 +165,26 @@ arth_ttests_combined_plus_data_DMSO$category <- ifelse(arth_ttests_combined_plus
                                                                                                         ifelse(arth_ttests_combined_plus_data_DMSO$od_sig == "sig_od" & arth_ttests_combined_plus_data_DMSO$od_diff == "lower_od" & arth_ttests_combined_plus_data_DMSO$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_DMSO$spline_diff == "lower_spline", 9, 0)))))))))
 
 
-#filter out controls that are too high and low
-#actually doesn't look like there is anything that can be filtered out
+
+#quick qc
 hist(arth_ttests_combined_plus_data_DMSO$category, breaks = 12)
 table(arth_ttests_combined_plus_data_DMSO$category)
 arth_ttests_histo <- c(arth_ttests_combined_plus_data_DMSO$category)
+
+#make nicer on the eyes
+ttest_output_arth_DMSO <- select(arth_ttests_combined_plus_data_DMSO, well, category)
+ttest_output_arth_DMSO <- ttest_output_arth_DMSO[!duplicated(ttest_output_arth_DMSO), ]
+arth_DMSO_library <- platemap_DMSO
+names(arth_DMSO_library)[names(arth_DMSO_library) == 'Well'] <- 'well'
+
+#merge output with library files
+ttest_output_arth_DMSO <- merge(arth_DMSO_library, ttest_output_arth_DMSO, by = "well" )
+
+#export data
+path <- 'C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/category_outputs'
+write.csv(ttest_output_arth_DMSO, file.path(path, "arth_DMSO_categories.csv"), row.names = F)
+
+#plot prelim figure
 ggplot(ttest_output_arth_DMSO, aes(x=category, fill=..x..)) +
   geom_bar() +
   xlab("Category") +
@@ -180,15 +195,7 @@ ggplot(ttest_output_arth_DMSO, aes(x=category, fill=..x..)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   scale_fill_gradient(low = '#5AAA46', high = '#825CA6', breaks = c(1:9), labels = c(1:9), name = "Categories")
 
-#make nicer on the eyes
-ttest_output_arth_DMSO <- select(arth_ttests_combined_plus_data_DMSO, well, category)
-ttest_output_arth_DMSO <- ttest_output_arth_DMSO[!duplicated(ttest_output_arth_DMSO), ]
 
-arth_DMSO_library <- platemap_DMSO
-names(arth_DMSO_library)[names(arth_DMSO_library) == 'Well'] <- 'well'
-
-ttest_output_arth_DMSO <- merge(arth_DMSO_library, ttest_output_arth_DMSO, by = "well" )
-write.csv(ttest_output_arth_DMSO, "arth_DMSO_categories.csv")
 
 ##testing the antibiotic only control stuff
 ###################################################################################
