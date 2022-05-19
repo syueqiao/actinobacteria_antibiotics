@@ -16,6 +16,8 @@ setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/strains_data")
 #see supporting files for this document
 platemap <- read.csv("../plate_maps.csv", header = TRUE)
 
+#tell R which wells correspond to what contents
+
 platemap_DMSO <- select(platemap, Well, DMSO)
 DMSO_media_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Empty",]  
 DMSO_media_list <- as.vector(DMSO_media_list$Well)
@@ -25,6 +27,10 @@ DMSO_bac_control_list <- as.vector(DMSO_bac_control_list$Well)
 
 DMSO_positive_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Positive", ]
 DMSO_positive_control_list <- as.vector(DMSO_positive_control_list$Well)
+
+#create list of controls and stuff to filter out
+DMSO_filter_out <- c(DMSO_media_list, DMSO_positive_control_list, DMSO_bac_control_list)
+
 
 
 #set up loop for importing the metadata based ON THE DIRECTORY NAMES!!!
@@ -48,9 +54,8 @@ df_metadata$t <- gsub('.{4}$', '', df_metadata$t)
 df_metadata$t <- sub('.', '', df_metadata$t)
 colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "time")
 
-#create list of controls and stuff to filter out
-DMSO_filter_out <- c(DMSO_media_list, DMSO_positive_control_list, DMSO_bac_control_list)
-
+#####################################
+#make input
 arth_df <- filter(df_metadata, bug == "ArthBac")
 arth_df_DMSO <- filter(arth_df, solvent == "DMSO")
 
