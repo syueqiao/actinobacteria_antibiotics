@@ -1,4 +1,12 @@
-#As of May 2022 this is the working version
+#wroking on making functions
+####TO DO#####
+#1. make loops for assigning the platemaps and stuff
+#2. make neat so that each function can be used for each case -> idk think about this i guess
+#3. note that the ggplot uses something different now
+#4. enerate the dataframes for each strain/solvent
+
+
+
 
 #load packages that are needed
 library(tidyverse)
@@ -24,14 +32,17 @@ assign(name, select(platemap, Well, type))
 }
 
 #################################TO DO#####################################
+platemap_H2O <- select(platemap, Well, H2O)
+H2O_media_list <- platemap_H2O[platemap_H2O$H2O %like% "Empty",]  
+H2O_media_list <- as.vector(H2O_media_list$Well)
 
-DMSO_bac_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Bacteria only", ]  
-DMSO_bac_control_list <- as.vector(DMSO_bac_control_list$Well)
+H2O_bac_control_list <- platemap_H2O[platemap_H2O$H2O %like% "Bacteria only", ]  
+H2O_bac_control_list <- as.vector(H2O_bac_control_list$Well)
 
-DMSO_positive_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Positive", ]
-DMSO_positive_control_list <- as.vector(DMSO_positive_control_list$Well)
+H2O_positive_control_list <- platemap_H2O[platemap_H2O$H2O %like% "Positive", ]
+H2O_positive_control_list <- as.vector(H2O_positive_control_list$Well)
 #create list of controls and stuff to filter out
-DMSO_filter_out <- c(DMSO_media_list, DMSO_positive_control_list, DMSO_bac_control_list)
+H2O_filter_out <- c(H2O_media_list, H2O_positive_control_list, H2O_bac_control_list)
 
 
 
@@ -58,11 +69,12 @@ colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "ti
 
 #####################################TO DO###########################################
 #make inputs
-arth_df <- filter(df_metadata, bug == "ArthBac")
-arth_df_DMSO <- filter(arth_df, solvent == "DMSO")
+arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
+arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
+
 
 #make dataframe with only the library wells
-analysis_test <- function(x){
+analysis_test_DMSO <- function(x){
 
 arth_df_library_DMSO <- filter(x, well %notin% DMSO_filter_out)
 #make dataframe with only the control wells
@@ -190,9 +202,140 @@ names(arth_DMSO_library)[names(arth_DMSO_library) == 'Well'] <- 'well'
 ttest_output_arth_DMSO <<- merge(arth_DMSO_library, ttest_output_arth_DMSO, by = "well" )
 return(ttest_output_arth_DMSO)
 }
+analysis_test_H2O <- function(x){
+  
+  arth_df_library_H2O <- filter(x, well %notin% H2O_filter_out)
+  #make dataframe with only the control wells
+  arth_df_bac_H2O <- filter(x, well %in% H2O_bac_control_list)
+  #make dataframe with only the antibiotic wells
+  arth_df_pos_H2O <- filter(x, well %in% H2O_positive_control_list)
+  
+  #format in usable shape for library
+  arth_df_library_H2O <- spread(arth_df_library_H2O, key = time, value = OD)
+  #find diff from t8-t1
+  arth_df_library_H2O$diff <- arth_df_library_H2O$"8" - arth_df_library_H2O$"1"
+  
+  
+  #find spline from first two time points
+  #select the values only
+  arth_df_library_H2O_splines <- select(arth_df_library_H2O, c(6:13))
+  
+  #make time vector of right length
+  arth_library_time_H2O <- c(0:7)
+  
+  #find splines and extract coefficient
+  knots <- c(3)
+  arth_lm_H2O <- apply(arth_df_library_H2O_splines, 1, function(x) lm(x ~ lspline(arth_library_time_H2O, knots = knots)))
+  arth_df_library_H2O_splines_coeff <- as.data.frame(unlist(lapply(arth_lm_H2O, function(x) coef(x)[2])))
+  colnames(arth_df_library_H2O_splines_coeff) <- c("spline")
+  
+  #combine with dig dataframe
+  arth_df_library_H2O$spline <- arth_df_library_H2O_splines_coeff
+  
+  #spread the data for t tests
+  arth_df_library_H2O_spread_spline <- spread(arth_df_library_H2O, key = well, value = spline)
+  #grab correct number of columns from the table
+  cols1 <- ncol(arth_df_library_H2O)-1
+  cols2 <- ncol(arth_df_library_H2O_spread_spline)
+  #adjust to usable format
+  arth_df_library_H2O_spread_spline <- select(arth_df_library_H2O_spread_spline, c(all_of(cols1):all_of(cols2)))
+  arth_df_library_H2O_spread_spline <- data.frame(lapply(arth_df_library_H2O_spread_spline, na.omit))
+  
+  arth_df_library_H2O_spread_diff <- spread(arth_df_library_H2O, key = well, value = diff)
+  arth_df_library_H2O_spread_diff <- select(arth_df_library_H2O_spread_diff, c(all_of(cols1):all_of(cols2)))
+  arth_df_library_H2O_spread_diff <- data.frame(lapply(arth_df_library_H2O_spread_diff, na.omit))
+  
+  #get vectors for the bac only dataset
+  #vector for OD
+  arth_df_bac_H2O <- spread(arth_df_bac_H2O, key = time, value = OD)
+  #filter values above OD 4.5 - example that could work
+  #arth_df_bac_H2O <- arth_df_bac_H2O[arth_df_bac_H2O$"8" < 4.5]
+  ###################TEST FILTER###########################
+  arth_df_bac_H2O$diff <- arth_df_bac_H2O$"8" - arth_df_bac_H2O$"1"
+  arth_df_bac_H2O_od_vector <- arth_df_bac_H2O$diff
+  
+  #vector for spline
+  arth_df_bac_H2O_splines <- select(arth_df_bac_H2O, c(6:13))
+  arth_bac_time_H2O <- c(0:7)
+  arth_bac_lm_H2O <- apply(arth_df_bac_H2O_splines, 1, function(x) lm(x ~ lspline(arth_bac_time_H2O, knots = knots)))
+  arth_df_bac_H2O_splines_coeff <- as.data.frame(unlist(lapply(arth_bac_lm_H2O, function(x) coef(x)[2])))
+  #combine
+  arth_df_bac_H2O$spline <- arth_df_bac_H2O_splines_coeff
+  arth_df_bac_H2O_spline_vector <- arth_df_bac_H2O$spline
+  
+  #apply t test over all the columns against the bac-only vectors
+  #this is for the od diff
+  arth_ttests_od_H2O <- lapply(arth_df_library_H2O_spread_diff, function(x) wilcox.test(x, arth_df_bac_H2O_od_vector, exact = T)$p.value)
+  arth_ttests_od_H2O <- as.data.frame(unlist(arth_ttests_od_H2O))
+  colnames(arth_ttests_od_H2O) <- c("OD diff significance")
+  #wilcox.test(arth_df_bac_od_vector, arth_df_time_spread_diff$C15, exact = T)
+  
+  #this is for the splines
+  #wilcox.test(arth_df_bac_splines_vector, arth_df_time_spread_spline$C15, exact = T)
+  arth_ttests_spline_H2O <- lapply(arth_df_library_H2O_spread_spline, function(x) wilcox.test(x, arth_df_bac_H2O_spline_vector, exact = T)$p.value)
+  arth_ttests_spline_H2O <- as.data.frame(unlist(arth_ttests_spline_H2O))
+  colnames(arth_ttests_spline_H2O) <- c("spline diff significance")
+  
+  #combine the two together
+  arth_ttests_combined_H2O <- cbind(arth_ttests_od_H2O, arth_ttests_spline_H2O)
+  
+  #rownames to column
+  arth_ttests_combined_H2O <- rownames_to_column(arth_ttests_combined_H2O, "well")
+  
+  #compare?
+  #make it so that you can compare values
+  arth_ttests_combined_plus_data_H2O <- merge(arth_ttests_combined_H2O, arth_df_library_H2O, by = "well")
+  arth_ttests_combined_plus_data_H2O$od_means <- ave(arth_ttests_combined_plus_data_H2O$diff, arth_ttests_combined_plus_data_H2O$well)
+  arth_ttests_combined_plus_data_H2O$spline_means <- ave(arth_ttests_combined_plus_data_H2O$spline, arth_ttests_combined_plus_data_H2O$well)
+  
+  #means of control
+  arth_df_bac_H2O_od_vector_mean <- mean(arth_df_bac_H2O_od_vector)
+  arth_df_bac_H2O_spline_vector_mean <- mean(arth_df_bac_H2O_spline_vector)
+  
+  #compare od diff
+  arth_ttests_combined_plus_data_H2O$od_diff <- ifelse(arth_ttests_combined_plus_data_H2O$od_means > arth_df_bac_H2O_od_vector_mean, "higher_od", "lower_od")
+  #compare spline diff
+  arth_ttests_combined_plus_data_H2O$spline_diff <- ifelse(arth_ttests_combined_plus_data_H2O$spline_means > arth_df_bac_H2O_spline_vector_mean, "higher_spline", "lower_spline")
+  
+  #determine if differences are statistically significant
+  arth_ttests_combined_plus_data_H2O$od_sig <- ifelse(arth_ttests_combined_plus_data_H2O$"OD diff significance" < 0.05, "sig_od", "ns_od")
+  arth_ttests_combined_plus_data_H2O$spline_sig <- ifelse(arth_ttests_combined_plus_data_H2O$"spline diff significance" < 0.05, "sig_spline", "ns_spline")
+  
+  #finally, categorize
+  #this is for things that have no significant difference in either condition from the control 
+  arth_ttests_combined_plus_data_H2O$category <- ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "ns_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "ns_spline", 5, 
+                                                         ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "lower_od"  & arth_ttests_combined_plus_data_H2O$spline_sig == "ns_spline", 8, 
+                                                                ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "higher_od"  & arth_ttests_combined_plus_data_H2O$spline_sig == "ns_spline", 2, 
+                                                                       ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "ns_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "higher_spline", 4, 
+                                                                              ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "ns_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "lower_spline", 6, 
+                                                                                     ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "higher_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "higher_spline", 1,
+                                                                                            ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "lower_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "higher_spline", 7, 
+                                                                                                   ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "higher_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "lower_spline", 3,
+                                                                                                          ifelse(arth_ttests_combined_plus_data_H2O$od_sig == "sig_od" & arth_ttests_combined_plus_data_H2O$od_diff == "lower_od" & arth_ttests_combined_plus_data_H2O$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_H2O$spline_diff == "lower_spline", 9, 0)))))))))
+  
+  
+  
+  #quick qc
+  hist(arth_ttests_combined_plus_data_H2O$category, breaks = 12)
+  table(arth_ttests_combined_plus_data_H2O$category)
+  arth_ttests_histo <- c(arth_ttests_combined_plus_data_H2O$category)
+  
+  #make nicer on the eyes
+  ttest_output_arth_H2O <- select(arth_ttests_combined_plus_data_H2O, well, category)
+  ttest_output_arth_H2O <- ttest_output_arth_H2O[!duplicated(ttest_output_arth_H2O), ]
+  arth_H2O_library <- platemap_H2O
+  names(arth_H2O_library)[names(arth_H2O_library) == 'Well'] <- 'well'
+  
+  #merge output with library files
+  ttest_output_arth_H2O <<- merge(arth_H2O_library, ttest_output_arth_H2O, by = "well" )
+  return(ttest_output_arth_H2O)
+}
+
+arth_DMSO <- analysis_test_DMSO(arth_df_DMSO)
+arth_H2O <- analysis_test_H2O(arth_df_H2O)
 #export data
 path <- 'C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/category_outputs'
-write.csv(ttest_output_arth_DMSO, file.path(path, paste(filename, "_categories.csv", sep = ""), row.names = F))
+write.csv(ttest_output_arth_DMSO, file.path(path, paste("arth_DMSO_categories.csv", sep = ""), row.names = F))
 
 
 #plot prelim figure

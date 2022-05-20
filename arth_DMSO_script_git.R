@@ -1,4 +1,5 @@
 #As of May 2022 this is the working version
+#########NOT IN FUNCTION#############
 
 #load packages that are needed
 library(tidyverse)
@@ -17,6 +18,7 @@ setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/strains_data")
 platemap <- read.csv("../plate_maps.csv", header = TRUE)
 
 #tell R which wells correspond to what contents
+
 
 platemap_DMSO <- select(platemap, Well, DMSO)
 DMSO_media_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Empty",]  
