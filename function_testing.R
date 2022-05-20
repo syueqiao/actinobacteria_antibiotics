@@ -23,7 +23,7 @@ name <- paste("platemap_", type, sep ="")
 assign(name, select(platemap, Well, type))
 }
 
-#get properties of each well
+#################################TO DO#####################################
 
 DMSO_bac_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Bacteria only", ]  
 DMSO_bac_control_list <- as.vector(DMSO_bac_control_list$Well)
@@ -56,17 +56,12 @@ df_metadata$t <- gsub('.{4}$', '', df_metadata$t)
 df_metadata$t <- sub('.', '', df_metadata$t)
 colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "time")
 
-#####################################
-#make input
+#####################################TO DO###########################################
+#make inputs
 arth_df <- filter(df_metadata, bug == "ArthBac")
 arth_df_DMSO <- filter(arth_df, solvent == "DMSO")
 
 #make dataframe with only the library wells
-enter_name <- function(){
-  filename <- readline(prompt = "filename?")
-  return(filename)
-}
-
 analysis_test <- function(x){
 
 arth_df_library_DMSO <- filter(x, well %notin% DMSO_filter_out)
