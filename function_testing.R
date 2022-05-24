@@ -32,6 +32,20 @@ assign(name, select(platemap, Well, type))
 }
 
 #################################TO DO#####################################
+#####MAKE DMSO PLATEMAP FILES######
+platemap_DMSO <- select(platemap, Well, DMSO)
+DMSO_media_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Empty",]  
+DMSO_media_list <- as.vector(DMSO_media_list$Well)
+
+DMSO_bac_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Bacteria only", ]  
+DMSO_bac_control_list <- as.vector(DMSO_bac_control_list$Well)
+
+DMSO_positive_control_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Positive", ]
+DMSO_positive_control_list <- as.vector(DMSO_positive_control_list$Well)
+#create list of controls and stuff to filter out
+DMSO_filter_out <- c(DMSO_media_list, DMSO_positive_control_list, DMSO_bac_control_list)
+
+####MAKE H2O PLATEMAP FILES#####
 platemap_H2O <- select(platemap, Well, H2O)
 H2O_media_list <- platemap_H2O[platemap_H2O$H2O %like% "Empty",]  
 H2O_media_list <- as.vector(H2O_media_list$Well)
@@ -44,7 +58,18 @@ H2O_positive_control_list <- as.vector(H2O_positive_control_list$Well)
 #create list of controls and stuff to filter out
 H2O_filter_out <- c(H2O_media_list, H2O_positive_control_list, H2O_bac_control_list)
 
+#####MAKE MEOH PLATEMAP FILES####
+platemap_MeOH <- select(platemap, Well, MeOH)
+MeOH_media_list <- platemap_MeOH[platemap_MeOH$MeOH %like% "Empty",]  
+MeOH_media_list <- as.vector(MeOH_media_list$Well)
 
+MeOH_bac_control_list <- platemap_MeOH[platemap_MeOH$MeOH %like% "Bacteria only", ]  
+MeOH_bac_control_list <- as.vector(MeOH_bac_control_list$Well)
+
+MeOH_positive_control_list <- platemap_MeOH[platemap_MeOH$MeOH %like% "Positive", ]
+MeOH_positive_control_list <- as.vector(MeOH_positive_control_list$Well)
+#create list of controls and stuff to filter out
+MeOH_filter_out <- c(MeOH_media_list, MeOH_positive_control_list, MeOH_bac_control_list)
 
 #set up loop for importing the metadata based ON THE DIRECTORY NAMES!!!
 strains<- list.files(path="./", full.names = T , recursive =F)
@@ -71,6 +96,10 @@ colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "ti
 #make inputs
 arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
 arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
+
+absc_df_DMSO <- filter(df_metadata, bug == "absc", solvent == "DMSO")
+absc_df_H2O <- filter(df_metadata, bug == "absc", solvent == "H2O")
+absc_df_MeOH <- filter(df_metadata, bug == "absc", solvent == "DMSO")
 
 
 #make dataframe with only the library wells
@@ -330,6 +359,135 @@ analysis_test_H2O <- function(x){
   ttest_output_arth_H2O <<- merge(arth_H2O_library, ttest_output_arth_H2O, by = "well" )
   return(ttest_output_arth_H2O)
 }
+analysis_test_MeOH <- function(x){
+  
+  arth_df_library_MeOH <- filter(x, well %notin% MeOH_filter_out)
+  #make dataframe with only the control wells
+  arth_df_bac_MeOH <- filter(x, well %in% MeOH_bac_control_list)
+  #make dataframe with only the antibiotic wells
+  arth_df_pos_MeOH <- filter(x, well %in% MeOH_positive_control_list)
+  
+  #format in usable shape for library
+  arth_df_library_MeOH <- spread(arth_df_library_MeOH, key = time, value = OD)
+  #find diff from t8-t1
+  arth_df_library_MeOH$diff <- arth_df_library_MeOH$"8" - arth_df_library_MeOH$"1"
+  
+  
+  #find spline from first two time points
+  #select the values only
+  arth_df_library_MeOH_splines <- select(arth_df_library_MeOH, c(6:13))
+  
+  #make time vector of right length
+  arth_library_time_MeOH <- c(0:7)
+  
+  #find splines and extract coefficient
+  knots <- c(3)
+  arth_lm_MeOH <- apply(arth_df_library_MeOH_splines, 1, function(x) lm(x ~ lspline(arth_library_time_MeOH, knots = knots)))
+  arth_df_library_MeOH_splines_coeff <- as.data.frame(unlist(lapply(arth_lm_MeOH, function(x) coef(x)[2])))
+  colnames(arth_df_library_MeOH_splines_coeff) <- c("spline")
+  
+  #combine with dig dataframe
+  arth_df_library_MeOH$spline <- arth_df_library_MeOH_splines_coeff
+  
+  #spread the data for t tests
+  arth_df_library_MeOH_spread_spline <- spread(arth_df_library_MeOH, key = well, value = spline)
+  #grab correct number of columns from the table
+  cols1 <- ncol(arth_df_library_MeOH)-1
+  cols2 <- ncol(arth_df_library_MeOH_spread_spline)
+  #adjust to usable format
+  arth_df_library_MeOH_spread_spline <- select(arth_df_library_MeOH_spread_spline, c(all_of(cols1):all_of(cols2)))
+  arth_df_library_MeOH_spread_spline <- data.frame(lapply(arth_df_library_MeOH_spread_spline, na.omit))
+  
+  arth_df_library_MeOH_spread_diff <- spread(arth_df_library_MeOH, key = well, value = diff)
+  arth_df_library_MeOH_spread_diff <- select(arth_df_library_MeOH_spread_diff, c(all_of(cols1):all_of(cols2)))
+  arth_df_library_MeOH_spread_diff <- data.frame(lapply(arth_df_library_MeOH_spread_diff, na.omit))
+  
+  #get vectors for the bac only dataset
+  #vector for OD
+  arth_df_bac_MeOH <- spread(arth_df_bac_MeOH, key = time, value = OD)
+  #filter values above OD 4.5 - example that could work
+  #arth_df_bac_MeOH <- arth_df_bac_MeOH[arth_df_bac_MeOH$"8" < 4.5]
+  ###################TEST FILTER###########################
+  arth_df_bac_MeOH$diff <- arth_df_bac_MeOH$"8" - arth_df_bac_MeOH$"1"
+  arth_df_bac_MeOH_od_vector <- arth_df_bac_MeOH$diff
+  
+  #vector for spline
+  arth_df_bac_MeOH_splines <- select(arth_df_bac_MeOH, c(6:13))
+  arth_bac_time_MeOH <- c(0:7)
+  arth_bac_lm_MeOH <- apply(arth_df_bac_MeOH_splines, 1, function(x) lm(x ~ lspline(arth_bac_time_MeOH, knots = knots)))
+  arth_df_bac_MeOH_splines_coeff <- as.data.frame(unlist(lapply(arth_bac_lm_MeOH, function(x) coef(x)[2])))
+  #combine
+  arth_df_bac_MeOH$spline <- arth_df_bac_MeOH_splines_coeff
+  arth_df_bac_MeOH_spline_vector <- arth_df_bac_MeOH$spline
+  
+  #apply t test over all the columns against the bac-only vectors
+  #this is for the od diff
+  arth_ttests_od_MeOH <- lapply(arth_df_library_MeOH_spread_diff, function(x) wilcox.test(x, arth_df_bac_MeOH_od_vector, exact = T)$p.value)
+  arth_ttests_od_MeOH <- as.data.frame(unlist(arth_ttests_od_MeOH))
+  colnames(arth_ttests_od_MeOH) <- c("OD diff significance")
+  #wilcox.test(arth_df_bac_od_vector, arth_df_time_spread_diff$C15, exact = T)
+  
+  #this is for the splines
+  #wilcox.test(arth_df_bac_splines_vector, arth_df_time_spread_spline$C15, exact = T)
+  arth_ttests_spline_MeOH <- lapply(arth_df_library_MeOH_spread_spline, function(x) wilcox.test(x, arth_df_bac_MeOH_spline_vector, exact = T)$p.value)
+  arth_ttests_spline_MeOH <- as.data.frame(unlist(arth_ttests_spline_MeOH))
+  colnames(arth_ttests_spline_MeOH) <- c("spline diff significance")
+  
+  #combine the two together
+  arth_ttests_combined_MeOH <- cbind(arth_ttests_od_MeOH, arth_ttests_spline_MeOH)
+  
+  #rownames to column
+  arth_ttests_combined_MeOH <- rownames_to_column(arth_ttests_combined_MeOH, "well")
+  
+  #compare?
+  #make it so that you can compare values
+  arth_ttests_combined_plus_data_MeOH <- merge(arth_ttests_combined_MeOH, arth_df_library_MeOH, by = "well")
+  arth_ttests_combined_plus_data_MeOH$od_means <- ave(arth_ttests_combined_plus_data_MeOH$diff, arth_ttests_combined_plus_data_MeOH$well)
+  arth_ttests_combined_plus_data_MeOH$spline_means <- ave(arth_ttests_combined_plus_data_MeOH$spline, arth_ttests_combined_plus_data_MeOH$well)
+  
+  #means of control
+  arth_df_bac_MeOH_od_vector_mean <- mean(arth_df_bac_MeOH_od_vector)
+  arth_df_bac_MeOH_spline_vector_mean <- mean(arth_df_bac_MeOH_spline_vector)
+  
+  #compare od diff
+  arth_ttests_combined_plus_data_MeOH$od_diff <- ifelse(arth_ttests_combined_plus_data_MeOH$od_means > arth_df_bac_MeOH_od_vector_mean, "higher_od", "lower_od")
+  #compare spline diff
+  arth_ttests_combined_plus_data_MeOH$spline_diff <- ifelse(arth_ttests_combined_plus_data_MeOH$spline_means > arth_df_bac_MeOH_spline_vector_mean, "higher_spline", "lower_spline")
+  
+  #determine if differences are statistically significant
+  arth_ttests_combined_plus_data_MeOH$od_sig <- ifelse(arth_ttests_combined_plus_data_MeOH$"OD diff significance" < 0.05, "sig_od", "ns_od")
+  arth_ttests_combined_plus_data_MeOH$spline_sig <- ifelse(arth_ttests_combined_plus_data_MeOH$"spline diff significance" < 0.05, "sig_spline", "ns_spline")
+  
+  #finally, categorize
+  #this is for things that have no significant difference in either condition from the control 
+  arth_ttests_combined_plus_data_MeOH$category <- ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "ns_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "ns_spline", 5, 
+                                                        ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "lower_od"  & arth_ttests_combined_plus_data_MeOH$spline_sig == "ns_spline", 8, 
+                                                               ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "higher_od"  & arth_ttests_combined_plus_data_MeOH$spline_sig == "ns_spline", 2, 
+                                                                      ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "ns_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "higher_spline", 4, 
+                                                                             ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "ns_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "lower_spline", 6, 
+                                                                                    ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "higher_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "higher_spline", 1,
+                                                                                           ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "lower_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "higher_spline", 7, 
+                                                                                                  ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "higher_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "lower_spline", 3,
+                                                                                                         ifelse(arth_ttests_combined_plus_data_MeOH$od_sig == "sig_od" & arth_ttests_combined_plus_data_MeOH$od_diff == "lower_od" & arth_ttests_combined_plus_data_MeOH$spline_sig == "sig_spline" & arth_ttests_combined_plus_data_MeOH$spline_diff == "lower_spline", 9, 0)))))))))
+  
+  
+  
+  #quick qc
+  hist(arth_ttests_combined_plus_data_MeOH$category, breaks = 12)
+  table(arth_ttests_combined_plus_data_MeOH$category)
+  arth_ttests_histo <- c(arth_ttests_combined_plus_data_MeOH$category)
+  
+  #make nicer on the eyes
+  ttest_output_arth_MeOH <- select(arth_ttests_combined_plus_data_MeOH, well, category)
+  ttest_output_arth_MeOH <- ttest_output_arth_MeOH[!duplicated(ttest_output_arth_MeOH), ]
+  arth_MeOH_library <- platemap_MeOH
+  names(arth_MeOH_library)[names(arth_MeOH_library) == 'Well'] <- 'well'
+  
+  #merge output with library files
+  ttest_output_arth_MeOH <<- merge(arth_MeOH_library, ttest_output_arth_MeOH, by = "well" )
+  return(ttest_output_arth_MeOH)
+}
+
 
 arth_DMSO <- analysis_test_DMSO(arth_df_DMSO)
 arth_H2O <- analysis_test_H2O(arth_df_H2O)
