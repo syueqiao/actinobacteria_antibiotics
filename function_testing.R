@@ -3,9 +3,7 @@
 #1. make loops for assigning the platemaps and stuff
 #2. make neat so that each function can be used for each case -> idk think about this i guess
 #3. note that the ggplot uses something different now
-#4. enerate the dataframes for each strain/solvent
-
-
+#4. generate the dataframes for each strain/solvent
 
 
 #load packages that are needed
@@ -17,14 +15,14 @@ library(lspline)
 
 #set wd
 setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/strains_data")
-#set this useful function
+#set this function
 `%notin%` <- Negate(`%in%`)
 
 #import platemap
 #see supporting files for this document
 platemap <- read.csv("../plate_maps.csv", header = TRUE)
 
-#make platemaps for all 3 solvents
+#make platemaps for all 3 solvents ###WIP###
 solvs <- c("DMSO", "H2O", "MeOH")
 for (type in solvs) {
 name <- paste("platemap_", type, sep ="")
@@ -32,7 +30,8 @@ assign(name, select(platemap, Well, type))
 }
 
 #################################TO DO#####################################
-#####MAKE DMSO PLATEMAP FILES######
+
+#####MAKE DMSO PLATEMAP FILES######(ugly do not look)
 platemap_DMSO <- select(platemap, Well, DMSO)
 DMSO_media_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Empty",]  
 DMSO_media_list <- as.vector(DMSO_media_list$Well)
@@ -71,7 +70,7 @@ MeOH_positive_control_list <- as.vector(MeOH_positive_control_list$Well)
 #create list of controls and stuff to filter out
 MeOH_filter_out <- c(MeOH_media_list, MeOH_positive_control_list, MeOH_bac_control_list)
 
-#set up loop for importing the metadata based ON THE DIRECTORY NAMES!!!
+###############set up loop for importing the metadata based ON THE DIRECTORY NAMES!!!
 strains<- list.files(path="./", full.names = T , recursive =F)
 solvents <- list.files(path=paste0(strains), full.names = T , recursive =F)
 reps <- list.files(path=paste0(solvents), full.names = T, recursive = F)
@@ -86,6 +85,7 @@ for(file in files){
   new_df$id <- rep(file, nrow(new_df))
   df <- rbind(df, new_df, use.names=FALSE)
 }
+
 df %>% separate(id, c(NA ,"bug", "solvent", "rep", "filename"), sep = "([/])") -> df_metadata
 df_metadata %>% separate(filename, c(NA, NA, "t"), sep = "([_])") -> df_metadata
 df_metadata$t <- gsub('.{4}$', '', df_metadata$t)
@@ -97,12 +97,23 @@ colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "ti
 arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
 arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
 
-absc_df_DMSO <- filter(df_metadata, bug == "absc", solvent == "DMSO")
-absc_df_H2O <- filter(df_metadata, bug == "absc", solvent == "H2O")
-absc_df_MeOH <- filter(df_metadata, bug == "absc", solvent == "DMSO")
+absc_df <- filter(df_metadata, bug == "absc")
+absc_df_DMSO <- filter(absc_df_1 , solvent == "DMSO")
+absc_df_H2O <- filter(absc_df_1 , solvent == "H2O")
+absc_df_MeOH <- filter(absc_df_1 , solvent == "MeOH")
 
+###FILTER OUT TIME POINT 1####
+#input = whatever dataframe you want to remove the first time point from
+remove_first_time <- function(input){
+  input_1 <- filter(input, time != "1")
+  input_1$time <- as.numeric(input_1$time)
+  input_1$time <- input_1$time-1 
+  return(input_1)
+}
+###FILTER OUT TIME POINT 1####
 
 #make dataframe with only the library wells
+### x = whatever final dataframe you want to run the analysis on
 analysis_test_DMSO <- function(x){
 
 arth_df_library_DMSO <- filter(x, well %notin% DMSO_filter_out)
@@ -487,17 +498,20 @@ analysis_test_MeOH <- function(x){
   ttest_output_arth_MeOH <<- merge(arth_MeOH_library, ttest_output_arth_MeOH, by = "well" )
   return(ttest_output_arth_MeOH)
 }
+#don't forget to assign output to whatever you run through the function
 
-
-arth_DMSO <- analysis_test_DMSO(arth_df_DMSO)
-arth_H2O <- analysis_test_H2O(arth_df_H2O)
+#can check the numerical values using 
+cat_numbers <- function(cat){
+  return(table(cat$category))
+}
 #export data
 path <- 'C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/category_outputs'
 write.csv(ttest_output_arth_DMSO, file.path(path, paste("arth_DMSO_categories.csv", sep = ""), row.names = F))
 
-
 #plot prelim figure
-ggplot(ttest_output_arth_DMSO, aes(x=category, fill=..x..)) +
+
+#input = output of the earlier function, don't forget to change the name of the graph title when exporting
+ggplot(absc_DMSO, aes(x=category, fill=..x..)) +
   geom_bar() +
   xlab("Category") +
   ylab("Count") +
