@@ -29,9 +29,9 @@ name <- paste("platemap_", type, sep ="")
 assign(name, select(platemap, Well, type))
 }
 
-#################################TO DO#####################################
+#################################TO DO
 
-#####MAKE DMSO PLATEMAP FILES######(ugly do not look)
+#####MAKE DMSO PLATEMAP FILES########################################
 platemap_DMSO <- select(platemap, Well, DMSO)
 DMSO_media_list <- platemap_DMSO[platemap_DMSO$DMSO %like% "Empty",]  
 DMSO_media_list <- as.vector(DMSO_media_list$Well)
@@ -44,7 +44,7 @@ DMSO_positive_control_list <- as.vector(DMSO_positive_control_list$Well)
 #create list of controls and stuff to filter out
 DMSO_filter_out <- c(DMSO_media_list, DMSO_positive_control_list, DMSO_bac_control_list)
 
-####MAKE H2O PLATEMAP FILES#####
+####MAKE H2O PLATEMAP FILES#########################################
 platemap_H2O <- select(platemap, Well, H2O)
 H2O_media_list <- platemap_H2O[platemap_H2O$H2O %like% "Empty",]  
 H2O_media_list <- as.vector(H2O_media_list$Well)
@@ -92,15 +92,25 @@ df_metadata$t <- gsub('.{4}$', '', df_metadata$t)
 df_metadata$t <- sub('.', '', df_metadata$t)
 colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "time")
 
-#####################################TO DO###########################################
-#make inputs
+
+#################################TO DO
+#make inputs for arth######
 arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
 arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
 
+#make inputs for absc######
 absc_df <- filter(df_metadata, bug == "absc")
 absc_df_DMSO <- filter(absc_df_1 , solvent == "DMSO")
 absc_df_H2O <- filter(absc_df_1 , solvent == "H2O")
 absc_df_MeOH <- filter(absc_df_1 , solvent == "MeOH")
+
+#make inputs for coryne####
+coryn_df <- filter(df_metadata, bug == "coryn")
+coryn_df_DMSO <- filter(coryn_df , solvent == "DMSO")
+coryn_df_H2O <- filter(coryn_df , solvent == "H2O")
+coryn_df_MeOH <- filter(coryn_df , solvent == "MeOH")
+
+
 
 ###FILTER OUT TIME POINT 1####
 #input = whatever dataframe you want to remove the first time point from
@@ -110,9 +120,9 @@ remove_first_time <- function(input){
   input_1$time <- input_1$time-1 
   return(input_1)
 }
-###FILTER OUT TIME POINT 1####
 
-#make dataframe with only the library wells
+
+#make dataframe with only the library wells####
 ### x = whatever final dataframe you want to run the analysis on
 analysis_test_DMSO <- function(x){
 
@@ -508,7 +518,8 @@ cat_numbers <- function(cat){
 path <- 'C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/category_outputs'
 write.csv(ttest_output_arth_DMSO, file.path(path, paste("arth_DMSO_categories.csv", sep = ""), row.names = F))
 
-#plot prelim figure
+
+#plot prelim figure#######
 
 #input = output of the earlier function, don't forget to change the name of the graph title when exporting
 ggplot(absc_DMSO, aes(x=category, fill=..x..)) +
