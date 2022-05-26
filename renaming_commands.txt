@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#appends the timepoint to the end of the file name
+rename 'our $i; s/_2.*/sprintf("_t%00d.CSV", ++$i)/e' *.CSV
+
+#appends strain name to the beginning of the filename
+rename 's/^/Mmar3_/' *
+
+#replaces EtOH with MeOH
+rename  's/EtOH/MeOH/' *
