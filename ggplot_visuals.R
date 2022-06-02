@@ -11,13 +11,14 @@ all_curves_solvent <- function(df){
   col_num <- ncol(df_solv_gc)
   df_solv_gc <- select(df_solv_gc, well, rep, c(6:col_num))
   df_solv_gc$id <- paste(df_solv_gc$well, df_solv_gc$rep)
-  df_solv_gc <- select(df_solv_gc, c(3:12))
+  col_num2 <- ncol(df_solv_gc)
+  df_solv_gc <- select(df_solv_gc, c(3:col_num2))
   df_solv_gc <- melt(df_solv_gc, id.vars = 'id')
   
   
   return(ggplot(df_solv_gc, aes(x = variable, y = value)) + 
-    geom_line(aes(color = id, group = id)) + 
-    theme(legend.position="none"))
+           geom_line(aes(color = id, group = id)) + 
+           theme(legend.position="none"))
 }
 ##############################3
 

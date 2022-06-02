@@ -97,6 +97,8 @@ colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "ti
 #make inputs for arth######
 arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
 arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
+arth_df_MeOH <- filter(df_metadata, bug == "ArthBac", solvent == "MeOH")
+
 
 #make inputs for absc######
 absc_df <- filter(df_metadata, bug == "absc")
@@ -110,6 +112,35 @@ coryn_df_DMSO <- filter(coryn_df , solvent == "DMSO")
 coryn_df_H2O <- filter(coryn_df , solvent == "H2O")
 coryn_df_MeOH <- filter(coryn_df , solvent == "MeOH")
 
+#make inputs for rhodo####
+rhodo_df <- filter(df_metadata, bug == "rhodo")
+rhodo_df_DMSO <- filter(rhodo_df , solvent == "DMSO")
+rhodo_df_H2O <- filter(rhodo_df , solvent == "H2O")
+rhodo_df_MeOH <- filter(rhodo_df , solvent == "MeOH")
+
+#make inputs for brevi#####
+brevi_df <- filter(df_metadata, bug == "brevi")
+brevi_df_DMSO <- filter(brevi_df , solvent == "DMSO")
+brevi_df_H2O <- filter(brevi_df , solvent == "H2O")
+brevi_df_MeOH <- filter(brevi_df , solvent == "MeOH")
+
+#make inputs for smeg3#####
+smeg3_df <- filter(df_metadata, bug == "smegmatis3")
+smeg3_df_DMSO <- filter(smeg3_df , solvent == "DMSO")
+smeg3_df_H2O <- filter(smeg3_df , solvent == "H2O")
+smeg3_df_MeOH <- filter(smeg3_df , solvent == "MeOH")
+
+#make inputs for mari3#####
+mari3_df <- filter(df_metadata, bug == "marinum3")
+mari3_df_DMSO <- filter(mari3_df , solvent == "DMSO")
+mari3_df_H2O <- filter(mari3_df , solvent == "H2O")
+mari3_df_MeOH <- filter(mari3_df , solvent == "MeOH")
+
+#make inputs for turi2#####
+turi2_df <- filter(df_metadata, bug == "turicella2")
+turi2_df_DMSO <- filter(turi2_df , solvent == "DMSO")
+turi2_df_H2O <- filter(turi2_df , solvent == "H2O")
+turi2_df_MeOH <- filter(turi2_df , solvent == "MeOH")
 
 
 ###FILTER OUT TIME POINT 1####
@@ -185,6 +216,24 @@ arth_df_bac_DMSO_splines_coeff <- as.data.frame(unlist(lapply(arth_bac_lm_DMSO, 
 arth_df_bac_DMSO$spline <- arth_df_bac_DMSO_splines_coeff
 arth_df_bac_DMSO_spline_vector <- arth_df_bac_DMSO$spline
 
+
+#same but for pos controls
+arth_df_pos_DMSO <- spread(arth_df_pos_DMSO, key = time, value = OD)
+#filter values above OD 4.5 - example that could work
+#arth_df_pos_DMSO <- arth_df_pos_DMSO[arth_df_pos_DMSO$"8" < 4.5]
+###################TEST FILTER###########################
+arth_df_pos_DMSO$diff <- arth_df_pos_DMSO$"8" - arth_df_pos_DMSO$"1"
+arth_df_pos_DMSO_od_vector <- arth_df_pos_DMSO$diff
+
+#vector for spline
+arth_df_pos_DMSO_splines <- select(arth_df_pos_DMSO, c(6:13))
+arth_pos_time_DMSO <- c(0:7)
+arth_pos_lm_DMSO <- apply(arth_df_pos_DMSO_splines, 1, function(x) lm(x ~ lspline(arth_pos_time_DMSO, knots = knots)))
+arth_df_pos_DMSO_splines_coeff <- as.data.frame(unlist(lapply(arth_pos_lm_DMSO, function(x) coef(x)[2])))
+#combine
+arth_df_pos_DMSO$spline <- arth_df_pos_DMSO_splines_coeff
+arth_df_pos_DMSO_spline_vector <- arth_df_pos_DMSO$spline
+
 #apply t test over all the columns against the bac-only vectors
 #this is for the od diff
 arth_ttests_od_DMSO <- lapply(arth_df_library_DMSO_spread_diff, function(x) wilcox.test(x, arth_df_bac_DMSO_od_vector, exact = T)$p.value)
@@ -250,7 +299,8 @@ names(arth_DMSO_library)[names(arth_DMSO_library) == 'Well'] <- 'well'
 
 #merge output with library files
 ttest_output_arth_DMSO <<- merge(arth_DMSO_library, ttest_output_arth_DMSO, by = "well" )
-return(ttest_output_arth_DMSO)
+results <- list(bac_od = arth_df_bac_DMSO_od_vector, bac_spline = arth_df_bac_DMSO_spline_vector, pos_spline = arth_df_pos_DMSO_spline_vector, pos_od = arth_df_pos_DMSO_od_vector, cat = ttest_output_arth_DMSO) 
+return(results)
 }
 analysis_test_H2O <- function(x){
   
@@ -312,6 +362,24 @@ analysis_test_H2O <- function(x){
   #combine
   arth_df_bac_H2O$spline <- arth_df_bac_H2O_splines_coeff
   arth_df_bac_H2O_spline_vector <- arth_df_bac_H2O$spline
+  
+  #same but for pos controls
+  arth_df_pos_H2O <- spread(arth_df_pos_H2O, key = time, value = OD)
+  #filter values above OD 4.5 - example that could work
+  #arth_df_pos_H2O <- arth_df_pos_H2O[arth_df_pos_H2O$"8" < 4.5]
+  ###################TEST FILTER###########################
+  arth_df_pos_H2O$diff <- arth_df_pos_H2O$"8" - arth_df_pos_H2O$"1"
+  arth_df_pos_H2O_od_vector <- arth_df_pos_H2O$diff
+  
+  #vector for spline
+  arth_df_pos_H2O_splines <- select(arth_df_pos_H2O, c(6:13))
+  arth_pos_time_H2O <- c(0:7)
+  arth_pos_lm_H2O <- apply(arth_df_pos_H2O_splines, 1, function(x) lm(x ~ lspline(arth_pos_time_H2O, knots = knots)))
+  arth_df_pos_H2O_splines_coeff <- as.data.frame(unlist(lapply(arth_pos_lm_H2O, function(x) coef(x)[2])))
+  #combine
+  arth_df_pos_H2O$spline <- arth_df_pos_H2O_splines_coeff
+  arth_df_pos_H2O_spline_vector <- arth_df_pos_H2O$spline
+  
   
   #apply t test over all the columns against the bac-only vectors
   #this is for the od diff
@@ -378,7 +446,8 @@ analysis_test_H2O <- function(x){
   
   #merge output with library files
   ttest_output_arth_H2O <<- merge(arth_H2O_library, ttest_output_arth_H2O, by = "well" )
-  return(ttest_output_arth_H2O)
+  results <- list(bac_od = arth_df_bac_H2O_od_vector, bac_spline = arth_df_bac_H2O_spline_vector, pos_spline = arth_df_pos_H2O_spline_vector, pos_od = arth_df_pos_H2O_od_vector, cat = ttest_output_arth_H2O) 
+  return(results)
 }
 analysis_test_MeOH <- function(x){
   
@@ -440,6 +509,23 @@ analysis_test_MeOH <- function(x){
   #combine
   arth_df_bac_MeOH$spline <- arth_df_bac_MeOH_splines_coeff
   arth_df_bac_MeOH_spline_vector <- arth_df_bac_MeOH$spline
+  
+  #same but for positive controls
+  arth_df_pos_MeOH <- spread(arth_df_pos_MeOH, key = time, value = OD)
+  #filter values above OD 4.5 - example that could work
+  #arth_df_pos_MeOH <- arth_df_pos_MeOH[arth_df_pos_MeOH$"8" < 4.5]
+  ###################TEST FILTER###########################
+  arth_df_pos_MeOH$diff <- arth_df_pos_MeOH$"8" - arth_df_pos_MeOH$"1"
+  arth_df_pos_MeOH_od_vector <- arth_df_pos_MeOH$diff
+  
+  #vector for spline
+  arth_df_pos_MeOH_splines <- select(arth_df_pos_MeOH, c(6:13))
+  arth_pos_time_MeOH <- c(0:7)
+  arth_pos_lm_MeOH <- apply(arth_df_pos_MeOH_splines, 1, function(x) lm(x ~ lspline(arth_pos_time_MeOH, knots = knots)))
+  arth_df_pos_MeOH_splines_coeff <- as.data.frame(unlist(lapply(arth_pos_lm_MeOH, function(x) coef(x)[2])))
+  #combine
+  arth_df_pos_MeOH$spline <- arth_df_pos_MeOH_splines_coeff
+  arth_df_pos_MeOH_spline_vector <- arth_df_pos_MeOH$spline
   
   #apply t test over all the columns against the bac-only vectors
   #this is for the od diff
@@ -505,8 +591,9 @@ analysis_test_MeOH <- function(x){
   names(arth_MeOH_library)[names(arth_MeOH_library) == 'Well'] <- 'well'
   
   #merge output with library files
-  ttest_output_arth_MeOH <<- merge(arth_MeOH_library, ttest_output_arth_MeOH, by = "well" )
-  return(ttest_output_arth_MeOH)
+  ttest_output_arth_MeOH <- merge(arth_MeOH_library, ttest_output_arth_MeOH, by = "well" )
+  results <- list(bac_od = arth_df_bac_MeOH_od_vector, bac_spline = arth_df_bac_MeOH_spline_vector, pos_spline = arth_df_pos_MeOH_spline_vector, pos_od = arth_df_pos_MeOH_od_vector, cat = ttest_output_arth_MeOH) 
+  return(results)
 }
 #don't forget to assign output to whatever you run through the function
 
@@ -532,5 +619,89 @@ ggplot(absc_DMSO, aes(x=category, fill=..x..)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   scale_fill_gradient(low = '#5AAA46', high = '#825CA6', breaks = c(1:9), labels = c(1:9), name = "Categories")
 
+
+
+
+#Z' calculation
+z_test <- function(x){
+  df_bac_DMSO <- filter(x, well %in% DMSO_bac_control_list)
+  st_d_bac <- filter(df_bac_DMSO, time == "8")
+  st_d_bac_3 <- 3 * sd(st_d_bac$OD)
+  mean_bac <- mean(st_d_bac$OD)
+  
+  df_pos_DMSO <- filter(x, well %in% DMSO_positive_control_list)
+  st_d_pos <- filter(df_pos_DMSO, time == "8")
+  st_d_pos_3 <- 3 * sd(st_d_pos$OD)
+  mean_pos <- mean(st_d_pos$OD)
+  
+  
+  z <- 1 - ((st_d_pos_3 + st_d_bac_3)/(abs(mean_pos - mean_bac)))
+  return(z)
+}
+
+
+s <- (mean_pos - st_d_pos_3) - (mean_bac + st_d_bac_3) 
+r <- mean_pos - mean_bac
+s/r
+
+ggplot(st_d_bac, aes(x=OD)) + geom_density()
+ggplot(st_d_pos, aes(x=OD)) + geom_density()
+
+
+
+df_bac_DMSO <- filter(arth_df_DMSO, well %in% DMSO_bac_control_list)
+df_bac_DMSO <- spread(df_bac_DMSO, key = time, value = OD)
+  df_bac_DMSO <- filter(df_bac_DMSO, df_bac_DMSO$"8" < 3)
+st_d_bac <- df_bac_DMSO$"8"
+st_d_bac_3 <- 3 * sd(st_d_bac)
+mean_bac <- mean(st_d_bac)
+
+df_pos_DMSO <- filter(arth_df_DMSO, well %in% DMSO_positive_control_list)
+df_pos_DMSO <- spread(df_pos_DMSO, key = time, value = OD)
+df_pos_DMSO <- filter(df_pos_DMSO, df_pos_DMSO$"8" < 0.5)
+st_d_pos <- df_pos_DMSO$"8"
+st_d_pos_3 <- 3 * sd(st_d_pos)
+mean_pos <- mean(st_d_pos)
+
+
+z <- 1 - ((st_d_pos_3 + st_d_bac_3)/(abs(mean_pos - mean_bac)))
+
+#dOD600 and spline
+z_d600_spline <- function(x){
+
+sd_bac_d600 <- sd(x$bac_od)
+mean_bac_d600 <- mean(x$bac_od)
+sd_pos_d600 <- sd(x$pos_od)
+mean_pos_d600 <- mean(x$pos_od)
+
+sd_bac_spline <- sd(x$bac_spline)
+mean_bac_spline <- mean(x$bac_spline)
+sd_pos_spline <- sd(x$pos_spline)
+mean_pos_spline <- mean(x$pos_spline)
+
+z_d600 <- 1 - ((3*sd_pos_d600 + 3*sd_bac_d600)/abs(mean_pos_d600 - mean_bac_d600))
+z_spline <- 1 - ((3*sd_pos_spline + 3*sd_bac_spline)/abs(mean_pos_spline - mean_bac_spline))
+results <- list(z_d600 = z_d600, z_spline = z_spline)
+return(results)
+}
+
+#functions to run for z-prime (unfiltered)
+rhodo_DMSO <-analysis_test_DMSO(rhodo_df_DMSO)
+rhodo_DMSO_z <- z_d600_spline(rhodo_DMSO)
+
+rhodo_MeOH <-analysis_test_MeOH(rhodo_df_MeOH)
+rhodo_MeOH_z <- z_d600_spline(rhodo_MeOH)
+
+rhodo_H2O <- analysis_test_H2O(rhodo_df_H2O)
+rhodo_H2O_z <- z_d600_spline(rhodo_H2O)
+
+mari3_DMSO <-analysis_test_DMSO(mari3_df_DMSO)
+mari3_DMSO_z <- z_d600_spline(mari3_DMSO)
+
+mari3_MeOH <-analysis_test_MeOH(mari3_df_MeOH)
+mari3_MeOH_z <- z_d600_spline(mari3_MeOH)
+
+mari3_H2O <- analysis_test_H2O(mari3_df_H2O)
+mari3_H2O_z <- z_d600_spline(mari3_H2O)
 
 
