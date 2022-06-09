@@ -94,11 +94,57 @@ colnames(df_metadata) <- c("well", "content", "OD", "bug", "solvent", "rep", "ti
 
 
 #################################TO DO
-#make inputs for arth######
+###############make inputs for arth#################
 arth_df_DMSO <- filter(df_metadata, bug == "ArthBac", solvent == "DMSO")
 arth_df_H2O <- filter(df_metadata, bug == "ArthBac", solvent == "H2O")
 arth_df_MeOH <- filter(df_metadata, bug == "ArthBac", solvent == "MeOH")
+#look at the graphs manually, and determine data to be filtered out
+#for example, for arthrobacter_DMSO, I want to filter out bacteria-only that are above OD 3, can just remove single replicates for this, since we consider all reps part of one sample
+#I also want to filter out library compounds that have an OD above 5
+#very roundabout way but couldn't think of a better way to do it
+arth_df_library_DMSO <- filter(arth_df_DMSO, well %notin% DMSO_filter_out)
+arth_df_library_DMSO_spread <- spread(arth_df_library_DMSO, key = time, value = OD)
+arth_df_library_out <- filter(arth_df_library_DMSO_spread, arth_df_library_DMSO_spread$"8" > 5)
+arth_df_library_out <- arth_df_library_out$well
+arth_df_library_DMSO <- filter(arth_df_library_DMSO_spread, well %notin% arth_df_library_out)
 
+#make dataframe with only the control wells
+arth_df_bac_DMSO <- filter(arth_df_DMSO, well %in% DMSO_bac_control_list)
+arth_df_bac_DMSO_spread <- spread(arth_df_bac_DMSO, key = time, value = OD)
+arth_df_bac_DMSO <- filter(arth_df_bac_DMSO_spread, arth_df_bac_DMSO_spread$"8" < 3)
+
+#make dataframe with only the antibiot ic wells
+arth_df_pos_DMSO <- filter(arth_df_DMSO, well %in% DMSO_positive_control_list)
+
+#make similar dataframe but for MeOH
+arth_df_library_MeOH <- filter(arth_df_MeOH, well %notin% MeOH_filter_out)
+arth_df_library_MeOH_spread <- spread(arth_df_library_MeOH, key = time, value = OD)
+arth_df_library_out <- filter(arth_df_library_MeOH_spread, arth_df_library_MeOH_spread$"8" > 5)
+arth_df_library_out <- arth_df_library_out$well
+arth_df_library_MeOH <- filter(arth_df_library_MeOH_spread, well %notin% arth_df_library_out)
+
+#make dataframe with only the control wells
+arth_df_bac_MeOH <- filter(arth_df_MeOH, well %in% MeOH_bac_control_list)
+arth_df_bac_MeOH_spread <- spread(arth_df_bac_MeOH, key = time, value = OD)
+arth_df_bac_MeOH <- filter(arth_df_bac_MeOH_spread, arth_df_bac_MeOH_spread$"8" < 2 & arth_df_bac_MeOH_spread$"8" > 1)
+
+#make dataframe with only the antibiot ic wells
+arth_df_pos_MeOH <- filter(arth_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+arth_df_library_H2O <- filter(arth_df_H2O, well %notin% H2O_filter_out)
+arth_df_library_H2O_spread <- spread(arth_df_library_H2O, key = time, value = OD)
+arth_df_library_out <- filter(arth_df_library_H2O_spread, arth_df_library_H2O_spread$"8" > 5)
+arth_df_library_out <- arth_df_library_out$well
+arth_df_library_H2O <- filter(arth_df_library_H2O_spread, well %notin% arth_df_library_out)
+
+#make dataframe with only the control wells
+arth_df_bac_H2O <- filter(arth_df_H2O, well %in% H2O_bac_control_list)
+arth_df_bac_H2O_spread <- spread(arth_df_bac_H2O, key = time, value = OD)
+arth_df_bac_H2O <- filter(arth_df_bac_H2O_spread, arth_df_bac_H2O_spread$"8" < 3 & arth_df_bac_H2O_spread$"8" > 1)
+
+#make dataframe with only the antibiot ic wells
+arth_df_pos_H2O <- filter(arth_df_H2O, well %in% H2O_positive_control_list)
 
 #make inputs for absc######
 absc_df <- filter(df_metadata, bug == "absc")
@@ -112,6 +158,50 @@ coryn_df_DMSO <- filter(coryn_df , solvent == "DMSO")
 coryn_df_H2O <- filter(coryn_df , solvent == "H2O")
 coryn_df_MeOH <- filter(coryn_df , solvent == "MeOH")
 
+coryn_df_library_DMSO <- filter(coryn_df_DMSO, well %notin% DMSO_filter_out)
+coryn_df_library_DMSO_spread <- spread(coryn_df_library_DMSO, key = time, value = OD)
+coryn_df_library_out <- filter(coryn_df_library_DMSO_spread, coryn_df_library_DMSO_spread$"8" > 3.5 | coryn_df_library_DMSO_spread$"1" > 0.5)
+coryn_df_library_out <- coryn_df_library_out$well
+coryn_df_library_DMSO <- filter(coryn_df_library_DMSO_spread, well %notin% coryn_df_library_out)
+
+#make dataframe with only the control wells
+coryn_df_bac_DMSO <- filter(coryn_df_DMSO, well %in% DMSO_bac_control_list)
+coryn_df_bac_DMSO_spread <- spread(coryn_df_bac_DMSO, key = time, value = OD)
+coryn_df_bac_DMSO <- filter(coryn_df_bac_DMSO_spread, coryn_df_bac_DMSO_spread$"8" < 1.5)
+
+#make dataframe with only the antibiot ic wells
+coryn_df_pos_DMSO <- filter(coryn_df_DMSO, well %in% DMSO_positive_control_list)
+
+#make similar dataframe but for MeOH
+coryn_df_library_MeOH <- filter(coryn_df_MeOH, well %notin% MeOH_filter_out)
+coryn_df_library_MeOH_spread <- spread(coryn_df_library_MeOH, key = time, value = OD)
+coryn_df_library_out <- filter(coryn_df_library_MeOH_spread, coryn_df_library_MeOH_spread$"8" > 3.25)
+coryn_df_library_out <- coryn_df_library_out$well
+coryn_df_library_MeOH <- filter(coryn_df_library_MeOH_spread, well %notin% coryn_df_library_out)
+
+#make dataframe with only the control wells
+coryn_df_bac_MeOH <- filter(coryn_df_MeOH, well %in% MeOH_bac_control_list)
+coryn_df_bac_MeOH_spread <- spread(coryn_df_bac_MeOH, key = time, value = OD)
+coryn_df_bac_MeOH <- filter(coryn_df_bac_MeOH_spread, coryn_df_bac_MeOH_spread$"8" < 2.5 & coryn_df_bac_MeOH_spread$"8" > 1.4)
+
+#make dataframe with only the antibiot ic wells
+coryn_df_pos_MeOH <- filter(coryn_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+coryn_df_library_H2O <- filter(coryn_df_H2O, well %notin% H2O_filter_out)
+coryn_df_library_H2O_spread <- spread(coryn_df_library_H2O, key = time, value = OD)
+coryn_df_library_out <- filter(coryn_df_library_H2O_spread, coryn_df_library_H2O_spread$"8" > 3)
+coryn_df_library_out <- coryn_df_library_out$well
+coryn_df_library_H2O <- filter(coryn_df_library_H2O_spread, well %notin% coryn_df_library_out)
+
+#make dataframe with only the control wells
+coryn_df_bac_H2O <- filter(coryn_df_H2O, well %in% H2O_bac_control_list)
+coryn_df_bac_H2O_spread <- spread(coryn_df_bac_H2O, key = time, value = OD)
+coryn_df_bac_H2O <- filter(coryn_df_bac_H2O_spread, coryn_df_bac_H2O_spread$"8" < 2 & coryn_df_bac_H2O_spread$"8" > 1)
+
+#make dataframe with only the antibiot ic wells
+coryn_df_pos_H2O <- filter(coryn_df_H2O, well %in% H2O_positive_control_list)
+
 #make inputs for rhodo####
 rhodo_df <- filter(df_metadata, bug == "rhodo")
 rhodo_df_DMSO <- filter(rhodo_df , solvent == "DMSO")
@@ -124,11 +214,118 @@ brevi_df_DMSO <- filter(brevi_df , solvent == "DMSO")
 brevi_df_H2O <- filter(brevi_df , solvent == "H2O")
 brevi_df_MeOH <- filter(brevi_df , solvent == "MeOH")
 
+brevi_df_library_DMSO <- filter(brevi_df_DMSO, well %notin% DMSO_filter_out)
+brevi_df_library_DMSO <- remove_first_time(brevi_df_library_DMSO)
+brevi_df_library_DMSO_spread <- spread(brevi_df_library_DMSO, key = time, value = OD)
+#this one is different -> filters OUT wells that meet these conditions
+brevi_df_library_out <- filter(brevi_df_library_DMSO_spread, brevi_df_library_DMSO_spread$"8" > 5)
+brevi_df_library_out <- brevi_df_library_out$well
+brevi_df_library_DMSO <- filter(brevi_df_library_DMSO_spread, well %notin% brevi_df_library_out)
+
+#make dataframe with only the control wells
+brevi_df_bac_DMSO <- filter(brevi_df_DMSO, well %in% DMSO_bac_control_list)
+brevi_df_bac_DMSO <- remove_first_time(brevi_df_bac_DMSO)
+brevi_df_bac_DMSO_spread <- spread(brevi_df_bac_DMSO, key = time, value = OD)
+brevi_df_bac_DMSO <- filter(brevi_df_bac_DMSO_spread, brevi_df_bac_DMSO_spread$"8" > 3)
+
+#make dataframe with only the antibiot ic wells
+brevi_df_pos_DMSO <- filter(brevi_df_DMSO, well %in% DMSO_positive_control_list)
+
+#make similar dataframe but for MeOH
+brevi_df_library_MeOH <- filter(brevi_df_MeOH, well %notin% MeOH_filter_out)
+brevi_df_library_MeOH <- remove_first_time(brevi_df_library_MeOH)
+brevi_df_library_MeOH_spread <- spread(brevi_df_library_MeOH, key = time, value = OD)
+brevi_df_library_out <- filter(brevi_df_library_MeOH_spread, brevi_df_library_MeOH_spread$"8" > 4.5)
+brevi_df_library_out <- brevi_df_library_out$well
+brevi_df_library_MeOH <- filter(brevi_df_library_MeOH_spread, well %notin% brevi_df_library_out)
+
+#make dataframe with only the control wells
+brevi_df_bac_MeOH <- filter(brevi_df_MeOH, well %in% MeOH_bac_control_list)
+brevi_df_bac_MeOH <- remove_first_time(brevi_df_bac_MeOH)
+brevi_df_bac_MeOH_spread <- spread(brevi_df_bac_MeOH, key = time, value = OD)
+brevi_df_bac_MeOH <- filter(brevi_df_bac_MeOH_spread, brevi_df_bac_MeOH_spread$"8" > 0.5 & brevi_df_bac_MeOH_spread$"8" < 4)
+
+#make dataframe with only the antibiot ic wells
+brevi_df_pos_MeOH <- filter(brevi_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+brevi_df_library_H2O <- filter(brevi_df_H2O, well %notin% H2O_filter_out)
+brevi_df_library_H2O <- remove_first_time(brevi_df_library_H2O)
+brevi_df_library_H2O_spread <- spread(brevi_df_library_H2O, key = time, value = OD)
+brevi_df_library_out <- filter(brevi_df_library_H2O_spread, brevi_df_library_H2O_spread$"8" > 5 | brevi_df_library_H2O_spread$"1" > 1)
+brevi_df_library_out <- brevi_df_library_out$well
+brevi_df_library_H2O <- filter(brevi_df_library_H2O_spread, well %notin% brevi_df_library_out)
+
+#make dataframe with only the control wells
+brevi_df_bac_H2O <- filter(brevi_df_H2O, well %in% H2O_bac_control_list)
+brevi_df_bac_H2O <- remove_first_time(brevi_df_bac_H2O)
+brevi_df_bac_H2O_spread <- spread(brevi_df_bac_H2O, key = time, value = OD)
+brevi_df_bac_H2O <- filter(brevi_df_bac_H2O_spread, brevi_df_bac_H2O_spread$"8" < 4 & brevi_df_bac_H2O_spread$"8" > 2.5)
+
+#make dataframe with only the antibiot ic wells
+brevi_df_pos_H2O <- filter(brevi_df_H2O, well %in% H2O_positive_control_list)
+
 #make inputs for smeg3#####
 smeg3_df <- filter(df_metadata, bug == "smegmatis3")
 smeg3_df_DMSO <- filter(smeg3_df , solvent == "DMSO")
 smeg3_df_H2O <- filter(smeg3_df , solvent == "H2O")
 smeg3_df_MeOH <- filter(smeg3_df , solvent == "MeOH")
+
+smeg3_df_library_DMSO <- filter(smeg3_df_DMSO, well %notin% DMSO_filter_out)
+smeg3_df_library_DMSO <- remove_first_time(smeg3_df_library_DMSO)
+smeg3_df_library_DMSO <- remove_first_time(smeg3_df_library_DMSO)
+smeg3_df_library_DMSO_spread <- spread(smeg3_df_library_DMSO, key = time, value = OD)
+smeg3_df_library_out <- filter(smeg3_df_library_DMSO_spread, smeg3_df_library_DMSO_spread$"8" > 1.5 )
+smeg3_df_library_out <- smeg3_df_library_out$well
+smeg3_df_library_DMSO <- filter(smeg3_df_library_DMSO_spread, well %notin% smeg3_df_library_out)
+
+#make dataframe with only the control wells
+smeg3_df_bac_DMSO <- filter(smeg3_df_DMSO, well %in% DMSO_bac_control_list)
+smeg3_df_bac_DMSO <- remove_first_time(smeg3_df_bac_DMSO)
+smeg3_df_bac_DMSO <- remove_first_time(smeg3_df_bac_DMSO)
+smeg3_df_bac_DMSO_spread <- spread(smeg3_df_bac_DMSO, key = time, value = OD)
+smeg3_df_bac_DMSO <- filter(smeg3_df_bac_DMSO_spread, smeg3_df_bac_DMSO_spread$"8" < 0.9)
+
+#make dataframe with only the antibiot ic wells
+smeg3_df_pos_DMSO <- filter(smeg3_df_DMSO, well %in% DMSO_positive_control_list)
+
+#make similar dataframe but for MeOH
+smeg3_df_library_MeOH <- filter(smeg3_df_MeOH, well %notin% MeOH_filter_out)
+smeg3_df_library_MeOH <- remove_first_time(smeg3_df_library_MeOH)
+smeg3_df_library_MeOH <- remove_first_time(smeg3_df_library_MeOH)
+smeg3_df_library_MeOH_spread <- spread(smeg3_df_library_MeOH, key = time, value = OD)
+smeg3_df_library_out <- filter(smeg3_df_library_MeOH_spread, smeg3_df_library_MeOH_spread$"8" > 1.25 |smeg3_df_library_MeOH_spread$"1" > 0.25)
+smeg3_df_library_out <- smeg3_df_library_out$well
+smeg3_df_library_MeOH <- filter(smeg3_df_library_MeOH_spread, well %notin% smeg3_df_library_out)
+
+#make dataframe with only the control wells
+smeg3_df_bac_MeOH <- filter(smeg3_df_MeOH, well %in% MeOH_bac_control_list)
+smeg3_df_bac_MeOH <- remove_first_time(smeg3_df_bac_MeOH)
+smeg3_df_bac_MeOH <- remove_first_time(smeg3_df_bac_MeOH)
+smeg3_df_bac_MeOH_spread <- spread(smeg3_df_bac_MeOH, key = time, value = OD)
+smeg3_df_bac_MeOH <- filter(smeg3_df_bac_MeOH_spread, smeg3_df_bac_MeOH_spread$"8" < 1)
+
+#make dataframe with only the antibiot ic wells
+smeg3_df_pos_MeOH <- filter(smeg3_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+smeg3_df_library_H2O <- filter(smeg3_df_H2O, well %notin% H2O_filter_out)
+smeg3_df_library_H2O <- remove_first_time(smeg3_df_library_H2O)
+smeg3_df_library_H2O <- remove_first_time(smeg3_df_library_H2O)
+smeg3_df_library_H2O_spread <- spread(smeg3_df_library_H2O, key = time, value = OD)
+smeg3_df_library_out <- filter(smeg3_df_library_H2O_spread, smeg3_df_library_H2O_spread$"8" > 1.25 | smeg3_df_library_H2O_spread$"1" > 0.3)
+smeg3_df_library_out <- smeg3_df_library_out$well
+smeg3_df_library_H2O <- filter(smeg3_df_library_H2O_spread, well %notin% smeg3_df_library_out)
+
+#make dataframe with only the control wells
+smeg3_df_bac_H2O <- filter(smeg3_df_H2O, well %in% H2O_bac_control_list)
+smeg3_df_bac_H2O <- remove_first_time(smeg3_df_bac_H2O)
+smeg3_df_bac_H2O <- remove_first_time(smeg3_df_bac_H2O)
+smeg3_df_bac_H2O_spread <- spread(smeg3_df_bac_H2O, key = time, value = OD)
+smeg3_df_bac_H2O <- filter(smeg3_df_bac_H2O_spread, smeg3_df_bac_H2O_spread$"8" < 1)
+
+#make dataframe with only the antibiot ic wells
+smeg3_df_pos_H2O <- filter(smeg3_df_H2O, well %in% H2O_positive_control_list)
 
 #make inputs for mari3#####
 mari3_df <- filter(df_metadata, bug == "marinum3")
@@ -142,6 +339,62 @@ turi2_df_DMSO <- filter(turi2_df , solvent == "DMSO")
 turi2_df_H2O <- filter(turi2_df , solvent == "H2O")
 turi2_df_MeOH <- filter(turi2_df , solvent == "MeOH")
 
+turi2_df_library_DMSO <- filter(turi2_df_DMSO, well %notin% DMSO_filter_out)
+turi2_df_library_DMSO <- remove_first_time(turi2_df_library_DMSO)
+turi2_df_library_DMSO <- remove_first_time(turi2_df_library_DMSO)
+turi2_df_library_DMSO_spread <- spread(turi2_df_library_DMSO, key = time, value = OD)
+turi2_df_library_out <- filter(turi2_df_library_DMSO_spread, turi2_df_library_DMSO_spread$"8" > 1.4 )
+turi2_df_library_out <- turi2_df_library_out$well
+turi2_df_library_DMSO <- filter(turi2_df_library_DMSO_spread, well %notin% turi2_df_library_out)
+
+#make dataframe with only the control wells
+turi2_df_bac_DMSO <- filter(turi2_df_DMSO, well %in% DMSO_bac_control_list)
+turi2_df_bac_DMSO <- remove_first_time(turi2_df_bac_DMSO)
+turi2_df_bac_DMSO <- remove_first_time(turi2_df_bac_DMSO)
+turi2_df_bac_DMSO_spread <- spread(turi2_df_bac_DMSO, key = time, value = OD)
+turi2_df_bac_DMSO <- filter(turi2_df_bac_DMSO_spread, turi2_df_bac_DMSO_spread$"8" < 1.2)
+
+#make dataframe with only the antibiot ic wells
+turi2_df_pos_DMSO <- filter(turi2_df_DMSO, well %in% DMSO_positive_control_list)
+
+#make similar dataframe but for MeOH
+turi2_df_library_MeOH <- filter(turi2_df_MeOH, well %notin% MeOH_filter_out)
+turi2_df_library_MeOH <- remove_first_time(turi2_df_library_MeOH)
+turi2_df_library_MeOH <- remove_first_time(turi2_df_library_MeOH)
+turi2_df_library_MeOH_spread <- spread(turi2_df_library_MeOH, key = time, value = OD)
+turi2_df_library_out <- filter(turi2_df_library_MeOH_spread, turi2_df_library_MeOH_spread$"8" > 2)
+turi2_df_library_out <- turi2_df_library_out$well
+turi2_df_library_MeOH <- filter(turi2_df_library_MeOH_spread, well %notin% turi2_df_library_out)
+
+#make dataframe with only the control wells
+turi2_df_bac_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_bac_control_list)
+turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
+turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
+turi2_df_bac_MeOH_spread <- spread(turi2_df_bac_MeOH, key = time, value = OD)
+turi2_df_bac_MeOH <- filter(turi2_df_bac_MeOH_spread, turi2_df_bac_MeOH_spread$"8" > 0.5 & turi2_df_bac_MeOH_spread$"8" < 1.7)
+
+#make dataframe with only the antibiot ic wells
+turi2_df_pos_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+turi2_df_library_H2O <- filter(turi2_df_H2O, well %notin% H2O_filter_out)
+turi2_df_library_H2O <- remove_first_time(turi2_df_library_H2O)
+turi2_df_library_H2O <- remove_first_time(turi2_df_library_H2O)
+turi2_df_library_H2O_spread <- spread(turi2_df_library_H2O, key = time, value = OD)
+turi2_df_library_out <- filter(turi2_df_library_H2O_spread, turi2_df_library_H2O_spread$"8" > 1.5 | turi2_df_library_H2O_spread$"1" > 0.5)
+turi2_df_library_out <- turi2_df_library_out$well
+turi2_df_library_H2O <- filter(turi2_df_library_H2O_spread, well %notin% turi2_df_library_out)
+
+#make dataframe with only the control wells
+turi2_df_bac_H2O <- filter(turi2_df_H2O, well %in% H2O_bac_control_list)
+turi2_df_bac_H2O <- remove_first_time(turi2_df_bac_H2O)
+turi2_df_bac_H2O <- remove_first_time(turi2_df_bac_H2O)
+turi2_df_bac_H2O_spread <- spread(turi2_df_bac_H2O, key = time, value = OD)
+turi2_df_bac_H2O <- filter(turi2_df_bac_H2O_spread, turi2_df_bac_H2O_spread$"8" < 1.25 & turi2_df_bac_H2O_spread$"8" > 0.5)
+
+#make dataframe with only the antibiot ic wells
+turi2_df_pos_H2O <- filter(turi2_df_H2O, well %in% H2O_positive_control_list)
+
 
 ###FILTER OUT TIME POINT 1####
 #input = whatever dataframe you want to remove the first time point from
@@ -152,26 +405,14 @@ remove_first_time <- function(input){
   return(input_1)
 }
 
-#look at the graphs manually, and determine data to be filtered out
-#for example, for arthrobacter_DMSO, I want to filter out bacteria-only that are above OD 3, can just remove single replicates for this, since we consider all reps part of one sample
-#I also want to filter out library compounds that have an OD above 5
-arth_df_library_DMSO <- filter(arth_df_DMSO, well %notin% DMSO_filter_out)
-arth_df_library_DMSO_spread <- spread(arth_df_library_DMSO, key = time, value = OD)
-arth_df_library_out <- filter(arth_df_library_DMSO_spread, arth_df_library_DMSO_spread$"8" > 5)
-arth_df_library_out <- arth_df_library_out$well
-arth_df_library_DMSO <- filter(arth_df_library_DMSO_spread, well %notin% arth_df_library_out)
-
-#make dataframe with only the control wells
-arth_df_bac_DMSO <- filter(arth_df_DMSO, well %in% DMSO_bac_control_list)
-arth_df_bac_DMSO_spread <- spread(arth_df_bac_DMSO, key = time, value = OD)
-arth_df_bac_DMSO <- filter(arth_df_bac_DMSO_spread, arth_df_bac_DMSO_spread$"8" < 3)
-
-#make dataframe with only the antibiotic wells
-arth_df_pos_DMSO <- filter(arth_df_DMSO, well %in% DMSO_positive_control_list)
+remove_9_time <- function(input){
+  input <- filter(input, time != "9")
+  return(input)
+}
 
 
-analysis_test_DMSO_3_inp <- function(bac_df, lib_df){
-  
+
+analysis_test_DMSO_2_inp <- function(bac_df, lib_df){
   #format in usable shape for library
   arth_df_library_DMSO <- lib_df
   #find diff from t8-t1

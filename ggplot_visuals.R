@@ -5,6 +5,21 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
+#new function to use pre-spread df
+all_curves_solvent_new <- function(df){
+  col_num <- ncol(df)
+  df <- select(df, well, rep, c(6:col_num))
+  df$id <- paste(df$well, df$rep)
+  col_num2 <- ncol(df)
+  df <- select(df, c(3:col_num2))
+  df <- melt(df, id.vars = 'id')
+  
+  
+  return(ggplot(df, aes(x = variable, y = value)) + 
+           geom_line(aes(color = id, group = id)) + 
+           theme(legend.position="none"))
+}
+
 #can look at the combination of all the graphs with unique "id" value
 all_curves_solvent <- function(df){
   df_solv_gc <- spread(df, key = time, value = OD)
