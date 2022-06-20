@@ -84,16 +84,18 @@ all <- m_platemaps$Well
 #visualize growth curves  using ggplot
 #something like this, may have to be spread
 
-mabs_curves <- function(df, c, m, s){
+mabs_curves <- function(df, c, m, so){
+  
   df_in <- filter(df, well %in% c)
   df_in <- filter(df_in, well %in% m)
-  df_in <- filter(df_in, well %in% s)
+  df_in <- filter(df_in, well %in% so)
   
     
     
 return(ggplot(df_in, aes(x = time, y = OD)) + 
          geom_line(aes(color = well, group =well)) +
          ylim(0, 1) +
+         ggtitle(substitute(c), substitute(m)) +
          theme(legend.position="none"))
 }
 #plot together, each well should have 6 replicates for each solv/media combination
