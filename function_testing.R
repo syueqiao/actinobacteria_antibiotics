@@ -333,6 +333,64 @@ mari3_df_DMSO <- filter(mari3_df , solvent == "DMSO")
 mari3_df_H2O <- filter(mari3_df , solvent == "H2O")
 mari3_df_MeOH <- filter(mari3_df , solvent == "MeOH")
 
+mari3_df_library_DMSO <- filter(mari3_df_DMSO, well %notin% DMSO_filter_out)
+mari3_df_library_DMSO <- remove_first_time(mari3_df_library_DMSO)
+mari3_df_library_DMSO <- remove_first_time(mari3_df_library_DMSO)
+mari3_df_library_DMSO_spread <- spread(mari3_df_library_DMSO, key = time, value = OD)
+mari3_df_library_out <- filter(mari3_df_library_DMSO_spread, mari3_df_library_DMSO_spread$"8" > 0.35 | mari3_df_library_DMSO_spread$"1" > 0.15)
+mari3_df_library_out <- mari3_df_library_out$well
+mari3_df_library_DMSO <- filter(mari3_df_library_DMSO_spread, well %notin% mari3_df_library_out)
+all_curves_solvent_new(mari3_df_library_DMSO)
+
+#make dataframe with only the control wells
+mari3_df_bac_DMSO <- filter(mari3_df_DMSO, well %in% DMSO_bac_control_list)
+mari3_df_bac_DMSO <- remove_first_time(mari3_df_bac_DMSO)
+mari3_df_bac_DMSO <- remove_first_time(mari3_df_bac_DMSO)
+mari3_df_bac_DMSO_spread <- spread(mari3_df_bac_DMSO, key = time, value = OD)
+mari3_df_bac_DMSO <- filter(mari3_df_bac_DMSO_spread, mari3_df_bac_DMSO_spread$"8" < 0.9 & mari3_df_bac_DMSO_spread$"8" > 0.15 & mari3_df_bac_DMSO_spread$"1" < 0.1)
+
+#make dataframe with only the antibiot ic wells
+mari3_df_pos_DMSO <- filter(mari3_df_DMSO, well %in% DMSO_positive_control_list)
+mari_DMSO <- analysis_test_DMSO_2_inp(mari3_df_bac_DMSO, mari3_df_library_DMSO)
+hist(mari_DMSO$cat$category)
+
+#make similar dataframe but for MeOH
+mari3_df_library_MeOH <- filter(mari3_df_MeOH, well %notin% MeOH_filter_out)
+mari3_df_library_MeOH <- remove_first_time(mari3_df_library_MeOH)
+mari3_df_library_MeOH_spread <- spread(mari3_df_library_MeOH, key = time, value = OD)
+mari3_df_library_out <- filter(mari3_df_library_MeOH_spread, mari3_df_library_MeOH_spread$"8" > 1.25 |mari3_df_library_MeOH_spread$"1" > 0.25)
+mari3_df_library_out <- mari3_df_library_out$well
+mari3_df_library_MeOH <- filter(mari3_df_library_MeOH_spread, well %notin% mari3_df_library_out)
+all_curves_solvent_new(mari3_df_library_MeOH)
+
+#make dataframe with only the control wells
+mari3_df_bac_MeOH <- filter(mari3_df_MeOH, well %in% MeOH_bac_control_list)
+mari3_df_bac_MeOH <- remove_first_time(mari3_df_bac_MeOH)
+mari3_df_bac_MeOH <- remove_first_time(mari3_df_bac_MeOH)
+mari3_df_bac_MeOH_spread <- spread(mari3_df_bac_MeOH, key = time, value = OD)
+mari3_df_bac_MeOH <- filter(mari3_df_bac_MeOH_spread, mari3_df_bac_MeOH_spread$"8" < 1 & mari3_df_bac_MeOH_spread$"1" < 0.25)
+all_curves_solvent_new(mari3_df_bac_MeOH)
+#make dataframe with only the antibiot ic wells
+mari3_df_pos_MeOH <- filter(mari3_df_MeOH, well %in% MeOH_positive_control_list)
+
+#make for H2O
+mari3_df_library_H2O <- filter(mari3_df_H2O, well %notin% H2O_filter_out)
+mari3_df_library_H2O <- remove_first_time(mari3_df_library_H2O)
+mari3_df_library_H2O_spread <- spread(mari3_df_library_H2O, key = time, value = OD)
+mari3_df_library_out <- filter(mari3_df_library_H2O_spread, mari3_df_library_H2O_spread$"8" > 1.25 | mari3_df_library_H2O_spread$"1" > 0.3)
+mari3_df_library_out <- mari3_df_library_out$well
+mari3_df_library_H2O <- filter(mari3_df_library_H2O_spread, well %notin% mari3_df_library_out)
+
+#make dataframe with only the control wells
+mari3_df_bac_H2O <- filter(mari3_df_H2O, well %in% H2O_bac_control_list)
+mari3_df_bac_H2O <- remove_first_time(mari3_df_bac_H2O)
+mari3_df_bac_H2O_spread <- spread(mari3_df_bac_H2O, key = time, value = OD)
+mari3_df_bac_H2O <- filter(mari3_df_bac_H2O_spread, mari3_df_bac_H2O_spread$"8" < 0.35 & mari3_df_bac_H2O_spread$"1" < 0.1)
+all_curves_solvent_new(mari3_df_bac_H2O)
+
+#make dataframe with only the antibiot ic wells
+mari3_df_pos_H2O <- filter(mari3_df_H2O, well %in% H2O_positive_control_list)
+
 #make inputs for turi2#####
 turi2_df <- filter(df_metadata, bug == "turicella2")
 turi2_df_DMSO <- filter(turi2_df , solvent == "DMSO")
