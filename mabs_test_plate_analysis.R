@@ -22,6 +22,7 @@ for(file in files){
 }
 
 df %>% separate(id, c(NA, NA, "t"), sep = "([_])") -> df_metadata
+df_metadata <- na.omit(df_metadata)
 df_metadata$t <- gsub('.{4}$', '', df_metadata$t)
 df_metadata$t <- sub('.', '', df_metadata$t)
 colnames(df_metadata) <- c("well", "content", "OD", "time")
@@ -39,6 +40,7 @@ for (media in mabs_media_list) {
 
 #retrieve each list
 media_7TOGLY <- media_out$`7TOGLY`$Well
+media_7TOGLU <- media_out$`7TOGLU`$Well
 media_LB <- media_out$`LB`$Well
 media_7TGLY <- media_out$`7TGLY`$Well
 media_7TO <- media_out$`7TO`$Well
@@ -57,7 +59,7 @@ for (solv in mabs_solv_list) {
 }
 
 #retrieve each list
-solv_none <- solv_out$`none`$Well
+solv_none <- solv_out$`None`$Well
 solv_DMSO <- solv_out$`DMSO`$Well
 solv_H2O <- solv_out$`H2O`$Well
 solv_MeOH <- solv_out$`MeOH`$Well
@@ -78,7 +80,7 @@ content_bac <- content_out$`Bacteria`$Well
 content_kana <- content_out$`Kana`$Well
 content_emp <- content_out$`Empty`$Well
 
-#make a vector for when you don't want to filter by anything in a certain category
+#make a vector for when you don't want to filter by anything in a certain category#####
 all <- m_platemaps$Well
 
 #visualize growth curves  using ggplot
@@ -93,12 +95,22 @@ mabs_curves <- function(df, c, m, so){
     
     
 return(ggplot(df_in, aes(x = time, y = OD)) + 
-         geom_line(aes(color = well, group =well)) +
-         ylim(0, 1) +
+         geom_line(aes(color = well, group = well)) +
+         ylim(0, 1.5) +
          ggtitle(substitute(c), substitute(m)) +
          theme(legend.position="none"))
 }
 #plot together, each well should have 6 replicates for each solv/media combination
 #first input is dataframe, next is the content of the wells, finall the solvent
 
-mabs_curves(df_metadata, content_bac, media_7TOGLY, solv_DMSO)
+mabs_curves(df_metadata, content_bac, media_7TO, all)
+
+df_meta_test <- df_metadata
+df_test <- filter(df_meta_test, well %in% content_kana)
+df_test <- filter(df_test, well %in% media_LTO)
+df_test <- filter(df_test, well %in% solv_none)
+df_test <- filter(df_test, time == "2")
+
+
+
+

@@ -132,7 +132,7 @@ arth_df_bac_MeOH <- filter(arth_df_bac_MeOH_spread, arth_df_bac_MeOH_spread$"8" 
 arth_df_pos_MeOH <- filter(arth_df_MeOH, well %in% MeOH_positive_control_list)
 
 #make for H2O
-arth_df_library_H2O <- filter(arth_df_H2O, well %notin% H2O_filter_out)
+arth_df_library_H2O <- filter(arth_dsf_H2O, well %notin% H2O_filter_out)
 arth_df_library_H2O_spread <- spread(arth_df_library_H2O, key = time, value = OD)
 arth_df_library_out <- filter(arth_df_library_H2O_spread, arth_df_library_H2O_spread$"8" > 5)
 arth_df_library_out <- arth_df_library_out$well
@@ -411,6 +411,7 @@ turi2_df_bac_DMSO <- remove_first_time(turi2_df_bac_DMSO)
 turi2_df_bac_DMSO <- remove_first_time(turi2_df_bac_DMSO)
 turi2_df_bac_DMSO_spread <- spread(turi2_df_bac_DMSO, key = time, value = OD)
 turi2_df_bac_DMSO <- filter(turi2_df_bac_DMSO_spread, turi2_df_bac_DMSO_spread$"8" < 1.2)
+all_curves_solvent_new(turi2_df_bac_DMSO)
 
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_DMSO <- filter(turi2_df_DMSO, well %in% DMSO_positive_control_list)
@@ -420,9 +421,10 @@ turi2_df_library_MeOH <- filter(turi2_df_MeOH, well %notin% MeOH_filter_out)
 turi2_df_library_MeOH <- remove_first_time(turi2_df_library_MeOH)
 turi2_df_library_MeOH <- remove_first_time(turi2_df_library_MeOH)
 turi2_df_library_MeOH_spread <- spread(turi2_df_library_MeOH, key = time, value = OD)
-turi2_df_library_out <- filter(turi2_df_library_MeOH_spread, turi2_df_library_MeOH_spread$"8" > 2)
+turi2_df_library_out <- filter(turi2_df_library_MeOH_spread, turi2_df_library_MeOH_spread$"8" > 2 | turi2_df_library_MeOH_spread$"1" > 0.5)
 turi2_df_library_out <- turi2_df_library_out$well
 turi2_df_library_MeOH <- filter(turi2_df_library_MeOH_spread, well %notin% turi2_df_library_out)
+all_curves_solvent_new(turi2_df_library_MeOH)
 
 #make dataframe with only the control wells
 turi2_df_bac_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_bac_control_list)
