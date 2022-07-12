@@ -404,6 +404,7 @@ turi2_df_library_DMSO_spread <- spread(turi2_df_library_DMSO, key = time, value 
 turi2_df_library_out <- filter(turi2_df_library_DMSO_spread, turi2_df_library_DMSO_spread$"8" > 1.4 )
 turi2_df_library_out <- turi2_df_library_out$well
 turi2_df_library_DMSO <- filter(turi2_df_library_DMSO_spread, well %notin% turi2_df_library_out)
+all_curves_solvent_new(turi2_df_library_DMSO)
 
 #make dataframe with only the control wells
 turi2_df_bac_DMSO <- filter(turi2_df_DMSO, well %in% DMSO_bac_control_list)
@@ -432,7 +433,7 @@ turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
 turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
 turi2_df_bac_MeOH_spread <- spread(turi2_df_bac_MeOH, key = time, value = OD)
 turi2_df_bac_MeOH <- filter(turi2_df_bac_MeOH_spread, turi2_df_bac_MeOH_spread$"8" > 0.5 & turi2_df_bac_MeOH_spread$"8" < 1.7)
-
+all_curves_solvent_new(turi2_df_bac_MeOH)
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_positive_control_list)
 
@@ -444,6 +445,7 @@ turi2_df_library_H2O_spread <- spread(turi2_df_library_H2O, key = time, value = 
 turi2_df_library_out <- filter(turi2_df_library_H2O_spread, turi2_df_library_H2O_spread$"8" > 1.5 | turi2_df_library_H2O_spread$"1" > 0.5)
 turi2_df_library_out <- turi2_df_library_out$well
 turi2_df_library_H2O <- filter(turi2_df_library_H2O_spread, well %notin% turi2_df_library_out)
+all_curves_solvent_new(turi2_df_library_H2O)
 
 #make dataframe with only the control wells
 turi2_df_bac_H2O <- filter(turi2_df_H2O, well %in% H2O_bac_control_list)
@@ -451,9 +453,14 @@ turi2_df_bac_H2O <- remove_first_time(turi2_df_bac_H2O)
 turi2_df_bac_H2O <- remove_first_time(turi2_df_bac_H2O)
 turi2_df_bac_H2O_spread <- spread(turi2_df_bac_H2O, key = time, value = OD)
 turi2_df_bac_H2O <- filter(turi2_df_bac_H2O_spread, turi2_df_bac_H2O_spread$"8" < 1.25 & turi2_df_bac_H2O_spread$"8" > 0.5)
+all_curves_solvent_new(turi2_df_bac_H2O)
 
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_H2O <- filter(turi2_df_H2O, well %in% H2O_positive_control_list)
+
+turi2_DMSO <- analysis_test_DMSO_2_inp(turi2_df_bac_DMSO, turi2_df_library_DMSO)
+turi2_MeOH <- analysis_test_DMSO_2_inp(turi2_df_bac_MeOH, turi2_df_library_MeOH)
+turi2_H2O <- analysis_test_DMSO_2_inp(turi2_df_bac_H2O, turi2_df_library_H2O)
 
 
 ###FILTER OUT TIME POINT 1####
@@ -1148,4 +1155,17 @@ mari3_MeOH_z <- z_d600_spline(mari3_MeOH)
 mari3_H2O <- analysis_test_H2O(mari3_df_H2O)
 mari3_H2O_z <- z_d600_spline(mari3_H2O)
 
+turi2_MeOH_out <- turi2_MeOH$cat
+colnames(turi2_MeOH_out) <- c("Well", "cat")
+turi2_MeOH_out_test <- merge(platemap_MeOH, turi2_MeOH_out, by = "Well" )
+write.csv(turi2_MeOH_out_test, "turi2_MeOH_categories.csv")
 
+turi2_DMSO_out <- turi2_DMSO$cat
+colnames(turi2_DMSO_out) <- c("Well", "cat")
+turi2_DMSO_out_test <- merge(platemap_DMSO, turi2_DMSO_out, by = "Well" )
+write.csv(turi2_DMSO_out_test, "turi2_DMSO_categories.csv")
+
+turi2_H2O_out <- turi2_H2O$cat
+colnames(turi2_H2O_out) <- c("Well", "cat")
+turi2_H2O_out_test <- merge(platemap_H2O, turi2_H2O_out, by = "Well" )
+write.csv(turi2_H2O_out_test, "turi2_H2O_categories.csv")

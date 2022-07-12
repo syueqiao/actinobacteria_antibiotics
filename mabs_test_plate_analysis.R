@@ -103,7 +103,7 @@ return(ggplot(df_in, aes(x = time, y = OD)) +
 #plot together, each well should have 6 replicates for each solv/media combination
 #first input is dataframe, next is the content of the wells, finall the solvent
 
-mabs_curves(df_metadata, content_bac, media_7TO, all)
+mabs_curves(df_metadata, content_kana, media_7TGLY, all)
 
 df_meta_test <- df_metadata
 df_test <- filter(df_meta_test, well %in% content_kana)
