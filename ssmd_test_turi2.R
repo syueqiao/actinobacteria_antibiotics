@@ -238,3 +238,5 @@ write.csv(turi2_color_out_labels_2_out, "ssmd_turi2_color_out_2.csv", quote = F,
 
 ######try ssmd for splines maybe?
 
+#calculate splines using lapply, put back into dataframe
+#do ssmd method above, but on "spline" column isntead of "diff" column

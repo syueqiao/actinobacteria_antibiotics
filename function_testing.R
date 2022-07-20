@@ -433,7 +433,7 @@ turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
 turi2_df_bac_MeOH <- remove_first_time(turi2_df_bac_MeOH)
 turi2_df_bac_MeOH_spread <- spread(turi2_df_bac_MeOH, key = time, value = OD)
 turi2_df_bac_MeOH <- filter(turi2_df_bac_MeOH_spread, turi2_df_bac_MeOH_spread$"8" > 0.5 & turi2_df_bac_MeOH_spread$"8" < 1.7)
-all_curves_solvent_new(turi2_df_bac_MeOH)
+all_curves_solvent_new(turi2_df_bac_MeOH_spread)
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_positive_control_list)
 
