@@ -1,0 +1,683 @@
+A23187 Calcium Ionophore
+Miconazole (+/-) nitrate
+Acycloguanosine
+Nadifloxacin
+Albendazole
+Nitazoxanide
+Amisulpride
+5-Nitro-2-Furaldehyde semicarbazone
+Amphotericin B
+Nitrofurantoin
+Aztreonam
+4-Nitropyridine N-oxide
+Balofloxacin
+Nogalamycin
+BAY 11-7085
+Norfloxacin
+Beauvericin
+N-Oleoyl ethanolamine
+Berberine chloride
+Pepstatin A
+6-Gingerol
+DL-Lanthionine
+Meloxicam
+Methotrexate
+3,3?-Methylenebis(4-hydroxycoumarin)
+Nabumetone
+Nifursol
+Nimesulide
+Oxfendazole
+Oxibendazole
+Betulinic acid
+Pimaricin
+Bismuth (III) subsalicylate
+Pimozide
+Bromperidol
+Pipemidic acid trihydrate
+Broxyquinoline
+Prochlorperazine dimaleate
+Candicidin
+Rifabutin
+Carbadox
+Rifampicin
+Carbonyl Cyanide m-Chlorophenyl hydrazon
+Risperidone
+Chaetocin
+Sangivamycin
+Chlorhexidine
+Sarafloxacin HCl
+p-Chloromercuribenzoic acid
+Sertaconazole nitrate
+Ristomycin sulfate
+Taurolidine
+Tenoxicam
+Totarol
+Idoxuridine
+Bibenzyl
+Ellagic acid. dihydrate
+beta-Lapachone
+Topiramate
+Modafinil
+Cholic acid
+Solasodine (ST023803)
+Cinoxacin
+Sparfloxacin
+Clarithromycin
+Spiperone
+Clinafloxacin HCl
+Sterigmatocystin
+Clindamycin hydrochloride
+Streptonigrin
+Clioquinol
+Sulconazole nitrate
+Clofazimine
+Sulfachloropyridazine
+Clozapine
+Sulfadoxine
+Coumermycin A-1
+Sulfamethizole
+Dacarbazine
+Sulfamonomethoxine
+Pristimerin
+4-(4’-Bromophenyl)-4-hydroxypiperidine
+Dibromothymoquinone
+Emodin
+Epinephrine (-)
+Gallium(III)ProtoporphyrinIX chloride
+1,10-Phenanthroline
+Phentolamine hydrochloride
+Shikonin
+Terizidone
+Danofloxacin
+Sulfisoxazole
+Daptomycin
+Taxol
+Diacylglycerol Kinase Inhibitor II
+Teicoplanin
+Telithromycin
+Difloxacin HCl
+Telmisartan
+5,5-Diphenylhydantoin
+Terconazole
+Domperidone
+Tetrabenazine
+Ebselen
+Thiacetazone
+Enoxacin
+Thiolactomycin
+Enrofloxacin
+Thiolutin
+L-Tetrahydropalmatine
+Moperone
+Aminopterin
+1-Hydroxypyridine-2-thione sodium salt
+1-Hydroxypyridine-2-thione zinc salt
+Auranofin
+Phortress
+Ceforanide
+Pristinamycins
+Epothilone B
+Tosufloxacin tosylate
+Etomidate
+Toyocamycin
+Etoposide
+Tubercidin
+Fiduxosin
+Usnic acid
+Fleroxacin
+Voriconazole
+Fluconazole
+Ziprasidone
+Gatifloxacin
+Amlodipine besylate
+Geldanamycin
+Grepafloxacin
+Acacetin
+trans-4-Hydroxycinnamic acid
+Acemetacin
+Platensimycin
+Artesunate
+Chlorguanide hydrochloride
+Cycloguanil hydrochloride
+Ethoxzolamide
+Mefloquine
+Pyrimethamine
+Salsalate
+Sulfamethoxypyrazine
+Sulfoxone sodium
+7-Hydroxyindole
+Amitraz
+Aripiprazole
+Asiatic acid
+Itraconazole
+Diflunisal
+Lanthanum (III) carbonate hydrate
+Diosmin
+Leoidin
+Famciclovir
+Lomofungin
+Fenbendazole
+Marbofloxacin
+Fenbufen
+Mebendazole
+Flubendazole
+Meclocycline sulfosalicylate
+Flurbiprofen
+Trimetrexate
+Abamectin
+Haloperidol
+Alamethicin
+Irgasan
+Alexidine dihydrochloride
+Isoconazole
+4-Aminophenyl sulfone
+Ivermectin
+4-Aminosalicylic acid
+Josamycin
+Anacardic acid
+6-Ketocholestanol
+Anisomycin
+Ketoconazole
+Antimycin A
+Kitasamycin
+Artemisinin
+Lamotrigine
+Astemizole
+Lansoprazole
+Spinosad
+Ornidazole
+Spiramycin
+Ostreogrycin A
+Stigmatellin
+Piericidin A
+Sulfabenzamide
+Podophyllotoxin
+Sulfadimethoxine
+Praziquantel
+Sulfamethoxazole
+Pyrantel Pamoate
+Sulfathiazole
+Quinine hemisulfate salt monohydrate
+Surfactin
+Rosmarinic Acid
+Syringaldazine
+Salinomycin monosodium salt hydrate
+Tamoxifen
+?-Santonin
+S(-)-Atenolol
+Linarin
+Azithromycin
+Luteolin
+Baicalin hydrate
+Lycorine HCl
+BAY 11-7082
+Magnolol
+(+/-)-BAY K 8644
+Menadione
+Benzamide, 99%
+Mevinolin
+Betulin
+Mezerein
+Bifonazole
+Mithramycin A
+Bithionol
+Monensin
+Butyrophenone
+Moxidectin
+Terfenadine
+TEMPOL
+(+)-Terpen-4-ol
+Thiabendazole
+Thiamphenicol
+Thiamphenicol Palmitate
+Thiostrepton
+Tilmicosin
+Thymol
+Tioconazole
+Tiamulin fumarate
+Tolfenamic acid
+Tinidazole
+Triamcinolone acetonide
+Tomatidine hydrochloride
+Triclabendazole
+Trimethoprim
+Validamycin A
+Tunicamycin
+Virginiamycin Complex
+Cannabidiol
+Mupirocin
+Carbamazepine
+Mycophenolic acid
+Carvacrol sample
+Myriocin
+(+)-Catechin hydrate
+Myristicin
+Cerulenin
+Myxothiazol
+Chetomin
+Narasin
+Chloramphenicol
+Netropsin dihydrochloride
+Chromomycin A3
+Niclosamide
+Chrysophanol
+Nigericin
+Ursocholanic acid
+Viridicatin
+Valinomycin
+Ytterbium (III) ionophore I
+Decanal
+(+)-Catechin.monohydrate
+Chlorothricin
+Cefpodoxime Proxetil
+Aceclofenac
+Celastrol
+Actinomycin D
+Eugenol
+Allyl disulfide
+DL-alpha-Lipoic acid
+Amprolium Hydrochloride
+Silibinin
+Andrographolide
+Sanguinarine chloride
+Brefeldin A
+Amoxapine
+trans-Cinnamaldehyde
+Nystatin
+Climbazole
+Oleanolic acid
+Closantel
+Oleic acid
+Clotrimazole
+Oligomycin
+Cryptotanshinone
+Omeprazole
+Curcumin
+Oxiconazole nitrate
+?-Cyano-4-hydroxycinnamic acid
+Oxytetracycline
+Cyclosporin A
+Patulin
+Dexamethasone
+Perphenazine
+2,6-Dichloro-4-nitroaniline
+Perhexiine maleate
+Ceftiofur HCl
+Azaperone
+Cepharanthine
+4-Chloro-4’-fluorobutyrophenone
+Clobetasol propionate
+Dapsone
+Clopidol
+Dopamine
+Cloxacillin
+FR900098
+Diclazuril
+Fluphenazine
+Febantel
+Fosmidomycin
+Flavomycin
+Piperine
+Fluocinolone Acetonide
+1,2-Naphthoquinone
+Furosemide
+1,4-Naphthoquinone
+6,7-Dihydroxycoumarin
+Phenylmethylsulfonylfluoride PMSF
+Dirythromycin
+Pleuromutilin
+Distamycin A HCl
+Plumbagin
+Doramectin
+Doxycycline hyclate
+Prothionamide
+Droperidol
+Prulifloxacin
+Echinomycin
+Quetiapine hemifumarate
+Econazole nitrate
+Rabeprazole
+Ellipticine
+Radicicol
+Erythromycin
+Rapamycin
+Gardiquimod
+Quercetin
+Honokiol
+Thiocarlide
+Hydrocortisone
+Vitamin K1
+Ibudilast
+S(+) Ibuprofen
+Indomethacin
+Kanosamine hydrochloride
+Emamectin B benzoate
+Ketoprofen
+Eprinomectin
+Loperamide hydrochloride
+Milbemycin oxime
+Erythromycin Stearate
+Reserpine
+B-Estradiol 17-cypionate
+Resveratrol
+Ethionamide
+Retapamulin
+Ethosuximide
+Ricobendazole
+Evernic acid
+Rifapentine
+Farnesol
+Rifaximine
+Ferulenol
+Rosamicin
+Florfenicol
+Roxithromycin
+Fusaric acid
+Secnidazole
+Griseofulvin
+Selamectin
+Maduramicin ammonium
+Tyrothricin
+Malathion
+Bicyclomycin benzoate
+6-Mercaptopurine Monohydrate
+3-formyl Rifamycin SV
+Midecamycin
+Rifamdin
+(+/-)-Myricanol
+Bithionol sulfoxide
+Myricetin
+Naphthomycin B
+3-Nitropropionic acid
+Nitroxinil
+Nonactin
+Ramoplanin
+Dithionite sodium
+L-Theanine
+L-(+)-Ergothioneine
+6,7-ADTN hydrobromide
+Gallium(III) nitrate hydrate
+Benserazide HCl
+Levodopa
+Cefepime HCl
+Norepinephrine bitartrate
+L-Cycloserine
+Oxolinic acid
+Dalfopristin
+S(-)-Propranolol HCl
+R(-)-Deprenyl·HCl (Selegiline)
+Rasagiline
+1,3-Diaminoacetone dihydrochloride
+Ropinirole hydrochloride
+2,2’-Dipyridyl  (Bipyridyl)
+Salbutamol
+N-Acetyl-L-Cysteine
+Diazolidinyl urea
+N-Acetylmuramic acid
+N,N’-Dicyclohexylcarbodiimide (DCCD)
+Acetylsalicylic acid
+Dihydrostreptomycin sesquisulfate
+Acivicin
+Diminazene aceturate
+L-Albizziine
+Doripenem
+Amikacin hydrate
+Doxorubicin hydrochloride
+Amiloride hydrochloride
+Emetine dihydrochloride hydrate
+(1R)-(+)-(1-Amino-2-methylpropyl)phosphonic acid
+(?)-Epigallocatechin gallate
+(1R)-(?)-(1-Aminopropyl)phosphonic acid
+Esculin hydrate
+3-Amino-1,2,4-triazole
+Ethambutol
+Neomycin sufate
+Aspartate-beta-hydroxamate
+Nicotinic acid
+Atropine sulfate monohydrate
+Nikkomycin Z
+Azaserine
+Nisin from Lactococcus lactis
+Bambuterol
+S-Nitrosoglutathione
+L-beta-threo-Benzylaspartate
+Novobiocin sodium salt
+Betamethasone 21-phosphate sodium salt
+Ofloxacin
+Bleomycins
+Oleandomycin phosphate
+Caffeine
+Orbifloxacin
+Cefadroxil
+Oxacillin sodium monohydrate
+Cefapirin
+Amoxicillin
+Ferrous perchlorate
+Ampicillin sodium salt
+DL-Fluorocitric barium salt
+Anhydrotetracycline hydrochloride
+Fropenem (Faropenem)
+Antipain dihydrochloride
+Fusidic acid sodium salt
+Apramycin sulfate
+G418 disulfate
+Aspartame
+Gabapentin
+Ganciclovir
+Azide, sodium
+Gemifloxacin mesylate
+Bacitracin
+Geneticin disulfate
+Benzamidine hydrochloride
+Gentamicin sulfate
+Paromomyin sulfate
+Cefdinir
+Pazufloxacin
+Cephradine
+Pefloxacin mesylate dihydrate
+Chloroquine diphosphate salt
+Penicillin G sodium salt
+Chlorpheniramine Maleate
+Phenothrin mixture of isomers
+Cromolyn sodium
+Phenylmercuric acetate 97%
+Cyromazine
+Phleomycin
+Diclofenac, sodium salt
+Phosphinothricin
+Dicloxacillin sodium monohydrate
+Phosphomycin disodium
+Diethylcarbamazine citrate
+Phosphonoformic acid trisodium
+Duramycin
+p-Benzoquinone
+Bialaphos
+Hydroxyurea
+Biapenem
+Bisbenzimide trihydrochloride
+Idarubicin HCl
+Blasticidine S hydrochloride
+Imatinib . mesylate
+Butirosin A
+Imipenem
+Cadmium acetate dihydrate
+Imipramine hydrochloride
+L-Canavanine
+Indole
+Capreomycin sulfate
+Isatin
+Carbenicillin disodium
+Isepamicin sulfate
+Piperacillin sodium
+Ertapenem sodium
+Polymyxin B nonapeptide HCl
+Ethacridine lactate monohydrate
+Pramoxine hydrochloride
+5-Fluorocytosine
+Puromycin dihydrochloride
+Foscarnet
+Pyrazinamide
+Hydroxytyrosol acetate
+Pyrazinoic acid
+Losartan Potassium
+Ribavirin
+Mecillinam
+Ribostamycin sulfate
+Meglumine
+Rufloxacin HCl
+N-Methyl-DL-aspartic acid
+Salicin
+Methylglyoxal solution
+Cefaclor
+Isoniazid
+Cefamandole
+Isonicotinic acid
+Cefazolin
+Itaconic acid
+Cefmetazole sodium
+Itaconic anhydride
+Cefodizime disodium
+Kanamycin sulfate
+Cefoperazone sodium
+Kasugamycin hydrochloride
+Cefotaxime sodium
+Leupeptin hemisulfate
+Cefoxitin sodium
+Levofloxacin
+Ceftazidime hydrate
+Lincomycin hydrochloride
+Ceftriaxone disodium salt hemi
+Linezolid
+Shikimic acid
+Nafcillin sodium monohydrate
+Sinefungin
+Netilmicin
+Sisomicin sulfate
+Nojirimycin bisulfite
+Spectinomycin dihydrochloride pentahydrate
+Paeonol
+Streptomycin sulfate
+Pentamidine isethionate
+Sulbactam sodium salt
+Povidone iodine
+Pregabalin
+Sulfadiazine
+Primaquine phosphate
+Sulfamide 99%
+Rimantadine Hydrochloride
+Sulfanilamide
+Scopolamine hydrobromide
+Cefuroxime
+Lithium carbonate
+Cephalexin hydrate
+Lomefloxacin HCl
+Cephalothin sodium
+Malic acid
+Cetylpyridinium chloride monohydrate
+Malonic acid
+Daunorubicin HCl
+(+/-)-Mandelic acid
+Chlorprothixene
+Melperone hydrochloride
+Chlortetracycline
+Memantine hydrochloride
+Choline chloride
+2-Mercaptopyridine N-oxide sodium salt
+Ciclopirox Olamine
+Meropenem
+Ciprofloxacin HCl
+Methacycline hydrochloride
+Sulfaquinoxaline
+Streptothricin sulfate
+Tazobactam sodium salt
+Suramin hexasodium salt
+Terbinafine Hydrochloride
+Synthalin sulfate
+Tetracycline hydrochloride
+(?)-Tetramisole hydrochloride
+Thimerosal, 97%
+Thiourea
+1-Thioglycerol
+Tolmetin
+Thioridazine
+Cilastatin
+Ticarcillin disodium
+Fluvastatin.sodium salt
+Tobramycin
+Methyl viologen dichloride hydrate
+Trifluoperazine hydrochloride
+L-Methionine sulfoximine
+Clavulanate potassium
+Methicillin Sodium
+Colistin sulfate
+Methiothepin mesylate
+Cycloheximide
+NG-Methyl-L-arginine acetate salt
+D-Cycloserine
+Methylbenzethonium chloride
+Chlorpromazine HCl
+Metronidazole
+Deferoxamine mesylate
+Minocycline hydrochloride
+Demeclocycline hydrochloride
+Mitomycin C
+Dequalinium chloride hydrate
+Moxifloxacin
+Dextromethorphan hydrobromide monohydrate
+Nalidixic acid
+Diamide
+Neamine
+Trifluperidol HCl
+Mezlocillin
+Tylosin tartrate
+Sumatriptan succinate
+Valproic acid sodium salt
+L-Thiocitrulline
+Vancomycin
+2-Thiophenecarboxylic acid
+(+-)-Verapamil hydrochloride
+2-Thiophenecarboxylic acid hydrazide
+Viomycin sulfate
+Tigecycline
+Zeocin
+Glutathione
+Amantadine Hydrochloride
+1-(1-Naphthylmethyl)piperazine, 95%
+4-Aminomethylbenzenesulfonamide HCl
+Phe-Arg-beta-Naphthylamide dihydrochloride
+Arbutin
+Pyridoxine
+Serotonin
+Enramycin A
+Sertraline HCl
+Enramycin B
+Trovafloxacin mesylate
+Micronomicin sulfate
+Tyramine
+Quinupristin
+Rifamycin SV monosodium salt
+Pipamperone
+Salicylic acid sodium salt
+2-Aminothiazole
+Pyrazole
+Furazolidone
+1,7-Dideacetoxy-1,7-dioxo-3-deacetyl khivorin
+Ceftibuten
+Esomeprazole magnesium dihydrate
+Irigenin-7-benzyl ether
+Irigenol hexaacetate
+1,4-Cineole
+Nosiheptide
+Posaconazole
+Cefditoren Pivoxil (Spectrabef)
+Cefixime (Suprax)
+Imiquimod(R-837)
+Cefprozil
+Benperidol
+Astromycin sulfate        
+Hydrogen Peroxide
+Hygromycin B                                                       
+failed on 579,Sulfacetamide sodium
+failed on 675,Valnemulin HCl
+failed on 676,Synercid (dalfopristin:quinupristin, 70:30 ) 5 mM dalfo
+failed on 677,Loracarbef (Lorabid)

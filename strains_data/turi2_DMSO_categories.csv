@@ -1,0 +1,169 @@
+"","Well","DMSO","cat"
+"1","C03","A23187 Calcium Ionophore 10 mg",9
+"2","C04","Miconazole (+/-) nitrate 1 g                                      ",9
+"3","C05","Acycloguanosine 50 mg",9
+"4","C06","Nadifloxacin 250 mg",9
+"5","C07","Albendazole 10 g",9
+"6","C08","Nitazoxanide 100 mg",9
+"7","C09","Amisulpride 50 mg",6
+"8","C10","5-Nitro-2-Furaldehyde semicarbazone 100 g",5
+"9","C11","Amphotericin B, from Streptomyces spp. 100 mg                               875 ug/mg",8
+"10","C12","Nitrofurantoin 10 g",5
+"11","C13","Aztreonam 50 mg                                                ",8
+"12","C14","4-Nitropyridine N-oxide 5 g",8
+"13","C15","Balofloxacin 50 mg",8
+"14","C16","Nogalamycin from Streptomyces nogalater 5 mg",9
+"15","C17","BAY 11-7085 10 mg",8
+"16","C18","Norfloxicin 1 g                                                      ",8
+"17","C19","Beauvericin 5 mg",9
+"18","C20","N-Oleoyl ethanolamine 10 mg",5
+"19","C21","Berberine chloride 5 g",5
+"20","C22","Pepstatin A 25 mg                                               ",5
+"21","D03","6-Gingerol 5 mg",8
+"22","D05","DL-Lanthionine 10 mg",9
+"23","D07","Meloxicam  100 mg",9
+"24","D09","Methotrexate  10 mg  ",9
+"25","D11","3,3?-Methylenebis(4-hydroxycoumarin)  5 g",9
+"26","D13","Nabumetone  5 g",9
+"27","D15","Nifursol 25 g",5
+"28","D17","Nimesulide 5 g",5
+"29","D19","Oxfendazole  10 g",5
+"30","D21","Oxibendazole  5 g",8
+"31","E03","Betulinic acid 100 mg                                            ",9
+"32","E04","Pimaricin 25 mg",9
+"33","E05","Bismuth (III) subsalicylate 100 g",9
+"34","E06","Pimozide 500 mg",9
+"35","E07","Bromperidol 100 mg                                                      ",9
+"36","E08","Pipemidic acid trihydrate 25 g",9
+"37","E09","Broxyquinoline  25 g",9
+"38","E10","Prochlorperazine dimaleate 100 mg",5
+"39","E11","Candicidin 200 mg",8
+"40","E12","Rifabutin 1 g                                                        ",9
+"41","E13","Carbadox 25 g",9
+"42","E14","Rifampicin 1g                                                     ",9
+"43","E15","Carbonyl Cyanide m-Chlorophenyl hydrazon 100 mg",9
+"44","E16","Risperidone 10 mg",5
+"45","E17","Chaetocin 4 mg",9
+"46","E18","Sangivamycin 10 mg",8
+"47","E19","Chlorhexidine 1 g",9
+"48","E20","Sarafloxacin HCl 5 g",9
+"49","E21","p-Chloromercuribenzoic acid 5 g",8
+"50","E22","Sertaconazole nitrate 125 mg",9
+"51","F03","Ristomycin sulfate 100 mg",9
+"52","F05","Taurolidine 10 mg",9
+"53","F07","Tenoxicam  250 mg",9
+"54","F09","Totarol 100 mg",9
+"55","F11","Idoxuridine  500 mg",8
+"56","F13","Bibenzyl 5 g",5
+"57","F15","Ellagic acid. dihydrate 100 mg",8
+"58","F17","beta-Lapachone 5 mg",8
+"59","F19","Topiramate 10 mg",5
+"60","F21","Modafinil 10 mg",8
+"61","G03","Cholic acid 25 g",9
+"62","G04","Solasodine (ST023803) 100 mg                       ",9
+"63","G05","Cinoxacin 1 g",9
+"64","G06","Sparfloxacin 1 g                                                                ",9
+"65","G07","Clarithromycin 250 mg                                          ",9
+"66","G08","Spiperone 250 mg",9
+"67","G09","Clinafloxacin HCl 1 g",9
+"68","G10","Sterigmatocystin 5 mg",5
+"69","G11","Clindamycin hydrochloride 50 mg                        ",9
+"70","G12","Streptonigrin from Streptomyces flocculus 5 mg",5
+"71","G13","Clioquinol 50 mg",9
+"72","G14","Sulconazole nitrate 1 g",9
+"73","G16","Sulfachloropyridazine 100 g",8
+"74","G17","Clozapine 25 mg",8
+"75","G19","Coumermycin A-1 10 mg",9
+"76","G20","Sulfamethizole 10 g",8
+"77","G21","Dacarbazine 100 mg",5
+"78","G22","Sulfamonomethoxine 250 mg",5
+"79","H03","Pristimerin 5 mg",9
+"80","H05","4-(4’-Bromophenyl)-4-hydroxypiperidine 10 g",9
+"81","H07","Dibromothymoquinone 250 mg",9
+"82","H09","Emodin 50 mg",9
+"83","H11","Epinephrine (-) 1 g",5
+"84","H13","Gallium(III)ProtoporphyrinIX chloride 100 mg",9
+"85","H15","1,10-Phenanthroline 2.5 g",5
+"86","H17","Phentolamine hydrochloride 50 mg",5
+"87","H19","Shikonin 50 mg",9
+"88","H21","Terizidone 100 mg",8
+"89","I03","Danofloxacin 50 mg",9
+"90","I04","Sulfisoxazole 25 g",8
+"91","I05","Daptomycin 25 mg",9
+"92","I06","Taxol 25 mg",9
+"93","I07","Diacylglycerol Kinase Inhibitor II 5 mg",9
+"94","I08","Teicoplanin 1 g                                                   ",9
+"95","I09","1,7-Dideacetoxy-1,7-dioxo-3-deacetyl khivorin",5
+"96","I10","Telithromycin 100 mg",5
+"97","I11","Difloxacin HCl 50 mg",9
+"98","I12","Telmisartan 10 mg                                                ",5
+"99","I13","5,5-Diphenylhydantoin 5 g",5
+"100","I14","Terconazole 250 mg",8
+"101","I15","Domperidone 25 mg",5
+"102","I16","Tetrabenazine 10 mg",5
+"103","I17","Ebselen 25 mg",6
+"104","I18","Thiacetazone  100 g",5
+"105","I19","Enoxacin 50 mg",5
+"106","I20","Thiolactomycin 10 mg",5
+"107","I21","Enrofloxacin 5 g",9
+"108","I22","Thiolutin 1 mg ",9
+"109","J03","L-Tetrahydropalmatine 100 mg",5
+"110","J05","Ceftibuten",9
+"111","J07","Moperone 10 mg",5
+"112","J09","Aminopterin 50 mg",8
+"113","J11","1-Hydroxypyridine-2-thione sodium salt 1 g                    ",9
+"114","J13","1-Hydroxypyridine-2-thione zinc salt 10 g",9
+"115","J15","Auranofin 100 mg",9
+"116","J17","Phortress 10 mg",5
+"117","J19","Ceforanide 25 mg",9
+"118","J21","Pristinamycins 100 mg                           ",9
+"119","K03","Epothilone B 10 mg",5
+"120","K04","Tosufloxacin tosylate 250 mg",9
+"121","K05","Etomidate 100 mg",5
+"122","K06","Toyocamycin 10 mg",9
+"123","K07","Etoposide 25 mg",8
+"124","K08","Tubercidin 10 mg",9
+"125","K09","Fiduxosin 5 mg                                                                                        ",5
+"126","K10","Usnic acid 5 g",5
+"127","K11","Fleroxacin 50 mg",5
+"128","K12","Voriconazole 100 mg",5
+"129","K13","Fluconazole 100 mg                                              ",5
+"130","K14","Ziprasidone 5 mg",5
+"131","K15","Gatifloxacin 100 mg                                              ",9
+"132","K16","Amlodipine besylate 10 mg",5
+"133","K17","Geldanamycin 10 mg",5
+"134","K18","Esomeprazole magnesium dihydrate",5
+"135","K19","Grepafloxacin 50 mg",9
+"136","K20","Acacetin 50 mg",5
+"137","K21","trans-4-Hydroxycinnamic acid 25 g",5
+"138","K22","Acemetacin 1 g",5
+"139","L03","Platensimycin 250 ug",8
+"140","L05","Artesunate 100 mg",5
+"141","L07","Chlorguanide hydrochloride 25 mg",5
+"142","L09","Cycloguanil hydrochloride 25 mg",5
+"143","L11","Ethoxzolamide 1 g",5
+"144","L13","Mefloquine 100 mg",5
+"145","L15","Pyrimethamine 50 mg",5
+"146","L19","Sulfamethoxypyrazine 25 mg",5
+"147","L21","Sulfoxone sodium 1 g",5
+"148","M03","7-Hydroxyindole 1 g",5
+"149","M04","Amitraz  5 g",5
+"150","M05","Irigenin-7-benzyl ether                                                  318.239 + benzyl  ether",9
+"151","M06","Aripiprazole 100 mg",4
+"152","M07","Irigenol hexaacetate                                                     318.239 + hexaacetate",5
+"153","M08","Asiatic acid 100 mg",8
+"154","M09","Itraconazole 100 mg                                           ",5
+"155","M10","Diflunisal 5 g",5
+"156","M11","Lanthium(III) carbonate hydrate 5 g",5
+"157","M12","Diosmin 1 g",8
+"158","M13","Leoidin 100 mg",9
+"159","M14","Famciclovir  50 mg",8
+"160","M15","Lomofungin 10 mg ",5
+"161","M16","Fenbendazole  5 g",4
+"162","M17","Marbofloxacin 50 mg",9
+"163","M18","Fenbufen  1 g",5
+"164","M19","Mebendazole 25 g",5
+"165","M20","Flubendazole 10 g",5
+"166","M21","Meclocycline sulfosalicylate 500 mg                     ",9
+"167","M22","Flurbiprofen  1 g",9
+"168","N03","Trimetrexate 10 mg",9

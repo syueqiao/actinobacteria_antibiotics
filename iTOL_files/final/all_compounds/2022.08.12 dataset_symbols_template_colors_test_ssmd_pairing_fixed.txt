@@ -1,0 +1,763 @@
+DATASET_SYMBOL
+#Symbol datasets allow the display of various symbols on the branches of the tree. For each node, one or more symbols can be defined.
+#Each symbol's color, size and position along the branch can be specified.
+
+#lines starting with a hash are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,ssmd_color_median
+
+#dataset color (can be changed later)
+COLOR,#ffff00
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#Optionally, shapes can be inverted (LEGEND_SHAPE_INVERT). When inverted, shape border will be drawn using the selected color, and the fill color will be white.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+#LEGEND_SHAPE_INVERT,0,0,0
+
+
+#largest symbol will be displayed with this size, others will be proportionally smaller.
+MAXIMUM_SIZE,10
+
+#symbols can be filled with solid color, or a gradient
+#GRADIENT_FILL,1
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are required for each node:
+#ID,symbol,size,color,fill,position,label
+#symbol should be a number between 1 and 5:
+#1: rectangle
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#size can be any number. Maximum size in the dataset will be displayed using MAXIMUM_SIZE, while others will be proportionally smaller
+#color can be in hexadecimal, RGB or RGBA notation. If RGB or RGBA are used, dataset SEPARATOR cannot be comma.
+#fill can be 1 or 0. If set to 0, only the outline of the symbol will be displayed.
+#position is a number between 0 and 1 and defines the position of the symbol on the branch (for example, position 0 is exactly at the start of node branch, position 0.5 is in the middle, and position 1 is at the end)
+
+DATA
+A23187 Calcium Ionophore,2,2,#a1a1a1,1,1
+Miconazole -+/-- nitrate,2,2,#a1a1a1,1,1
+Acycloguanosine,2,2,#ad05e6,1,1
+Nadifloxacin,2,2,#ad05e6,1,1
+Albendazole,2,2,#a1a1a1,1,1
+Nitazoxanide,2,2,#ad05e6,1,1
+Amisulpride,2,2,#a1a1a1,1,1
+5-Nitro-2-Furaldehyde semicarbazone,2,2,#a1a1a1,1,1
+Amphotericin B,2,2,#a1a1a1,1,1
+Nitrofurantoin,2,2,#a1a1a1,1,1
+Aztreonam,2,2,#a1a1a1,1,1
+4-Nitropyridine N-oxide,2,2,#a1a1a1,1,1
+Balofloxacin,2,2,#a1a1a1,1,1
+Nogalamycin,2,2,#ad05e6,1,1
+BAY 11-7085,2,2,#a1a1a1,1,1
+Norfloxacin,2,2,#a1a1a1,1,1
+Beauvericin,2,2,#a1a1a1,1,1
+N-Oleoyl ethanolamine,2,2,#a1a1a1,1,1
+Berberine chloride,2,2,#a1a1a1,1,1
+Pepstatin A,2,2,#a1a1a1,1,1
+6-Gingerol,2,2,#a1a1a1,1,1
+DL-Lanthionine,2,2,#ad05e6,1,1
+Meloxicam,2,2,#ad05e6,1,1
+Methotrexate,2,2,#ad05e6,1,1
+3,3?-Methylenebis-4-hydroxycoumarin-,2,2,#ad05e6,1,1
+Nabumetone,2,2,#ad05e6,1,1
+Nifursol,2,2,#a1a1a1,1,1
+Nimesulide,2,2,#a1a1a1,1,1
+Oxfendazole,2,2,#a1a1a1,1,1
+Oxibendazole,2,2,#a1a1a1,1,1
+Betulinic acid,2,2,#a1a1a1,1,1
+Pimaricin,2,2,#ad05e6,1,1
+Bismuth -III- subsalicylate,2,2,#ad05e6,1,1
+Pimozide,2,2,#ad05e6,1,1
+Bromperidol,2,2,#a1a1a1,1,1
+Pipemidic acid trihydrate,2,2,#a1a1a1,1,1
+Broxyquinoline,2,2,#ad05e6,1,1
+Prochlorperazine dimaleate,2,2,#a1a1a1,1,1
+Candicidin,2,2,#a1a1a1,1,1
+Rifabutin,2,2,#ad05e6,1,1
+Carbadox,2,2,#a1a1a1,1,1
+Rifampicin,2,2,#ad05e6,1,1
+Carbonyl Cyanide m-Chlorophenyl hydrazon,2,2,#a1a1a1,1,1
+Risperidone,2,2,#a1a1a1,1,1
+Chaetocin,2,2,#ad05e6,1,1
+Sangivamycin,2,2,#a1a1a1,1,1
+Chlorhexidine,2,2,#a1a1a1,1,1
+Sarafloxacin HCl,2,2,#a1a1a1,1,1
+p-Chloromercuribenzoic acid,2,2,#a1a1a1,1,1
+Sertaconazole nitrate,2,2,#a1a1a1,1,1
+Ristomycin sulfate,2,2,#ad05e6,1,1
+Taurolidine,2,2,#ad05e6,1,1
+Tenoxicam,2,2,#ad05e6,1,1
+Totarol,2,2,#a1a1a1,1,1
+Idoxuridine,2,2,#a1a1a1,1,1
+Bibenzyl,2,2,#a1a1a1,1,1
+Ellagic acid dihydrate,2,2,#a1a1a1,1,1
+beta-Lapachone,2,2,#a1a1a1,1,1
+Topiramate,2,2,#a1a1a1,1,1
+Modafinil,2,2,#a1a1a1,1,1
+Cholic acid,2,2,#ad05e6,1,1
+Solasodine -ST023803-,2,2,#ad05e6,1,1
+Cinoxacin,2,2,#ad05e6,1,1
+Sparfloxacin,2,2,#ad05e6,1,1
+Clarithromycin,2,2,#ad05e6,1,1
+Spiperone,2,2,#ad05e6,1,1
+Clinafloxacin HCl,2,2,#ad05e6,1,1
+Sterigmatocystin,2,2,#a1a1a1,1,1
+Clindamycin hydrochloride,2,2,#ad05e6,1,1
+Streptonigrin,2,2,#a1a1a1,1,1
+Clioquinol,2,2,#a1a1a1,1,1
+Sulconazole nitrate,2,2,#a1a1a1,1,1
+Clofazimine,2,2,#a1a1a1,1,1
+Sulfachloropyridazine,2,2,#a1a1a1,1,1
+Clozapine,2,2,#a1a1a1,1,1
+Sulfadoxine,2,2,#a1a1a1,1,1
+Coumermycin A-1,2,2,#a1a1a1,1,1
+Sulfamethizole,2,2,#a1a1a1,1,1
+Dacarbazine,2,2,#a1a1a1,1,1
+Sulfamonomethoxine,2,2,#a1a1a1,1,1
+Pristimerin,2,2,#ad05e6,1,1
+4--4###-Bromophenyl--4-hydroxypiperidine,2,2,#ad05e6,1,1
+Dibromothymoquinone,2,2,#a1a1a1,1,1
+Emodin,2,2,#a1a1a1,1,1
+Epinephrine ---,2,2,#a1a1a1,1,1
+Gallium-III-ProtoporphyrinIX chloride,2,2,#a1a1a1,1,1
+1,10-Phenanthroline,2,2,#a1a1a1,1,1
+Phentolamine hydrochloride,2,2,#a1a1a1,1,1
+Shikonin,2,2,#a1a1a1,1,1
+Terizidone,2,2,#a1a1a1,1,1
+Danofloxacin,2,2,#ad05e6,1,1
+Sulfisoxazole,2,2,#a1a1a1,1,1
+Daptomycin,2,2,#ad05e6,1,1
+Taxol,2,2,#a1a1a1,1,1
+Diacylglycerol Kinase Inhibitor II,2,2,#ad05e6,1,1
+Teicoplanin,2,2,#ad05e6,1,1
+1,7-Dideacetoxy-1,7-dioxo-3-deacetyl khivorin,2,2,#a1a1a1,1,1
+Telithromycin,2,2,#a1a1a1,1,1
+Difloxacin HCl,2,2,#a1a1a1,1,1
+Telmisartan,2,2,#a1a1a1,1,1
+5,5-Diphenylhydantoin,2,2,#a1a1a1,1,1
+Terconazole,2,2,#a1a1a1,1,1
+Domperidone,2,2,#a1a1a1,1,1
+Tetrabenazine,2,2,#a1a1a1,1,1
+Ebselen,2,2,#a1a1a1,1,1
+Thiacetazone,2,2,#a1a1a1,1,1
+Enoxacin,2,2,#a1a1a1,1,1
+Thiolactomycin,2,2,#a1a1a1,1,1
+Enrofloxacin,2,2,#ad05e6,1,1
+Thiolutin,2,2,#a1a1a1,1,1
+L-Tetrahydropalmatine,2,2,#a1a1a1,1,1
+Ceftibuten,2,2,#a1a1a1,1,1
+Moperone,2,2,#a1a1a1,1,1
+Aminopterin,2,2,#a1a1a1,1,1
+1-Hydroxypyridine-2-thione sodium salt,2,2,#a1a1a1,1,1
+1-Hydroxypyridine-2-thione zinc salt,2,2,#a1a1a1,1,1
+Auranofin,2,2,#ad05e6,1,1
+Phortress,2,2,#a1a1a1,1,1
+Ceforanide,2,2,#ad05e6,1,1
+Pristinamycin,2,2,#a1a1a1,1,1
+Epothilone B,2,2,#a1a1a1,1,1
+Tosufloxacin tosylate,2,2,#a1a1a1,1,1
+Etomidate,2,2,#a1a1a1,1,1
+Toyocamycin,2,2,#a1a1a1,1,1
+Etoposide,2,2,#a1a1a1,1,1
+Tubercidin,2,2,#a1a1a1,1,1
+Fiduxosin,2,2,#a1a1a1,1,1
+Usnic acid,2,2,#a1a1a1,1,1
+Fleroxacin,2,2,#a1a1a1,1,1
+Voriconazole,2,2,#a1a1a1,1,1
+Fluconazole,2,2,#a1a1a1,1,1
+Ziprasidone,2,2,#a1a1a1,1,1
+Gatifloxacin,2,2,#a1a1a1,1,1
+Amlodipine besylate,2,2,#a1a1a1,1,1
+Geldanamycin,2,2,#a1a1a1,1,1
+Esomeprazole magnesium dihydrate,2,2,#a1a1a1,1,1
+Grepafloxacin,2,2,#ad05e6,1,1
+Acacetin,2,2,#a1a1a1,1,1
+trans-4-Hydroxycinnamic acid,2,2,#a1a1a1,1,1
+Acemetacin,2,2,#a1a1a1,1,1
+Platensimycin,2,2,#a1a1a1,1,1
+Artesunate,2,2,#a1a1a1,1,1
+Chlorguanide hydrochloride,2,2,#a1a1a1,1,1
+Cycloguanil hydrochloride,2,2,#a1a1a1,1,1
+Ethoxzolamide,2,2,#ad05e6,1,1
+Mefloquine,2,2,#a1a1a1,1,1
+Pyrimethamine,2,2,#a1a1a1,1,1
+Salsalate,2,2,#a1a1a1,1,1
+Sulfamethoxypyrazine,2,2,#a1a1a1,1,1
+Sulfoxone sodium,2,2,#a1a1a1,1,1
+7-Hydroxyindole,2,2,#a1a1a1,1,1
+Amitraz,2,2,#a1a1a1,1,1
+Irigenin-7-benzyl ether,2,2,#a1a1a1,1,1
+Aripiprazole,2,2,#a1a1a1,1,1
+Iriginol hexaacetate,2,2,#a1a1a1,1,1
+Asiatic acid,2,2,#a1a1a1,1,1
+Itraconazole,2,2,#a1a1a1,1,1
+Diflunisal,2,2,#a1a1a1,1,1
+Lanthanum -III- carbonate hydrate,2,2,#a1a1a1,1,1
+Diosmin,2,2,#a1a1a1,1,1
+Leoidin,2,2,#a1a1a1,1,1
+Famciclovir,2,2,#a1a1a1,1,1
+Lomofungin,2,2,#a1a1a1,1,1
+Fenbendazole,2,2,#a1a1a1,1,1
+Marbofloxacin,2,2,#a1a1a1,1,1
+Fenbufen,2,2,#a1a1a1,1,1
+Mebendazole,2,2,#a1a1a1,1,1
+Flubendazole,2,2,#a1a1a1,1,1
+Meclocycline sulfosalicylate,2,2,#ad05e6,1,1
+Flurbiprofen,2,2,#a1a1a1,1,1
+Trimetrexate,2,2,#a1a1a1,1,1
+Abamectin,2,2,#a1a1a1,1,1
+Haloperidol,2,2,#07eb29,1,1
+Alamethicin,2,2,#a1a1a1,1,1
+Irgasan,2,2,#a1a1a1,1,1
+Alexidine dihydrochloride,2,2,#ad05e6,1,1
+Isoconazole,2,2,#a1a1a1,1,1
+4-Aminophenyl sulfone,2,2,#a1a1a1,1,1
+Ivermectin,2,2,#a1a1a1,1,1
+4-Aminosalicylic acid,2,2,#ad05e6,1,1
+Josamycin,2,2,#ad05e6,1,1
+Anacardic acid,2,2,#a1a1a1,1,1
+6-Ketocholestanol,2,2,#a1a1a1,1,1
+Anisomycin,2,2,#a1a1a1,1,1
+Ketoconazole,2,2,#a1a1a1,1,1
+Antimycin A,2,2,#ad05e6,1,1
+Kitasamycin,2,2,#a1a1a1,1,1
+Artemisinin,2,2,#a1a1a1,1,1
+Lamotrigine,2,2,#a1a1a1,1,1
+Astemizole,2,2,#a1a1a1,1,1
+Lansoprazole,2,2,#a1a1a1,1,1
+Spinosad,2,2,#a1a1a1,1,1
+Ornidazole,2,2,#ad05e6,1,1
+Spiramycin,2,2,#ad05e6,1,1
+Ostreogrycin A,2,2,#ad05e6,1,1
+Stigmatellin,2,2,#a1a1a1,1,1
+Piericidin A,2,2,#ad05e6,1,1
+Sulfabenzamide,2,2,#ad05e6,1,1
+Podophyllotoxin,2,2,#a1a1a1,1,1
+Sulfadimethoxine,2,2,#a1a1a1,1,1
+Praziquantel,2,2,#a1a1a1,1,1
+Sulfamethoxazole,2,2,#a1a1a1,1,1
+Pyrantel Pamoate,2,2,#a1a1a1,1,1
+Sulfathiazole,2,2,#a1a1a1,1,1
+Quinine hemisulfate salt monohydrate,2,2,#ad05e6,1,1
+Surfactin,2,2,#a1a1a1,1,1
+Rosmarinic Acid,2,2,#a1a1a1,1,1
+Syringaldazine,2,2,#a1a1a1,1,1
+Salinomycin monosodium salt hydrate,2,2,#ad05e6,1,1
+Tamoxifen,2,2,#ad05e6,1,1
+?-Santonin,2,2,#ad05e6,1,1
+S----Atenolol,2,2,#a1a1a1,1,1
+Linarin,2,2,#a1a1a1,1,1
+Azithromycin,2,2,#ad05e6,1,1
+Luteolin,2,2,#a1a1a1,1,1
+Baicalin hydrate,2,2,#a1a1a1,1,1
+Lycorine HCl,2,2,#ad05e6,1,1
+BAY 11-7082,2,2,#a1a1a1,1,1
+Magnolol,2,2,#a1a1a1,1,1
++/---BAY K 8644,2,2,#ad05e6,1,1
+Menadione,2,2,#a1a1a1,1,1
+Benzamide, 99%,2,2,#a1a1a1,1,1
+Mevinolin,2,2,#a1a1a1,1,1
+Betulin,2,2,#a1a1a1,1,1
+Mezerein,2,2,#ad05e6,1,1
+Bifonazole,2,2,#ad05e6,1,1
+Mithramycin A,2,2,#ad05e6,1,1
+Bithionol,2,2,#ad05e6,1,1
+Monensin,2,2,#ad05e6,1,1
+Butyrophenone,2,2,#ad05e6,1,1
+Moxidectin,2,2,#ad05e6,1,1
+Terfenadine,2,2,#a1a1a1,1,1
+TEMPOL,2,2,#a1a1a1,1,1
++--Terpen-4-ol,2,2,#a1a1a1,1,1
+Thiabendazole,2,2,#a1a1a1,1,1
+Thiamphenicol,2,2,#a1a1a1,1,1
+Thiamphenicol Palmitate,2,2,#ad05e6,1,1
+Thiostrepton,2,2,#ad05e6,1,1
+Tilmicosin,2,2,#ad05e6,1,1
+Thymol,2,2,#a1a1a1,1,1
+Tioconazole,2,2,#ad05e6,1,1
+Tiamulin fumarate,2,2,#a1a1a1,1,1
+Tolfenamic acid,2,2,#ad05e6,1,1
+Tinidazole,2,2,#a1a1a1,1,1
+Triamcinolone acetonide,2,2,#a1a1a1,1,1
+Tomatidine hydrochloride,2,2,#ad05e6,1,1
+Triclabendazole,2,2,#ad05e6,1,1
+Trimethoprim,2,2,#ad05e6,1,1
+Validamycin A,2,2,#ad05e6,1,1
+Tunicamycin,2,2,#ad05e6,1,1
+Virginiamycin Complex,2,2,#ad05e6,1,1
+Cannabidiol,2,2,#ad05e6,1,1
+Mupirocin,2,2,#ad05e6,1,1
+Carbamazepine,2,2,#ad05e6,1,1
+Mycophenolic acid,2,2,#ad05e6,1,1
+Carvacrol,2,2,#a1a1a1,1,1
+Myriocin,2,2,#a1a1a1,1,1
++--Catechin hydrate,2,2,#ad05e6,1,1
+Myristicin,2,2,#ad05e6,1,1
+Cerulenin,2,2,#ad05e6,1,1
+Myxothiazol,2,2,#ad05e6,1,1
+Chetomin,2,2,#ad05e6,1,1
+Narasin,2,2,#ad05e6,1,1
+Chloramphenicol,2,2,#ad05e6,1,1
+Netropsin dihydrochloride,2,2,#ad05e6,1,1
+Chromomycin A3,2,2,#ad05e6,1,1
+Niclosamide,2,2,#ad05e6,1,1
+Chrysophanol,2,2,#ad05e6,1,1
+Nigericin,2,2,#ad05e6,1,1
+1,4-Cineole,2,2,#ad05e6,1,1
+Nosiheptide,2,2,#ad05e6,1,1
+Ursocholanic acid,2,2,#a1a1a1,1,1
+Viridicatin,2,2,#a1a1a1,1,1
+Valinomycin,2,2,#ad05e6,1,1
+Ytterbium -III- ionophore I,2,2,#ad05e6,1,1
+Decanal,2,2,#a1a1a1,1,1
++--Catechin monohydrate,2,2,#ad05e6,1,1
+Chlorothricin,2,2,#ad05e6,1,1
+Cefpodoxime Proxetil,2,2,#ad05e6,1,1
+Aceclofenac,2,2,#a1a1a1,1,1
+Celastrol,2,2,#a1a1a1,1,1
+Actinomycin D,2,2,#ad05e6,1,1
+Eugenol,2,2,#ad05e6,1,1
+Allyl disulfide,2,2,#ad05e6,1,1
+DL-alpha-Lipoic acid,2,2,#ad05e6,1,1
+Amprolium Hydrochloride,2,2,#ad05e6,1,1
+Silibinin,2,2,#ad05e6,1,1
+Andrographolide,2,2,#ad05e6,1,1
+Sanguinarine chloride,2,2,#ad05e6,1,1
+Brefeldin A,2,2,#ad05e6,1,1
+Amoxapine,2,2,#ad05e6,1,1
+trans-Cinnamaldehyde,2,2,#a1a1a1,1,1
+Nystatin,2,2,#a1a1a1,1,1
+Climbazole,2,2,#a1a1a1,1,1
+Oleanolic acid,2,2,#a1a1a1,1,1
+Closantel,2,2,#ad05e6,1,1
+Oleic acid,2,2,#a1a1a1,1,1
+Clotrimazole,2,2,#ad05e6,1,1
+Oligomycin,2,2,#a1a1a1,1,1
+Cryptotanshinone,2,2,#a1a1a1,1,1
+Omeprazole,2,2,#a1a1a1,1,1
+Curcumin,2,2,#a1a1a1,1,1
+Oxiconazole nitrate,2,2,#a1a1a1,1,1
+?-Cyano-4-hydroxycinnamic acid,2,2,#a1a1a1,1,1
+Oxytetracycline,2,2,#a1a1a1,1,1
+Cyclosporin A,2,2,#a1a1a1,1,1
+Patulin,2,2,#ad05e6,1,1
+Dexamethasone,2,2,#a1a1a1,1,1
+Perphenazine,2,2,#ad05e6,1,1
+2,6-Dichloro-4-nitroaniline,2,2,#ad05e6,1,1
+Perhexiline maleate,2,2,#ad05e6,1,1
+Ceftiofur HCl,2,2,#ad05e6,1,1
+Azaperone,2,2,#ad05e6,1,1
+Cepharanthine,2,2,#ad05e6,1,1
+4-Chloro-4###-fluorobutyrophenone,2,2,#ad05e6,1,1
+Clobetasol propionate,2,2,#a1a1a1,1,1
+Dapsone,2,2,#ad05e6,1,1
+Clopidol,2,2,#ad05e6,1,1
+Dopamine,2,2,#ad05e6,1,1
+Cloxacillin,2,2,#a1a1a1,1,1
+FR900098,2,2,#a1a1a1,1,1
+Diclazuril,2,2,#a1a1a1,1,1
+Fluphenazine,2,2,#ad05e6,1,1
+Febantel,2,2,#a1a1a1,1,1
+Fosmidomycin,2,2,#ad05e6,1,1
+Flavomycin,2,2,#ad05e6,1,1
+Piperine,2,2,#ad05e6,1,1
+Fluocinolone Acetonide,2,2,#ad05e6,1,1
+1,2-Naphthoquinone,2,2,#ad05e6,1,1
+Furosemide,2,2,#a1a1a1,1,1
+1,4-Naphthoquinone,2,2,#ad05e6,1,1
+6,7-Dihydroxycoumarin,2,2,#a1a1a1,1,1
+Phenylmethylsulfonylfluoride PMSF,2,2,#ad05e6,1,1
+Dirythromycin,2,2,#ad05e6,1,1
+Pleuromutilin,2,2,#ad05e6,1,1
+Distamycin A HCl,2,2,#a1a1a1,1,1
+Plumbagin,2,2,#a1a1a1,1,1
+Doramectin,2,2,#ad05e6,1,1
+Posaconazole,2,2,#ad05e6,1,1
+Doxycycline hyclate,2,2,#ad05e6,1,1
+Prothionamide,2,2,#ad05e6,1,1
+Droperidol,2,2,#ad05e6,1,1
+Prulifloxacin,2,2,#ad05e6,1,1
+Echinomycin,2,2,#ad05e6,1,1
+Quetiapine hemifumarate,2,2,#a1a1a1,1,1
+Econazole nitrate,2,2,#ad05e6,1,1
+Rabeprazole,2,2,#ad05e6,1,1
+Ellipticine,2,2,#a1a1a1,1,1
+Radicicol,2,2,#ad05e6,1,1
+Erythromycin,2,2,#ad05e6,1,1
+Rapamycin,2,2,#ad05e6,1,1
+Gardiquimod,2,2,#a1a1a1,1,1
+Quercetin,2,2,#a1a1a1,1,1
+Honokiol,2,2,#a1a1a1,1,1
+Thiocarlide,2,2,#a1a1a1,1,1
+Hydrocortisone,2,2,#ad05e6,1,1
+Vitamin K1,2,2,#ad05e6,1,1
+Ibudilast,2,2,#ad05e6,1,1
+Cefditoren Pivoxil -Spectrabef-,2,2,#ad05e6,1,1
+S-+- Ibuprofen,2,2,#ad05e6,1,1
+Cefixime -Suprax-,2,2,#ad05e6,1,1
+Imiquimod -R-837-,2,2,#a1a1a1,1,1
+Cefprozil,2,2,#ad05e6,1,1
+Indomethacin,2,2,#ad05e6,1,1
+Benperidol,2,2,#ad05e6,1,1
+Kanosamine hydrochloride,2,2,#ad05e6,1,1
+Emamectin B benzoate,2,2,#ad05e6,1,1
+Ketoprofen,2,2,#a1a1a1,1,1
+Eprinomectin,2,2,#ad05e6,1,1
+Loperamide hydrochloride,2,2,#a1a1a1,1,1
+Milbemycin oxime,2,2,#ad05e6,1,1
+Erythromycin Stearate,2,2,#ad05e6,1,1
+Reserpine,2,2,#a1a1a1,1,1
+B-Estradiol 17-cypionate,2,2,#ad05e6,1,1
+Resveratrol,2,2,#a1a1a1,1,1
+Ethionamide,2,2,#ad05e6,1,1
+Retapamulin,2,2,#ad05e6,1,1
+Ethosuximide,2,2,#a1a1a1,1,1
+Ricobendazole,2,2,#a1a1a1,1,1
+Evernic acid,2,2,#ad05e6,1,1
+Rifapentine,2,2,#ad05e6,1,1
+Farnesol,2,2,#ad05e6,1,1
+Rifaximine,2,2,#ad05e6,1,1
+Ferulenol,2,2,#ad05e6,1,1
+Rosamicin,2,2,#ad05e6,1,1
+Florfenicol,2,2,#ad05e6,1,1
+Roxithromycin,2,2,#ad05e6,1,1
+Fusaric acid,2,2,#ad05e6,1,1
+Secnidazole,2,2,#a1a1a1,1,1
+Griseofulvin,2,2,#a1a1a1,1,1
+Selamectin,2,2,#a1a1a1,1,1
+Maduramicin ammonium,2,2,#ad05e6,1,1
+Tyrothricin,2,2,#ad05e6,1,1
+Malathion,2,2,#ad05e6,1,1
+Bicyclomycin benzoate,2,2,#ad05e6,1,1
+6-Mercaptopurine Monohydrate,2,2,#a1a1a1,1,1
+3-formyl Rifamycin SV,2,2,#ad05e6,1,1
+Midecamycin,2,2,#ad05e6,1,1
+Rifamdin,2,2,#ad05e6,1,1
++/---Myricanol,2,2,#ad05e6,1,1
+Bithionol sulfoxide,2,2,#ad05e6,1,1
+Myricetin,2,2,#ad05e6,1,1
+Naphthomycin B,2,2,#ad05e6,1,1
+3-Nitropropionic acid,2,2,#ad05e6,1,1
+Nitroxinil,2,2,#a1a1a1,1,1
+Nonactin,2,2,#ad05e6,1,1
+Ramoplanin,2,2,#ad05e6,1,1
+Dithionite sodium,2,2,#ad05e6,1,1
+L-Theanine,2,2,#a1a1a1,1,1
+L--+--Ergothioneine,2,2,#a1a1a1,1,1
+6,7-ADTN hydrobromide,2,2,#a1a1a1,1,1
+Gallium-III- nitrate hydrate,2,2,#a1a1a1,1,1
+Benserazide HCl,2,2,#a1a1a1,1,1
+Levodopa,2,2,#a1a1a1,1,1
+Cefepime HCl,2,2,#ad05e6,1,1
+Norepinephrine bitartrate,2,2,#a1a1a1,1,1
+L-Cycloserine,2,2,#a1a1a1,1,1
+Oxolinic acid,2,2,#a1a1a1,1,1
+Dalfopristin,2,2,#a1a1a1,1,1
+S----Propranolol HCl,2,2,#a1a1a1,1,1
+R----Deprenyl##HCl -Selegiline-,2,2,#a1a1a1,1,1
+Rasagiline,2,2,#a1a1a1,1,1
+1,3-Diaminoacetone dihydrochloride,2,2,#a1a1a1,1,1
+Ropinirole hydrochloride,2,2,#ad05e6,1,1
+2,2###-Dipyridyl  -Bipyridyl-,2,2,#a1a1a1,1,1
+Salbutamol,2,2,#a1a1a1,1,1
+N-Acetyl-L-Cysteine,2,2,#07eb29,1,1
+Diazolidinyl urea,2,2,#a1a1a1,1,1
+N-Acetylmuramic acid,2,2,#a1a1a1,1,1
+N,N###-Dicyclohexylcarbodiimide -DCCD-,2,2,#a1a1a1,1,1
+Acetylsalicylic acid,2,2,#a1a1a1,1,1
+Dihydrostreptomycin sesquisulfate,2,2,#ad05e6,1,1
+Acivicin,2,2,#a1a1a1,1,1
+Diminazene aceturate,2,2,#a1a1a1,1,1
+L-Albizziine,2,2,#a1a1a1,1,1
+Doripenem,2,2,#ad05e6,1,1
+Amikacin hydrate,2,2,#ad05e6,1,1
+Doxorubicin hydrochloride,2,2,#ad05e6,1,1
+Amiloride hydrochloride,2,2,#07eb29,1,1
+Emetine dihydrochloride hydrate,2,2,#a1a1a1,1,1
+1R---+---1-Amino-2-methylpropyl-phosphonic acid,2,2,#a1a1a1,1,1
+?--Epigallocatechin gallate,2,2,#a1a1a1,1,1
+1R---?---1-Aminopropyl-phosphonic acid,2,2,#a1a1a1,1,1
+Esculin hydrate,2,2,#a1a1a1,1,1
+3-Amino-1,2,4-triazole,2,2,#a1a1a1,1,1
+Ethambutol,2,2,#a1a1a1,1,1
+Neomycin sulfate,2,2,#ad05e6,1,1
+Aspartate-beta-hydroxamate,2,2,#a1a1a1,1,1
+Nicotinic acid,2,2,#a1a1a1,1,1
+Atropine sulfate monohydrate,2,2,#a1a1a1,1,1
+Nikkomycin Z,2,2,#a1a1a1,1,1
+Azaserine,2,2,#a1a1a1,1,1
+Nisin,2,2,#ad05e6,1,1
+Bambuterol,2,2,#a1a1a1,1,1
+S-Nitrosoglutathione,2,2,#a1a1a1,1,1
+L-beta-threo-Benzylaspartate,2,2,#a1a1a1,1,1
+Novobiocin sodium salt,2,2,#ad05e6,1,1
+Betamethasone 21-phosphate sodium salt,2,2,#a1a1a1,1,1
+Ofloxacin,2,2,#ad05e6,1,1
+Bleomycins,2,2,#ad05e6,1,1
+Oleandomycin phosphate,2,2,#ad05e6,1,1
+Caffeine,2,2,#ad05e6,1,1
+Orbifloxacin,2,2,#ad05e6,1,1
+Cefadroxil,2,2,#ad05e6,1,1
+Oxacillin sodium monohydrate,2,2,#ad05e6,1,1
+Cefapirin,2,2,#ad05e6,1,1
+Amoxicillin,2,2,#ad05e6,1,1
+Ferrous perchlorate,2,2,#a1a1a1,1,1
+Ampicillin sodium salt,2,2,#ad05e6,1,1
+DL-Fluorocitric barium salt,2,2,#ad05e6,1,1
+Anhydrotetracycline hydrochloride,2,2,#ad05e6,1,1
+Fropenem -Faropenem-,2,2,#ad05e6,1,1
+Antipain dihydrochloride,2,2,#ad05e6,1,1
+Fusidic acid sodium salt,2,2,#ad05e6,1,1
+Apramycin sulfate,2,2,#ad05e6,1,1
+G418 disulfate,2,2,#ad05e6,1,1
+Aspartame,2,2,#a1a1a1,1,1
+Gabapentin,2,2,#a1a1a1,1,1
+Astromycin sulfate,2,2,#ad05e6,1,1
+Ganciclovir,2,2,#a1a1a1,1,1
+Azide, sodium,2,2,#a1a1a1,1,1
+Gemifloxacin mesylate,2,2,#ad05e6,1,1
+Bacitracin,2,2,#ad05e6,1,1
+Geneticin disulfate,2,2,#ad05e6,1,1
+Benzamidine hydrochloride,2,2,#a1a1a1,1,1
+Gentamicin sulfate,2,2,#ad05e6,1,1
+Paromomyin sulfate,2,2,#ad05e6,1,1
+Cefdinir,2,2,#ad05e6,1,1
+Pazufloxacin,2,2,#ad05e6,1,1
+Cephradine,2,2,#ad05e6,1,1
+Pefloxacin mesylate dihydrate,2,2,#ad05e6,1,1
+Chloroquine diphosphate salt,2,2,#a1a1a1,1,1
+Penicillin G sodium salt,2,2,#ad05e6,1,1
+Chlorpheniramine Maleate,2,2,#a1a1a1,1,1
+Phenothrin mixture of isomers,2,2,#a1a1a1,1,1
+Cromolyn sodium,2,2,#a1a1a1,1,1
+Phenylmercuric acetate 97%,2,2,#ad05e6,1,1
+Cyromazine,2,2,#a1a1a1,1,1
+Phleomycin,2,2,#ad05e6,1,1
+Diclofenac, sodium salt,2,2,#a1a1a1,1,1
+Phosphinothricin,2,2,#a1a1a1,1,1
+Dicloxacillin sodium monohydrate,2,2,#ad05e6,1,1
+Phosphomycin disodium,2,2,#a1a1a1,1,1
+Diethylcarbamazine citrate,2,2,#a1a1a1,1,1
+Phosphonoformic acid trisodium,2,2,#a1a1a1,1,1
+Duramycin,2,2,#a1a1a1,1,1
+p-Benzoquinone,2,2,#a1a1a1,1,1
+Hydrogen Peroxide,2,2,#a1a1a1,1,1
+Bialaphos,2,2,#a1a1a1,1,1
+Hydroxyurea,2,2,#a1a1a1,1,1
+Biapenem,2,2,#ad05e6,1,1
+Hygromycin B,2,2,#ad05e6,1,1
+Bisbenzimide trihydrochloride,2,2,#ad05e6,1,1
+Idarubicin HCl,2,2,#ad05e6,1,1
+Blasticidine S hydrochloride,2,2,#a1a1a1,1,1
+Imatinib mesylate,2,2,#a1a1a1,1,1
+Butirosin A,2,2,#ad05e6,1,1
+Imipenem,2,2,#ad05e6,1,1
+Cadmium acetate dihydrate,2,2,#ad05e6,1,1
+Imipramine hydrochloride,2,2,#a1a1a1,1,1
+L-Canavanine,2,2,#a1a1a1,1,1
+Indole,2,2,#a1a1a1,1,1
+Capreomycin sulfate,2,2,#a1a1a1,1,1
+Isatin,2,2,#a1a1a1,1,1
+Carbenicillin disodium,2,2,#ad05e6,1,1
+Isepamicin sulfate,2,2,#ad05e6,1,1
+Piperacillin sodium,2,2,#ad05e6,1,1
+Ertapenem sodium,2,2,#ad05e6,1,1
+Polymyxin B nonapeptide HCl,2,2,#a1a1a1,1,1
+Ethacridine lactate monohydrate,2,2,#a1a1a1,1,1
+Pramoxine hydrochloride,2,2,#a1a1a1,1,1
+5-Fluorocytosine,2,2,#a1a1a1,1,1
+Puromycin dihydrochloride,2,2,#ad05e6,1,1
+Foscarnet,2,2,#a1a1a1,1,1
+Pyrazinamide,2,2,#a1a1a1,1,1
+Hydroxytyrosol acetate,2,2,#a1a1a1,1,1
+Pyrazinoic acid,2,2,#a1a1a1,1,1
+Losartan Potassium,2,2,#a1a1a1,1,1
+Ribavirin,2,2,#a1a1a1,1,1
+Mecillinam,2,2,#ad05e6,1,1
+Ribostamycin sulfate,2,2,#ad05e6,1,1
+Meglumine,2,2,#a1a1a1,1,1
+Rufloxacin HCl,2,2,#a1a1a1,1,1
+N-Methyl-DL-aspartic acid,2,2,#a1a1a1,1,1
+Salicin,2,2,#a1a1a1,1,1
+Methylglyoxal solution,2,2,#a1a1a1,1,1
+Cefaclor,2,2,#ad05e6,1,1
+Isoniazid,2,2,#a1a1a1,1,1
+Cefamandole,2,2,#ad05e6,1,1
+Isonicotinic acid,2,2,#a1a1a1,1,1
+Cefazolin,2,2,#ad05e6,1,1
+Itaconic acid,2,2,#a1a1a1,1,1
+Cefmetazole sodium,2,2,#ad05e6,1,1
+Itaconic anhydride,2,2,#a1a1a1,1,1
+Cefodizime disodium,2,2,#ad05e6,1,1
+Kanamycin sulfate,2,2,#ad05e6,1,1
+Cefoperazone sodium,2,2,#ad05e6,1,1
+Kasugamycin hydrochloride,2,2,#a1a1a1,1,1
+Cefotaxime sodium,2,2,#ad05e6,1,1
+Leupeptin hemisulfate,2,2,#a1a1a1,1,1
+Cefoxitin sodium,2,2,#ad05e6,1,1
+Levofloxacin,2,2,#ad05e6,1,1
+Ceftazidime hydrate,2,2,#ad05e6,1,1
+Lincomycin hydrochloride,2,2,#ad05e6,1,1
+Ceftriaxone disodium salt hemi,2,2,#ad05e6,1,1
+Linezolid,2,2,#ad05e6,1,1
+Shikimic acid,2,2,#a1a1a1,1,1
+Nafcillin sodium monohydrate,2,2,#ad05e6,1,1
+Sinefungin,2,2,#a1a1a1,1,1
+Netilmicin,2,2,#ad05e6,1,1
+Sisomicin sulfate,2,2,#ad05e6,1,1
+Nojirimycin bisulfite,2,2,#a1a1a1,1,1
+Spectinomycin dihydrochloride pentahydrate,2,2,#ad05e6,1,1
+Paeonol,2,2,#a1a1a1,1,1
+Streptomycin sulfate,2,2,#ad05e6,1,1
+Pentamidine isethionate,2,2,#ad05e6,1,1
+Sulbactam sodium salt,2,2,#ad05e6,1,1
+Povidone iodine,2,2,#a1a1a1,1,1
+Sulfacetamide sodium,2,2,#a1a1a1,1,1
+Pregabalin,2,2,#a1a1a1,1,1
+Sulfadiazine,2,2,#a1a1a1,1,1
+Primaquine phosphate,2,2,#a1a1a1,1,1
+Sulfamide,2,2,#a1a1a1,1,1
+Rimantadine Hydrochloride,2,2,#a1a1a1,1,1
+Sulfanilamide,2,2,#a1a1a1,1,1
+Scopolamine hydrobromide,2,2,#a1a1a1,1,1
+Cefuroxime,2,2,#ad05e6,1,1
+Lithium carbonate,2,2,#a1a1a1,1,1
+Cephalexin hydrate,2,2,#ad05e6,1,1
+Lomefloxacin HCl,2,2,#ad05e6,1,1
+Cephalothin sodium,2,2,#ad05e6,1,1
+Malic acid,2,2,#a1a1a1,1,1
+Cetylpyridinium chloride monohydrate,2,2,#ad05e6,1,1
+Malonic acid,2,2,#a1a1a1,1,1
+Daunorubicin HCl,2,2,#ad05e6,1,1
++/---Mandelic acid,2,2,#a1a1a1,1,1
+Chlorprothixene,2,2,#a1a1a1,1,1
+Melperone hydrochloride,2,2,#a1a1a1,1,1
+Chlortetracycline,2,2,#ad05e6,1,1
+Memantine hydrochloride,2,2,#a1a1a1,1,1
+Choline chloride,2,2,#a1a1a1,1,1
+2-Mercaptopyridine N-oxide sodium salt,2,2,#ad05e6,1,1
+Ciclopirox Olamine,2,2,#a1a1a1,1,1
+Meropenem,2,2,#ad05e6,1,1
+Ciprofloxacin HCl,2,2,#ad05e6,1,1
+Methacycline hydrochloride,2,2,#ad05e6,1,1
+Sulfaquinoxaline,2,2,#a1a1a1,1,1
+Streptothricin sulfate,2,2,#ad05e6,1,1
+Tazobactam sodium salt,2,2,#ad05e6,1,1
+Suramin hexasodium salt,2,2,#a1a1a1,1,1
+Terbinafine Hydrochloride,2,2,#a1a1a1,1,1
+Synthalin sulfate,2,2,#a1a1a1,1,1
+Tetracycline hydrochloride,2,2,#ad05e6,1,1
+?--Tetramisole hydrochloride,2,2,#a1a1a1,1,1
+Thimerosal,2,2,#ad05e6,1,1
+Thiourea,2,2,#a1a1a1,1,1
+1-Thioglycerol,2,2,#a1a1a1,1,1
+Tolmetin,2,2,#a1a1a1,1,1
+Thioridazine,2,2,#a1a1a1,1,1
+Cilastatin,2,2,#a1a1a1,1,1
+Ticarcillin disodium,2,2,#ad05e6,1,1
+Fluvastatin sodium salt,2,2,#a1a1a1,1,1
+Tobramycin,2,2,#ad05e6,1,1
+Methyl viologen dichloride hydrate,2,2,#a1a1a1,1,1
+Trifluoperazine hydrochloride,2,2,#a1a1a1,1,1
+L-Methionine sulfoximine,2,2,#a1a1a1,1,1
+Clavulanate potassium,2,2,#a1a1a1,1,1
+Methicillin Sodium,2,2,#ad05e6,1,1
+Colistin sulfate,2,2,#a1a1a1,1,1
+Methiothepin mesylate,2,2,#a1a1a1,1,1
+Cycloheximide,2,2,#a1a1a1,1,1
+NG-Methyl-L-arginine acetate salt,2,2,#07eb29,1,1
+D-Cycloserine,2,2,#a1a1a1,1,1
+Methylbenzethonium chloride,2,2,#ad05e6,1,1
+Chlorpromazine HCl,2,2,#a1a1a1,1,1
+Metronidazole,2,2,#a1a1a1,1,1
+Deferoxamine mesylate,2,2,#a1a1a1,1,1
+Minocycline hydrochloride,2,2,#ad05e6,1,1
+Demeclocycline hydrochloride,2,2,#ad05e6,1,1
+Mitomycin C,2,2,#ad05e6,1,1
+Dequalinium chloride hydrate,2,2,#a1a1a1,1,1
+Moxifloxacin,2,2,#ad05e6,1,1
+Dextromethorphan hydrobromide monohydrate,2,2,#a1a1a1,1,1
+Nalidixic acid,2,2,#a1a1a1,1,1
+Diamide,2,2,#a1a1a1,1,1
+Neamine,2,2,#ad05e6,1,1
+Trifluperidol HCl,2,2,#a1a1a1,1,1
+Mezlocillin,2,2,#a1a1a1,1,1
+Tylosin tartrate,2,2,#ad05e6,1,1
+Sumatriptan succinate,2,2,#a1a1a1,1,1
+Valproic acid sodium salt,2,2,#a1a1a1,1,1
+L-Thiocitrulline,2,2,#a1a1a1,1,1
+Vancomycin,2,2,#ad05e6,1,1
+2-Thiophenecarboxylic acid,2,2,#a1a1a1,1,1
++---Verapamil hydrochloride,2,2,#a1a1a1,1,1
+2-Thiophenecarboxylic acid hydrazide,2,2,#ad05e6,1,1
+Viomycin sulfate,2,2,#ad05e6,1,1
+Tigecycline,2,2,#a1a1a1,1,1
+Zeocin,2,2,#ad05e6,1,1
+Glutathione,2,2,#a1a1a1,1,1
+Amantadine Hydrochloride,2,2,#a1a1a1,1,1
+1--1-Naphthylmethyl-piperazine, 95%,2,2,#a1a1a1,1,1
+4-Aminomethylbenzenesulfonamide HCl,2,2,#a1a1a1,1,1
+Phe-Arg-beta-Naphthylamide dihydrochloride,2,2,#a1a1a1,1,1
+Arbutin,2,2,#a1a1a1,1,1
+Pyridoxine,2,2,#a1a1a1,1,1
+Serotonin,2,2,#a1a1a1,1,1
+Enramycin A,2,2,#ad05e6,1,1
+Sertraline HCl,2,2,#a1a1a1,1,1
+Enramycin B,2,2,#ad05e6,1,1
+Trovafloxacin mesylate,2,2,#ad05e6,1,1
+Micronomicin sulfate,2,2,#ad05e6,1,1
+Tyramine,2,2,#a1a1a1,1,1
+Quinupristin,2,2,#ad05e6,1,1
+Valnemulin HCl,2,2,#ad05e6,1,1
+Synercid -dalfopristin:quinupristin, 70:30 -,2,2,#ad05e6,1,1
+Loracarbef -Lorabid-,2,2,#ad05e6,1,1
+Rifamycin SV monosodium salt,2,2,#ad05e6,1,1
+Pipamperone,2,2,#a1a1a1,1,1
+Salicylic acid sodium salt,2,2,#a1a1a1,1,1
+2-Aminothiazole,2,2,#a1a1a1,1,1
+Pyrazole,2,2,#a1a1a1,1,1
+Furazolidone,2,2,#ad05e6,1,1

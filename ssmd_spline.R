@@ -1,50 +1,50 @@
 new_ssmd_spline <- function(turi2_df_bac_DMSO, turi2_df_library_DMSO){
   
-  turi2_df_bac_DMSO_splines <- select(turi2_df_bac_DMSO, c(6:13))
+  turi2_df_bac_DMSO_splines <- select(turi2_df_bac_DMSO_spread, c(6:13))
   turi2_bac_time_DMSO <- c(0:7)
   turi2_bac_lm_DMSO <- apply(turi2_df_bac_DMSO_splines, 1, function(x) lm(x ~ lspline(turi2_bac_time_DMSO, knots = knots)))
   turi2_df_bac_DMSO_splines_coeff <- as.data.frame(unlist(lapply(turi2_bac_lm_DMSO, function(x) coef(x)[2])))
   
-  turi2_df_bac_DMSO$spline <- turi2_df_bac_DMSO_splines_coeff
-  turi2_df_bac_DMSO_spline_vector <- turi2_df_bac_DMSO$spline
+  turi2_df_bac_DMSO_spread$spline <- turi2_df_bac_DMSO_splines_coeff
+  turi2_df_bac_DMSO_spline_vector <- turi2_df_bac_DMSO_spread$spline
   
-  turi2_df_bac_in_DMSO_avg_rep1 <- turi2_df_bac_DMSO %>%
+  turi2_df_bac_in_DMSO_avg_rep1 <- turi2_df_bac_DMSO_spread %>%
     filter(rep == "rep1") %>%
     .$spline %>%
     mean
   
-  turi2_df_bac_in_DMSO_avg_rep2 <- turi2_df_bac_DMSO %>%
+  turi2_df_bac_in_DMSO_avg_rep2 <- turi2_df_bac_DMSO_spread %>%
     filter(rep == "rep2") %>%
     .$spline %>%
     mean
   
   
   #combine
-  turi2_df_bac_DMSO$spline <- turi2_df_bac_DMSO_splines_coeff
-  turi2_df_bac_DMSO_spline_vector <- turi2_df_bac_DMSO$spline
+  turi2_df_bac_DMSO_spread$spline <- turi2_df_bac_DMSO_splines_coeff
+  turi2_df_bac_DMSO_spline_vector <- turi2_df_bac_DMSO_spread$spline
   
-  turi2_df_bac_in_DMSO_avg_rep3 <- turi2_df_bac_DMSO %>%
+  turi2_df_bac_in_DMSO_avg_rep3 <- turi2_df_bac_DMSO_spread %>%
     filter(rep == "rep3") %>%
     .$spline %>%
     mean
   
-  turi2_df_library_DMSO_splines <- select(turi2_df_library_DMSO, c(6:13))
+  turi2_df_library_DMSO_splines <- select(turi2_df_library_DMSO_spread, c(6:13))
   turi2_library_time_DMSO <- c(0:7)
   turi2_library_lm_DMSO <- apply(turi2_df_library_DMSO_splines, 1, function(x) lm(x ~ lspline(turi2_library_time_DMSO, knots = knots)))
   turi2_df_library_DMSO_splines_coeff <- as.data.frame(unlist(lapply(turi2_library_lm_DMSO, function(x) coef(x)[2])))
   
-  turi2_df_library_DMSO$spline <- turi2_df_library_DMSO_splines_coeff
-  turi2_df_library_DMSO_spline_vector <- turi2_df_library_DMSO$spline  
+  turi2_df_library_DMSO_spread$spline <- turi2_df_library_DMSO_splines_coeff
+  turi2_df_library_DMSO_spline_vector <- turi2_df_library_DMSO_spread$spline  
  
-   turi2_df_lib_in_DMSO_avg_rep1 <- turi2_df_library_DMSO %>%
+   turi2_df_lib_in_DMSO_avg_rep1 <- turi2_df_library_DMSO_spread %>%
     filter(rep == "rep1")
   turi2_df_lib_in_DMSO_avg_rep1$d_1 <- turi2_df_lib_in_DMSO_avg_rep1$spline -  turi2_df_bac_in_DMSO_avg_rep1
   
-  turi2_df_lib_in_DMSO_avg_rep2 <- turi2_df_library_DMSO %>%
+  turi2_df_lib_in_DMSO_avg_rep2 <- turi2_df_library_DMSO_spread %>%
     filter(rep == "rep2")
   turi2_df_lib_in_DMSO_avg_rep2$d_1 <- turi2_df_lib_in_DMSO_avg_rep2$spline -  turi2_df_bac_in_DMSO_avg_rep2
   
-  turi2_df_lib_in_DMSO_avg_rep3 <- turi2_df_library_DMSO %>%
+  turi2_df_lib_in_DMSO_avg_rep3 <- turi2_df_library_DMSO_spread %>%
     filter(rep == "rep3")
   turi2_df_lib_in_DMSO_avg_rep3$d_1 <- turi2_df_lib_in_DMSO_avg_rep3$spline -  turi2_df_bac_in_DMSO_avg_rep3
   
@@ -143,4 +143,37 @@ test_turi2_ssmd_cat$category <- ifelse(test_turi2_ssmd_cat$diff_cat == "noef" & 
                                                                                          ifelse(test_turi2_ssmd_cat$diff_cat == "noef" & test_turi2_ssmd_cat$spline_cat == "inhib", 6, 
                                                                                                 ifelse(test_turi2_ssmd_cat$diff_cat == "inhib" & test_turi2_ssmd_cat$spline_cat == "enh", 7,
                                                                                                        ifelse(test_turi2_ssmd_cat$diff_cat == "inhib" & test_turi2_ssmd_cat$spline_cat == "noef",9, 0)))))))))
-                                                                                                       
+table(test_turi2_ssmd_cat$category)
+#quick histogram visualization/comparision
+histo_turi2_DMSO_ssmd_cat <- left_join(turi2_DMSO_ssmd_diff_cat, turi2_DMSO_ssmd_spline, by = "solv")
+histo_turi2_MeOH_ssmd_cat <- left_join(turi2_MeOH_ssmd_diff_cat, turi2_MeOH_ssmd_spline, by = "solv")
+histo_turi2_H2O_ssmd_cat <- left_join(turi2_H2O_ssmd_diff_cat, turi2_H2O_ssmd_spline, by = "solv")
+colnames(histo_turi2_DMSO_ssmd_cat) <- c("well.x", "mm.x", "diff_cat", "solv", "well.y", "mm.y", "spline_cat")
+colnames(histo_turi2_MeOH_ssmd_cat) <- c("well.x", "mm.x", "diff_cat", "solv", "well.y", "mm.y", "spline_cat")
+colnames(histo_turi2_H2O_ssmd_cat) <- c("well.x", "mm.x", "diff_cat", "solv", "well.y", "mm.y", "spline_cat")
+
+
+###Category function because why not
+
+category_func <- function(df){
+  df$category <- ifelse(df$diff_cat == "noef" & df$spline_cat == "noef", 5, 
+                                         ifelse(df$diff_cat == "inhib" & df$spline_cat == "inhib", 9, 
+                                                ifelse(df$diff_cat == "enh" & df$spline_cat == "enh", 1, 
+                                                       ifelse(df$diff_cat == "enh" & df$spline_cat == "noef", 2, 
+                                                              ifelse(df$diff_cat == "enh" & df$spline_cat == "inhib", 3, 
+                                                                     ifelse(df$diff_cat == "noef" & df$spline_cat == "enh", 4,
+                                                                            ifelse(df$diff_cat == "noef" & df$spline_cat == "inhib", 6, 
+                                                                                   ifelse(df$diff_cat == "inhib" & df$spline_cat == "enh", 7,
+                                                                                          ifelse(df$diff_cat == "inhib" & df$spline_cat == "noef", 8, 0)))))))))
+hist(df$category)
+return(df)
+  }
+
+histograph_turi2_DMSO_ssmd_cat <- category_func(histo_turi2_DMSO_ssmd_cat)
+histograph_turi2_MeOH_ssmd_cat <- category_func(histo_turi2_MeOH_ssmd_cat)
+histograph_turi2_H2O_ssmd_cat <- category_func(histo_turi2_H2O_ssmd_cat)
+
+histograph_turi2_all_ssmd_cat <- rbind(histograph_turi2_DMSO_ssmd_cat, histograph_turi2_MeOH_ssmd_cat, histograph_turi2_H2O_ssmd_cat)
+setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics")
+
+write.csv(histograph_turi2_all_ssmd_cat, "histograph_turi2_all_ssmd_cat.csv")

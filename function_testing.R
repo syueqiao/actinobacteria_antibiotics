@@ -20,7 +20,7 @@ setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/strains_data")
 
 #import platemap
 #see supporting files for this document
-platemap <- read.csv("../plate_maps.csv", header = TRUE)
+platemap_aa <- read.csv("../plate_maps.csv", header = TRUE)
 
 #make platemaps for all 3 solvents ###WIP###
 solvs <- c("DMSO", "H2O", "MeOH")
@@ -416,6 +416,10 @@ all_curves_solvent_new(turi2_df_bac_DMSO)
 
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_DMSO <- filter(turi2_df_DMSO, well %in% DMSO_positive_control_list)
+turi2_df_pos_DMSO <- remove_first_time(turi2_df_pos_DMSO)
+turi2_df_pos_DMSO <- remove_first_time(turi2_df_pos_DMSO)
+turi2_df_pos_DMSO_spread <- spread(turi2_df_pos_DMSO, key = time, value = OD)
+all_curves_solvent_new(turi2_df_pos_DMSO_spread)
 
 #make similar dataframe but for MeOH
 turi2_df_library_MeOH <- filter(turi2_df_MeOH, well %notin% MeOH_filter_out)
@@ -436,6 +440,11 @@ turi2_df_bac_MeOH <- filter(turi2_df_bac_MeOH_spread, turi2_df_bac_MeOH_spread$"
 all_curves_solvent_new(turi2_df_bac_MeOH_spread)
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_MeOH <- filter(turi2_df_MeOH, well %in% MeOH_positive_control_list)
+turi2_df_pos_MeOH <- remove_first_time(turi2_df_pos_MeOH)
+turi2_df_pos_MeOH <- remove_first_time(turi2_df_pos_MeOH)
+turi2_df_pos_MeOH_spread <- spread(turi2_df_pos_MeOH, key = time, value = OD)
+turi2_df_pos_MeOH_spread <- filter(turi2_df_pos_MeOH_spread, turi2_df_pos_MeOH_spread$"8" < 0.15)
+all_curves_solvent_new(turi2_df_pos_MeOH_spread)
 
 #make for H2O
 turi2_df_library_H2O <- filter(turi2_df_H2O, well %notin% H2O_filter_out)
@@ -457,6 +466,11 @@ all_curves_solvent_new(turi2_df_bac_H2O)
 
 #make dataframe with only the antibiot ic wells
 turi2_df_pos_H2O <- filter(turi2_df_H2O, well %in% H2O_positive_control_list)
+turi2_df_pos_H2O <- remove_first_time(turi2_df_pos_H2O)
+turi2_df_pos_H2O <- remove_first_time(turi2_df_pos_H2O)
+turi2_df_pos_H2O_spread <- spread(turi2_df_pos_H2O, key = time, value = OD)
+turi2_df_pos_H2O_spread <- filter(turi2_df_pos_H2O_spread, turi2_df_pos_H2O_spread$"8" < 0.135)
+all_curves_solvent_new(turi2_df_pos_H2O_spread)
 
 turi2_DMSO <- analysis_test_DMSO_2_inp(turi2_df_bac_DMSO, turi2_df_library_DMSO)
 turi2_MeOH <- analysis_test_DMSO_2_inp(turi2_df_bac_MeOH, turi2_df_library_MeOH)

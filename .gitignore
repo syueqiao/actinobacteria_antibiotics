@@ -2,3 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+archive/*
+mabs_test/*
+datapoints_test/*
+media_test/*
+outputs_and_images/*
+category_outputs/*
+spiral_test/*
