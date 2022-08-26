@@ -1,20 +1,14 @@
 # actinobacteria_antibiotics
+
+:3
+
 Storage of R scripts and bash scripts used to prepare and analyze high-throughput screening data
 testing R studio
 
-**Errors and Issues**
+Contains:
 
-1. Warnings when running the function regarding the exact "p" values
-  - Don't worry about that, since the test that is used is a Wilcoxon rank test, if there are ties between rank values, it is impossible to calculate the exact p value
-
-2. Errors in the line where dataframes regarding spline or OD differences are are being "spread"
-  - This shouldn't happen if you are using the newest version of the code. Don't be mad but the column selections were previously hardcoded, which meant that you needed to change it according to the input dataset. This was fixed.
-
-3. Errors in blocks of code were certain dataframes are "spread"
-  - This also shouldn't happen, but if it does it is because certain blocks of code have been run in the wrong order. Use the function!!! Don't run the code!!!
-
-4. Missing a dataframe with the name "ttests"... at the end when trying to generate the ggplot graph
-  - Older versions of the code might have this section in the wrong order (e.g., generating the dataframe after trying to plot it)
-
-5. Propogating errors that just make the entire thing not work
-  - Probably an issue with filtering out the first time point. For older datasets, there are only 8 time points, while for newer datasets there are anywhere between 9-10. If you filter out the first time point for things with only 8 time points, it will break the entire function
+-> 1 script for the analysis of T. otitidis data "turi_script_combined.R" that when run will put growth into categories, and output a file that can be copy and pasted into and iTOL template
+-> intermediate files and manually generated files needed to run the script (refer to turi script for what each output/input is used for)
+-> script using regex to fix the names
+-> script to rename datafiles for import
+-> script used to visualize growth data in ggplot

@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 archive/*
-mabs_test/*
+mabs_test/TochevaData/*
 datapoints_test/*
 media_test/*
 outputs_and_images/*
