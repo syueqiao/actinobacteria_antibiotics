@@ -5,7 +5,7 @@
 archive/*
 mabs_test/TochevaData/*
 datapoints_test/*
-media_test/*
+media_test/TochevaData/*
 outputs_and_images/*
 category_outputs/*
 spiral_test/*
