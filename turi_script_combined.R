@@ -97,7 +97,12 @@ all_curves_solvent_new <- function(df){
            theme(legend.position="none"))
 }
 
-
+remove_first_time <- function(input){
+  input_1 <- filter(input, time != "1")
+  input_1$time <- as.numeric(input_1$time)
+  input_1$time <- input_1$time-1 
+  return(input_1)
+}
 #filter data for turicella only
 
 #make inputs for turi2#####
@@ -195,9 +200,11 @@ ssmd_QC_diff <- function(df_bac, df_pos, df_rep){
 
 #spline 
 ssmd_QC_spline <- function(df_bac, df_pos, df_rep_spline){
+  
   strain_df_bac_DMSO_rep_spline <- filter(df_bac, rep == df_rep_spline)
   
-  #a bit more complicated, calculte the spline on the spot
+  #a bit more complicated, calculate the spline on the spot
+  knots <- c(3)
   strain_df_bac_DMSO_rep_spline_values <- select(strain_df_bac_DMSO_rep_spline, c(7:14))
   time <- c(0:7)
   strain_df_bac_DMSO_rep_spline_vec <- apply(strain_df_bac_DMSO_rep_spline_values, 1, function(x) lm(x ~ lspline(time, knots = knots)))
@@ -615,7 +622,8 @@ turi2_all_ttest_both_category <- category_func_ttest(turi2_all_ttest_both)
 #to do this, need to do outside of R
 #basically, take all the chemical names from the sweet library, then run it through the REGEX script that removes all the weird formatting
 #run all the chemical names through pubchem identifier exchange service, changing from chemical names (synonyms) to SMILEs
-#move output to word file, add column headings, then import as tsvs
+
+#move output to txt file, add column headings, then import as tsvs
 sweet_smiles <- read_tsv("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics/chemicals_dupes.txt")
 
 #remove duplicates because pubchem search returns duplicates (to be consistent, this function always keeps the first one)
@@ -761,8 +769,8 @@ turi2_ssmd_annotation_out <- turi2_ssmd_annotation_out[, c(1, 2, 3, 6, 4, 5)]
 #write these files out, just need to copy and paste them into a text file for iTOl annotation. the templates can be found on the itol website
 setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics")
 
-write.table(turi2_ttest_annotation_out, "turi2_ttest_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
-write.table(turi2_ssmd_annotation_out, "turi2_ssmd_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
+write.table(turi2_ttest_annotation_out, "final_results/turi2_ttest_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
+write.table(turi2_ssmd_annotation_out, "final_results/turi2_ssmd_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
 
 #extras supplemental stuff
 #which are categorized differently between the two?
@@ -771,3 +779,4 @@ turi2_diffs <- select(turi2_diffs, UID, ttest_category, ssmd_category)
 turi2_diffs <- left_join(turi2_diffs, platemap_id_key_output, by ="UID")
 turi2_diffs <- subset(turi2_diffs, (ttest_category != ssmd_category))
 #89 compounds
+write.csv(turi2_diffs, "final_results/turi2_diffs.csv")
