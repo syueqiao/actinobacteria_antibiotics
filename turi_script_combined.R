@@ -772,7 +772,7 @@ setwd("C:/Users/Jessica Shen/Desktop/actinobacteria_antibiotics")
 write.table(turi2_ttest_annotation_out, "final_results/turi2_ttest_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
 write.table(turi2_ssmd_annotation_out, "final_results/turi2_ssmd_annotation_out.csv", sep = ",", col.names = F, quote = F, row.names = F)
 
-#extras supplemental stuff
+#extra tabulation and results scripts
 #which are categorized differently between the two?
 turi2_diffs <- left_join(turi2_ssmd, turi2_ttest, by = "UID")
 turi2_diffs <- select(turi2_diffs, UID, ttest_category, ssmd_category)
@@ -780,3 +780,39 @@ turi2_diffs <- left_join(turi2_diffs, platemap_id_key_output, by ="UID")
 turi2_diffs <- subset(turi2_diffs, (ttest_category != ssmd_category))
 #89 compounds
 write.csv(turi2_diffs, "final_results/turi2_diffs.csv")
+
+#tabulate for each solvent, define function
+#for the ttest
+hist_table_ttest <- function(df_result, solv){
+  #basically just extract the histogram of the category column, and also output the tabulation
+  df_result %>%
+  filter(solvent == solv) %>%
+  pull(ttest_category) %>%
+  hist(.)
+
+  df_result %>%
+  filter(solvent == solv) %>%
+  select(ttest_category)%>%
+  table()
+}
+
+hist_table_ttest(turi2_all_ttest_both_category, "DMSO")
+hist_table_ttest(turi2_all_ttest_both_category, "MeOH")
+hist_table_ttest(turi2_all_ttest_both_category, "H2O")
+
+hist_table_ssmd <- function(df_result, solv){
+  #basically just extract the histogram of the category column, and also output the tabulation
+  df_result %>%
+    filter(solvent == solv) %>%
+    pull(ssmd_category) %>%
+    hist(.)
+  
+  df_result %>%
+    filter(solvent == solv) %>%
+    select(ssmd_category)%>%
+    table()
+}
+
+hist_table_ssmd(turi2_all_ssmd_both_category, "DMSO")
+hist_table_ssmd(turi2_all_ssmd_both_category, "MeOH")
+hist_table_ssmd(turi2_all_ssmd_both_category, "H2O")
