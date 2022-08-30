@@ -1,2 +1,0 @@
-see the full artho bac folder on desktop for original names. 
-The structure and names here are edited to make things easier to deal with in R

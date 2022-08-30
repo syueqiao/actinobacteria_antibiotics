@@ -677,7 +677,7 @@ Benperidol
 Astromycin sulfate        
 Hydrogen Peroxide
 Hygromycin B                                                       
-failed on 579,Sulfacetamide sodium
-failed on 675,Valnemulin HCl
-failed on 676,Synercid (dalfopristin:quinupristin, 70:30 ) 5 mM dalfo
-failed on 677,Loracarbef (Lorabid)
+Sulfacetamide sodium
+Valnemulin HCl
+Synercid (dalfopristin:quinupristin, 70:30 )
+Loracarbef (Lorabid)
